@@ -11,10 +11,14 @@ mise install
 uv sync
 ```
 
-## How to open
+## How to edit
 
 Open `marimo` notebook like this:
 
 ```bash
 marimo edit --watch ./src/my-llm/ch06.py
 ```
+
+## How to see
+
+See the rendered HTML in GitHub pages like [this link](https://applejxd.github.io/my-llm/ch06.html).
