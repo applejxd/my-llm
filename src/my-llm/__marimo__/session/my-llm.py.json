@@ -1,0 +1,28 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.18.4"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "f1cbae834e9ca9c241862de2cd38d3fc",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "No package metadata was found for matplotlib",
+          "traceback": []
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/home/applejxd/.local/share/mise/installs/python/3.12.11/lib/python3.12/importlib/metadata/__init__.py&quot;</span>, line <span class=\"m\">397</span>, in <span class=\"n\">from_name</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"nb\">next</span><span class=\"p\">(</span><span class=\"bp\">cls</span><span class=\"o\">.</span><span class=\"n\">discover</span><span class=\"p\">(</span><span class=\"n\">name</span><span class=\"o\">=</span><span class=\"n\">name</span><span class=\"p\">))</span>\n<span class=\"w\">           </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n<span class=\"gr\">StopIteration</span>\n\n<span class=\"gt\">During handling of the above exception, another exception occurred:</span>\n\n<span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/home/applejxd/src/my-llm/.venv/lib/python3.12/site-packages/marimo/_runtime/executor.py&quot;</span>, line <span class=\"m\">138</span>, in <span class=\"n\">execute_cell</span>\n<span class=\"w\">    </span><span class=\"n\">exec</span><span class=\"p\">(</span><span class=\"n\">cell</span><span class=\"o\">.</span><span class=\"n\">body</span><span class=\"p\">,</span> <span class=\"n\">glbls</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_92238/__marimo__cell_Hbol_.py&quot;</span>, line <span class=\"m\">10</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"nb\">print</span><span class=\"p\">(</span><span class=\"sa\">f</span><span class=\"s2\">&quot;</span><span class=\"si\">{</span><span class=\"n\">p</span><span class=\"si\">}</span><span class=\"s2\"> version: </span><span class=\"si\">{</span><span class=\"n\">version</span><span class=\"p\">(</span><span class=\"n\">p</span><span class=\"p\">)</span><span class=\"si\">}</span><span class=\"s2\">&quot;</span><span class=\"p\">)</span>\n<span class=\"w\">                          </span><span class=\"pm\">^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;/home/applejxd/.local/share/mise/installs/python/3.12.11/lib/python3.12/importlib/metadata/__init__.py&quot;</span>, line <span class=\"m\">889</span>, in <span class=\"n\">version</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">distribution</span><span class=\"p\">(</span><span class=\"n\">distribution_name</span><span class=\"p\">)</span><span class=\"o\">.</span><span class=\"n\">version</span>\n<span class=\"w\">           </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;/home/applejxd/.local/share/mise/installs/python/3.12.11/lib/python3.12/importlib/metadata/__init__.py&quot;</span>, line <span class=\"m\">862</span>, in <span class=\"n\">distribution</span>\n<span class=\"w\">    </span><span class=\"k\">return</span> <span class=\"n\">Distribution</span><span class=\"o\">.</span><span class=\"n\">from_name</span><span class=\"p\">(</span><span class=\"n\">distribution_name</span><span class=\"p\">)</span>\n<span class=\"w\">           </span><span class=\"pm\">^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^</span>\n  File <span class=\"nb\">&quot;/home/applejxd/.local/share/mise/installs/python/3.12.11/lib/python3.12/importlib/metadata/__init__.py&quot;</span>, line <span class=\"m\">399</span>, in <span class=\"n\">from_name</span>\n<span class=\"w\">    </span><span class=\"k\">raise</span> <span class=\"n\">PackageNotFoundError</span><span class=\"p\">(</span><span class=\"n\">name</span><span class=\"p\">)</span>\n<span class=\"gr\">importlib.metadata.PackageNotFoundError</span>: <span class=\"n\">No package metadata was found for matplotlib</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    }
+  ]
+}

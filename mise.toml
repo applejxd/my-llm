@@ -1,0 +1,10 @@
+[tools]
+python = "3.12"
+uv = "latest"
+
+[env]
+_.python.venv = ".venv"
+
+_.path = ["/usr/local/cuda-12.8/bin"]
+# follows tera template
+LD_LIBRARY_PATH = '/usr/local/cuda-12.8/lib64:{{ env.LD_LIBRARY_PATH | default(value="") }}'
