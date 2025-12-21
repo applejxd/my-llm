@@ -21,4 +21,10 @@ marimo edit --watch ./src/my-llm/ch06.py
 
 ## How to see
 
-See the rendered HTML in GitHub pages like [this link](https://applejxd.github.io/my-llm/ch06.html).
+See the rendered HTML in GitHub pages as follows:
+
+- [Chapter 3](https://applejxd.github.io/my-llm/ch03.html)
+- [Chapter 4](https://applejxd.github.io/my-llm/ch04.html)
+- [Chapter 5](https://applejxd.github.io/my-llm/ch05.html)
+- [Chapter 6](https://applejxd.github.io/my-llm/ch06.html)
+- [gpt_download.py](https://applejxd.github.io/my-llm/gpt_download.html)
