@@ -2,18 +2,22 @@
 # Source for "Build a Large Language Model From Scratch"
 #   - https://www.manning.com/books/build-a-large-language-model-from-scratch
 # Code: https://github.com/rasbt/LLMs-from-scratch
+import marimo
+
+__generated_with = "0.18.4"
+app = marimo.App()
+
+with app.setup:
+    import json
+    import os
+    import urllib.request
+
+    import numpy as np
+    import tensorflow as tf
+    from tqdm import tqdm
 
 
-import os
-import urllib.request
-
-# import requests
-import json
-import numpy as np
-import tensorflow as tf
-from tqdm import tqdm
-
-
+@app.function
 def download_and_load_gpt2(model_size, models_dir):
     # Validate model size
     allowed_sizes = ("124M", "355M", "774M", "1558M")
@@ -46,6 +50,7 @@ def download_and_load_gpt2(model_size, models_dir):
     return settings, params
 
 
+@app.function
 def download_file(url, destination, backup_url=None):
     def _attempt_download(download_url):
         with urllib.request.urlopen(download_url) as response:
@@ -128,6 +133,7 @@ def download_file(url, destination):
 """
 
 
+@app.function
 def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
     # Initialize parameters dictionary with empty blocks for each layer
     params = {"blocks": [{} for _ in range(settings["n_layer"])]}
@@ -155,3 +161,7 @@ def load_gpt2_params_from_tf_ckpt(ckpt_path, settings):
         target_dict[last_key] = variable_array
 
     return params
+
+
+if __name__ == "__main__":
+    app.run()
