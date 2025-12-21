@@ -6,6 +6,7 @@ app = marimo.App(width="medium")
 with app.setup:
     from importlib.metadata import version
 
+    import marimo as mo
     import torch
     import torch.nn as nn
 
@@ -75,7 +76,7 @@ def _(inputs):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Define this class in a cell without other expressions to be imported by other notebooks.
     Use `@app.class_definition` decorator for this class to export (see this Python file itself).

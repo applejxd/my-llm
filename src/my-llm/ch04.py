@@ -6,6 +6,7 @@ app = marimo.App(width="medium")
 with app.setup:
     from importlib.metadata import version
 
+    import marimo as mo
     import matplotlib.pyplot as plt
     import tiktoken
     import torch
@@ -22,7 +23,7 @@ def _():
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     This "Dummy" means untrained model just to check forward path algorithms.
     """)
@@ -96,7 +97,7 @@ def _():
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Use GPT2 embedding and create a batch contains two phrases
     """)
@@ -120,7 +121,7 @@ def _():
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Randomly initialize the GPT model and inference logits with untrained weights
     """)
@@ -139,7 +140,7 @@ def _(GPT_CONFIG_124M, batch):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     check the behavior of layer normalization with this sample layer
     """)
@@ -160,7 +161,7 @@ def _():
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     statistics before normalization
     """)
@@ -178,7 +179,7 @@ def _(out):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     statistics after normalization
     """)
@@ -198,7 +199,7 @@ def _(mean, out, var):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Disable PyTorch scientific notation for readability
     """)
@@ -242,7 +243,7 @@ def _(batch_example):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     $\text{GELU}(x) \approx 0.5 \cdot x \cdot \left(1 + \tanh\left[\sqrt{\frac{2}{\pi}} \cdot \left(x + 0.044715 \cdot x^3\right)\right]\right)
     $
@@ -437,10 +438,10 @@ class GPTModel(nn.Module):
         self.tok_emb = nn.Embedding(cfg["vocab_size"], cfg["emb_dim"])
         self.pos_emb = nn.Embedding(cfg["context_length"], cfg["emb_dim"])
         self.drop_emb = nn.Dropout(cfg["drop_rate"])
-        
+
         self.trf_blocks = nn.Sequential(
             *[TransformerBlock(cfg) for _ in range(cfg["n_layers"])])
-        
+
         self.final_norm = LayerNorm(cfg["emb_dim"])
         self.out_head = nn.Linear(
             cfg["emb_dim"], cfg["vocab_size"], bias=False
@@ -507,16 +508,16 @@ def _(total_params):
 def generate_text_simple(model, idx, max_new_tokens, context_size):
     # idx is (batch, n_tokens) array of indices in the current context
     for _ in range(max_new_tokens):
-        
+
         # Crop current context if it exceeds the supported context size
         # E.g., if LLM supports only 5 tokens, and the context size is 10
         # then only the last 5 tokens are used as context
         idx_cond = idx[:, -context_size:]
-        
+
         # Get the predictions
         with torch.no_grad():
             logits = model(idx_cond)
-        
+
         # Focus only on the last time step
         # (batch, n_tokens, vocab_size) becomes (batch, vocab_size)
         logits = logits[:, -1, :]  

@@ -5,51 +5,161 @@
   },
   "cells": [
     {
+      "id": "PKri",
+      "code_hash": "0170443c3aaa4f51bb15d71bdad37e77",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Define this class in a cell without other expressions to be imported by other notebooks.\nUse <code>@app.class_definition</code> decorator for this class to export (see this Python file itself).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "setup",
-      "code_hash": "cfe54813855eede204d479e606674c50",
-      "outputs": [],
+      "code_hash": "f80cd351b905c364088fa51d0559db39",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "Hbol",
       "code_hash": "ac76a1258bd3ba7aa8436da2d786332e",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "torch version: 2.9.1+cu128\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "MJUe",
       "code_hash": "51ffbf6a6512ef0dea4c6094ef3bd836",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "vblA",
       "code_hash": "d287737fd5b0281e7d4ba526063d9f1a",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
       "id": "bkHC",
       "code_hash": "6e87ef36c1b7ec3799c525e0a41a6ae4",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "tensor([[0.2996, 0.8053],\n        [0.3061, 0.8210],\n        [0.3058, 0.8203],\n        [0.2948, 0.7939],\n        [0.2927, 0.7891],\n        [0.2990, 0.8040]], grad_fn=<MmBackward0>)\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "lEQa",
       "code_hash": "5522df6e8ba9f95859f57e6229b13e6f",
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "PKri",
-      "code_hash": "027fa7b6295fb0c5a0d21b4adf399799",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "torch.Size([2, 6, 3])\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "Xref",
+      "code_hash": "027fa7b6295fb0c5a0d21b4adf399799",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
       "code_hash": "2547ff1060a2f35548ccb196faa2f385",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "tensor([[[0.3190, 0.4858],\n         [0.2943, 0.3897],\n         [0.2856, 0.3593],\n         [0.2693, 0.3873],\n         [0.2639, 0.3928],\n         [0.2575, 0.4028]],\n\n        [[0.3190, 0.4858],\n         [0.2943, 0.3897],\n         [0.2856, 0.3593],\n         [0.2693, 0.3873],\n         [0.2639, 0.3928],\n         [0.2575, 0.4028]]], grad_fn=<ViewBackward0>)\ncontext_vecs.shape: torch.Size([2, 6, 2])\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "BYtC",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     }
   ]

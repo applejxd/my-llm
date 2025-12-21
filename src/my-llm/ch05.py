@@ -4,8 +4,9 @@ __generated_with = "0.18.4"
 app = marimo.App()
 
 with app.setup:
-    import torch
+    import marimo as mo
     import numpy as np
+    import torch
 
 
 @app.function
