@@ -6,12 +6,27 @@ app = marimo.App(width="medium")
 with app.setup:
     from importlib.metadata import version
 
-    import marimo as mo
     import matplotlib.pyplot as plt
     import tiktoken
     import torch
     import torch.nn as nn
     from ch03 import MultiHeadAttention
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    # Chapter 4: Implementing a GPT model from Scratch To Generate Text
+    """)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    ## 4.1 Coding an LLM architecture
+    """)
+    return
 
 
 @app.cell
@@ -23,7 +38,7 @@ def _():
 
 
 @app.cell
-def _():
+def _(mo):
     mo.md(r"""
     This "Dummy" means untrained model just to check forward path algorithms.
     """)
@@ -97,7 +112,7 @@ def _():
 
 
 @app.cell
-def _():
+def _(mo):
     mo.md(r"""
     Use GPT2 embedding and create a batch contains two phrases
     """)
@@ -121,7 +136,7 @@ def _():
 
 
 @app.cell
-def _():
+def _(mo):
     mo.md(r"""
     Randomly initialize the GPT model and inference logits with untrained weights
     """)
@@ -140,7 +155,15 @@ def _(GPT_CONFIG_124M, batch):
 
 
 @app.cell
-def _():
+def _(mo):
+    mo.md(r"""
+    ## 4.2 Normalizing activations with layer normalization
+    """)
+    return
+
+
+@app.cell
+def _(mo):
     mo.md(r"""
     check the behavior of layer normalization with this sample layer
     """)
@@ -161,7 +184,7 @@ def _():
 
 
 @app.cell
-def _():
+def _(mo):
     mo.md(r"""
     statistics before normalization
     """)
@@ -179,7 +202,7 @@ def _(out):
 
 
 @app.cell
-def _():
+def _(mo):
     mo.md(r"""
     statistics after normalization
     """)
@@ -199,7 +222,7 @@ def _(mean, out, var):
 
 
 @app.cell
-def _():
+def _(mo):
     mo.md(r"""
     Disable PyTorch scientific notation for readability
     """)
@@ -243,7 +266,15 @@ def _(batch_example):
 
 
 @app.cell
-def _():
+def _(mo):
+    mo.md(r"""
+    ## 4.3 Implementing a feed forward network with GELU activations
+    """)
+    return
+
+
+@app.cell
+def _(mo):
     mo.md(r"""
     $\text{GELU}(x) \approx 0.5 \cdot x \cdot \left(1 + \tanh\left[\sqrt{\frac{2}{\pi}} \cdot \left(x + 0.044715 \cdot x^3\right)\right]\right)
     $
@@ -312,6 +343,14 @@ def _(GPT_CONFIG_124M):
     # input shape: [batch_size, num_token, emb_size]
     _x = torch.rand(2, 3, 768) 
     print(ffn(_x).shape)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    ## 4.4 Adding shortcut connections
+    """)
     return
 
 
@@ -384,6 +423,14 @@ def _(layer_sizes, sample_input):
     return
 
 
+@app.cell
+def _(mo):
+    mo.md(r"""
+    ## 4.5 Connecting attention and linear layers in a transformer block
+    """)
+    return
+
+
 @app.class_definition
 class TransformerBlock(nn.Module):
     def __init__(self, cfg):
@@ -428,6 +475,14 @@ def _(GPT_CONFIG_124M):
 
     print("Input shape:", _x.shape)
     print("Output shape:", _output.shape)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    ## 4.6 Coding the GPT model
+    """)
     return
 
 
@@ -501,6 +556,14 @@ def _(total_params):
     total_size_mb = total_size_bytes / (1024 * 1024)
 
     print(f"Total size of the model: {total_size_mb:.2f} MB")
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    ## 4.7 Generating text
+    """)
     return
 
 

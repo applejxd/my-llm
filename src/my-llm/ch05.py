@@ -9,6 +9,51 @@ with app.setup:
     import torch
 
 
+@app.cell
+def _():
+    mo.md(r"""
+    # Chapter 5: Pretraining on Unlabeled Data
+    """)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    ## 5.1 Evaluating generative text models
+    """)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    ### 5.1.1 Using GPT to generate text
+    """)
+    return
+
+
+@app.function
+def text_to_token_ids(text, tokenizer):
+    encoded = tokenizer.encode(text, allowed_special={"<|endoftext|>"})
+    encoded_tensor = torch.tensor(encoded).unsqueeze(0)  # add batch dimension
+    return encoded_tensor
+
+
+@app.function
+def token_ids_to_text(token_ids, tokenizer):
+    flat = token_ids.squeeze(0)  # remove batch dimension
+    return tokenizer.decode(flat.tolist())
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    ## 5.5 Loading pretrained weights from OpenAI
+    """)
+    return
+
+
 @app.function
 def assign(left, right):
     if left.shape != right.shape:
@@ -76,19 +121,6 @@ def load_weights_into_gpt(gpt, params):
     gpt.final_norm.scale = assign(gpt.final_norm.scale, params["g"])
     gpt.final_norm.shift = assign(gpt.final_norm.shift, params["b"])
     gpt.out_head.weight = assign(gpt.out_head.weight, params["wte"])
-
-
-@app.function
-def text_to_token_ids(text, tokenizer):
-    encoded = tokenizer.encode(text, allowed_special={"<|endoftext|>"})
-    encoded_tensor = torch.tensor(encoded).unsqueeze(0)  # add batch dimension
-    return encoded_tensor
-
-
-@app.function
-def token_ids_to_text(token_ids, tokenizer):
-    flat = token_ids.squeeze(0)  # remove batch dimension
-    return tokenizer.decode(flat.tolist())
 
 
 if __name__ == "__main__":

@@ -5,15 +5,31 @@ app = marimo.App(width="medium")
 
 with app.setup:
     from importlib.metadata import version
-
     import marimo as mo
+
     import torch
     import torch.nn as nn
 
 
 @app.cell
 def _():
+    mo.md(r"""
+    # Chapter 3: Coding Attention Mechanisms
+    """)
+    return
+
+
+@app.cell
+def _():
     print("torch version:", version("torch"))
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    ## 3.3 Attending to different parts of the input with self-attention
+    """)
     return
 
 
@@ -26,8 +42,8 @@ def _():
             [0.57, 0.85, 0.64],  # starts   (x^3)
             [0.22, 0.58, 0.33],  # with     (x^4)
             [0.77, 0.25, 0.10],  # one      (x^5)
-            [0.05, 0.80, 0.55],
-        ]  # step     (x^6)
+            [0.05, 0.80, 0.55],  # step     (x^6)
+        ]  
     )
     return (inputs,)
 
@@ -38,6 +54,14 @@ def _(inputs):
     d_in = inputs.shape[1]  # the input embedding size, d=3
     d_out = 2  # the output embedding size, d=2
     return d_in, d_out
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    ### 3.4.2 Implementing a compact SelfAttention class
+    """)
+    return
 
 
 @app.cell
@@ -67,12 +91,28 @@ def _(d_in, d_out, inputs):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    ### 3.5.3 Implementing a compact causal self-attention class
+    """)
+    return
+
+
+@app.cell
 def _(inputs):
     batch = torch.stack((inputs, inputs), dim=0)
     print(
         batch.shape
     )  # 2 inputs with 6 tokens each, and each token has embedding dimension 3
     return (batch,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    ### 3.6.2 Implementing multi-head attention with weight splits
+    """)
+    return
 
 
 @app.cell

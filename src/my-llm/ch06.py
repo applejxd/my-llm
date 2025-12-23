@@ -34,6 +34,14 @@ with app.setup:
 @app.cell
 def _():
     mo.md(r"""
+    # Chapter 6: Finetuning for Text Classification
+    """)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
     Show library versions
     """)
     return
@@ -691,14 +699,6 @@ def _(tokenizer):
     print("Inputs:", inputs)
     print("Inputs dimensions:", inputs.shape) # shape: (batch_size, num_tokens)
     return (inputs,)
-
-
-@app.cell
-def _():
-    mo.md(r"""
-    Inference with the input and check the output shape
-    """)
-    return
 
 
 @app.cell

@@ -7,37 +7,54 @@
     {
       "id": "setup",
       "code_hash": "fde7f9026d65f2630a55d38d03a544b8",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "outputs": [],
       "console": []
     },
     {
       "id": "Hbol",
-      "code_hash": "f20311780a4aac4772dc249f66f44977",
+      "code_hash": "fd51adf5e7b8925c3ba110064f8b7f99",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"chapter-5-pretraining-on-unlabeled-data\">Chapter 5: Pretraining on Unlabeled Data</h1></span>"
           }
         }
       ],
       "console": []
     },
     {
+      "id": "SFPL",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "e3d8a8d463d1b14302e2494df4df353b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "48bb78bf73e177e920b3f78441c78f4b",
+      "outputs": [],
+      "console": []
+    },
+    {
       "id": "MJUe",
-      "code_hash": "4c5789677762d9d8e02029e4f1edd715",
+      "code_hash": "987f18f9322b18d66dce46055c578ee1",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"55-loading-pretrained-weights-from-openai\">5.5 Loading pretrained weights from OpenAI</h2></span>"
           }
         }
       ],
@@ -45,28 +62,14 @@
     },
     {
       "id": "vblA",
-      "code_hash": "e3d8a8d463d1b14302e2494df4df353b",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "code_hash": "f20311780a4aac4772dc249f66f44977",
+      "outputs": [],
       "console": []
     },
     {
       "id": "bkHC",
-      "code_hash": "48bb78bf73e177e920b3f78441c78f4b",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "code_hash": "4c5789677762d9d8e02029e4f1edd715",
+      "outputs": [],
       "console": []
     }
   ]
