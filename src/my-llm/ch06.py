@@ -81,7 +81,7 @@ def _():
     dataset_url = "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip"
     project_root = Path(__file__).parent.parent.parent
     data_root = project_root / "data" / "ch06"
-    os.makedirs(data_root, exist_ok=True)
+    data_root.mkdir(parents=True, exist_ok=True)
 
     zip_path = data_root / "sms_spam_collection.zip"
     extracted_path = data_root / "sms_spam_collection"
@@ -556,7 +556,7 @@ def _(BASE_CONFIG, CHOOSE_MODEL, project_root):
     model_size = CHOOSE_MODEL.split(" ")[-1].lstrip("(").rstrip(")")
 
     models_dir = project_root / "models" / "gpt2"
-    os.makedirs(models_dir, exist_ok=True)
+    models_dir.mkdir(parents=True, exist_ok=True)
 
     settings, params = download_and_load_gpt2(model_size=model_size, models_dir=models_dir)
 
@@ -1221,7 +1221,7 @@ def _():
 @app.cell
 def _(model, project_root):
     fine_model_path = project_root / "models" / "ch06"
-    os.makedirs(fine_model_path, exist_ok=True)
+    fine_model_path.mkdir(parents=True, exist_ok=True)
     torch.save(model.state_dict(), fine_model_path / "review_classifier.pth")
     return (fine_model_path,)
 
