@@ -38,6 +38,20 @@ def _():
 
 
 @app.cell
+def _():
+    GPT_CONFIG_124M = {
+        "vocab_size": 50257,    # Vocabulary size
+        "context_length": 1024, # Context length
+        "emb_dim": 768,         # Embedding dimension
+        "n_heads": 12,          # Number of attention heads
+        "n_layers": 12,         # Number of layers
+        "drop_rate": 0.1,       # Dropout rate
+        "qkv_bias": False       # Query-Key-Value bias
+    }
+    return (GPT_CONFIG_124M,)
+
+
+@app.cell
 def _(mo):
     mo.md(r"""
     This "Dummy" means untrained model just to check forward path algorithms.
@@ -95,20 +109,6 @@ class DummyLayerNorm(nn.Module):
     def forward(self, x):
         # This layer does nothing and just returns its input.
         return x
-
-
-@app.cell
-def _():
-    GPT_CONFIG_124M = {
-        "vocab_size": 50257,    # Vocabulary size
-        "context_length": 1024, # Context length
-        "emb_dim": 768,         # Embedding dimension
-        "n_heads": 12,          # Number of attention heads
-        "n_layers": 12,         # Number of layers
-        "drop_rate": 0.1,       # Dropout rate
-        "qkv_bias": False       # Query-Key-Value bias
-    }
-    return (GPT_CONFIG_124M,)
 
 
 @app.cell

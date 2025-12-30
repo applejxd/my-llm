@@ -570,7 +570,7 @@ def _(BASE_CONFIG, CHOOSE_MODEL, project_root):
 
 @app.cell
 def _(model):
-    model.eval()
+    model.eval();
     return
 
 

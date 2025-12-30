@@ -5,21 +5,8 @@
   },
   "cells": [
     {
-      "id": "PKri",
-      "code_hash": "0170443c3aaa4f51bb15d71bdad37e77",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Define this class in a cell without other expressions to be imported by other notebooks.\nUse <code>@app.class_definition</code> decorator for this class to export (see this Python file itself).</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "setup",
-      "code_hash": "f80cd351b905c364088fa51d0559db39",
+      "code_hash": "883050a26ed93102ef356b0e95d2c9f3",
       "outputs": [
         {
           "type": "data",
@@ -32,6 +19,19 @@
     },
     {
       "id": "Hbol",
+      "code_hash": "356c566b8e57516ed4dbea29c5388573",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"chapter-3-coding-attention-mechanisms\">Chapter 3: Coding Attention Mechanisms</h1></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
       "code_hash": "ac76a1258bd3ba7aa8436da2d786332e",
       "outputs": [
         {
@@ -51,8 +51,34 @@
       ]
     },
     {
-      "id": "MJUe",
-      "code_hash": "51ffbf6a6512ef0dea4c6094ef3bd836",
+      "id": "vblA",
+      "code_hash": "1b72de0e56ac0f117e6e6df8195f0789",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"33-attending-to-different-parts-of-the-input-with-self-attention\">3.3 Attending to different parts of the input with self-attention</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "e6d4c34d291262167f7fd630fd51f17e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"331-a-simple-self-attention-mechanism-without-trainable-weights\">3.3.1 A simple self-attention mechanism without trainable weights</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "79185be9b4fec805bb900dd1ed231c33",
       "outputs": [
         {
           "type": "data",
@@ -64,7 +90,152 @@
       "console": []
     },
     {
-      "id": "vblA",
+      "id": "TXez",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "370a9248f6b7d7776a64b3b9b2716db0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "tensor(0.9544)\ntensor(0.9544)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "9f66dcafb8c2d622777d785723ab0339",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Attention weights: tensor([0.1455, 0.2278, 0.2249, 0.1285, 0.1077, 0.1656])\nSum: tensor(1.0000)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "01d426fe90a7f1e71cc40ff0f1439ba8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "a6bab3c440a3a9759f0bb6bdf07bd181",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Attention weights: tensor([0.1385, 0.2379, 0.2333, 0.1240, 0.1082, 0.1581])\nSum: tensor(1.)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "wlCL",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "aLJB",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "pHFh",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "aqbW",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "xXTn",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "AjVT",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nHfw",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Kclp",
       "code_hash": "d287737fd5b0281e7d4ba526063d9f1a",
       "outputs": [
         {
@@ -77,7 +248,76 @@
       "console": []
     },
     {
-      "id": "bkHC",
+      "id": "NCOB",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "dNNg",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TRpd",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "yCnT",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "e8dca5bf53067f3f9c60eca27975ecad",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "tensor([0.9544, 1.4950, 1.4754, 0.8434, 0.7070, 1.0865])\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "DnEU",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "kqZH",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "7cd1c33c5e9d4edaa4e095c5f8bc4db8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"342-implementing-a-compact-selfattention-class\">3.4.2 Implementing a compact SelfAttention class</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
       "code_hash": "6e87ef36c1b7ec3799c525e0a41a6ae4",
       "outputs": [
         {
@@ -97,7 +337,104 @@
       ]
     },
     {
-      "id": "lEQa",
+      "id": "wAgl",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "rEll",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "yOPj",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "lgWD",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SdmI",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "dGlV",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "fwwy",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "LJZf",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "tZnO",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "mWxS",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "jxvo",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "YWSi",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "urSm",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "CcZR",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "fc8ed30bfdf2007d29e2ee5c58f10cc0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"353-implementing-a-compact-causal-self-attention-class\">3.5.3 Implementing a compact causal self-attention class</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
       "code_hash": "5522df6e8ba9f95859f57e6229b13e6f",
       "outputs": [
         {
@@ -117,7 +454,76 @@
       ]
     },
     {
-      "id": "Xref",
+      "id": "zlud",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "xvXZ",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "YECM",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": null,
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iXej",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "cEAS",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "d47cb323919be524729487e24e60f574",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"362-implementing-multi-head-attention-with-weight-splits\">3.6.2 Implementing multi-head attention with weight splits</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "0170443c3aaa4f51bb15d71bdad37e77",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Define this class in a cell without other expressions to be imported by other notebooks.\nUse <code>@app.class_definition</code> decorator for this class to export (see this Python file itself).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
       "code_hash": "027fa7b6295fb0c5a0d21b4adf399799",
       "outputs": [
         {
@@ -130,7 +536,7 @@
       "console": []
     },
     {
-      "id": "SFPL",
+      "id": "TqIu",
       "code_hash": "2547ff1060a2f35548ccb196faa2f385",
       "outputs": [
         {
@@ -150,16 +556,15 @@
       ]
     },
     {
-      "id": "BYtC",
+      "id": "CLip",
       "code_hash": null,
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "EJmg",
+      "code_hash": null,
+      "outputs": [],
       "console": []
     }
   ]

@@ -4,14 +4,12 @@ __generated_with = "0.18.4"
 app = marimo.App()
 
 with app.setup:
-    import os
     from importlib.metadata import version
     from pathlib import Path
 
     import marimo as mo
     import matplotlib.pyplot as plt
     import numpy as np
-    import requests
     import tiktoken
     import torch
     from ch02 import create_dataloader_v1, download_verdict_data
@@ -19,7 +17,7 @@ with app.setup:
     from gpt_download import download_and_load_gpt2
     from matplotlib.ticker import MaxNLocator
 
-    pkgs = [
+    _pkgs = [
         "matplotlib",
         "numpy",
         "tiktoken",
@@ -27,8 +25,8 @@ with app.setup:
         "tensorflow",  # For OpenAI's pretrained weights
     ]
 
-    for p in pkgs:
-        print(f"{p} version: {version(p)}")
+    for _p in _pkgs:
+        print(f"{_p} version: {version(_p)}")
 
 
 @app.cell
