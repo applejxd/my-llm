@@ -20,14 +20,12 @@ with app.setup:
     # previous notebooks
     from ch04 import GPTModel, generate_text_simple
     from ch05 import (load_weights_into_gpt, text_to_token_ids,
-                      token_ids_to_text)
+                      token_ids_to_text, get_torch_device)
     # additional utility
     from gpt_download import download_and_load_gpt2
     from torch.utils.data import DataLoader, Dataset
 
-    # detect available device (CPU or GPU)
-    # skip the condition for MPS devices for simplicity
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    device = get_torch_device()
     print("Device:", device)
 
 
@@ -42,21 +40,21 @@ def _():
 @app.cell
 def _():
     mo.md(r"""
-    Show library versions
+    Show library versions.
     """)
     return
 
 
 @app.cell
 def _():
-    pkgs = ["matplotlib", 
+    _pkgs = ["matplotlib", 
             "numpy", 
             "tiktoken", 
             "torch",
             "tensorflow" # For OpenAI's pretrained weights
            ]
-    for p in pkgs:
-        print(f"{p} version: {version(p)}")
+    for _p in _pkgs:
+        print(f"{_p} version: {version(_p)}")
     return
 
 
@@ -71,37 +69,7 @@ def _():
 @app.cell
 def _():
     mo.md(r"""
-    Set paths to download dataset for fine-tuning
-    """)
-    return
-
-
-@app.cell
-def _():
-    dataset_url = "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip"
-    project_root = Path(__file__).parent.parent.parent
-    data_root = project_root / "data" / "ch06"
-    data_root.mkdir(parents=True, exist_ok=True)
-
-    zip_path = data_root / "sms_spam_collection.zip"
-    extracted_path = data_root / "sms_spam_collection"
-    data_file_path = extracted_path / "SMSSpamCollection.tsv"
-
-    print(f"Downloading dataset to {zip_path}...")
-    return (
-        data_file_path,
-        data_root,
-        dataset_url,
-        extracted_path,
-        project_root,
-        zip_path,
-    )
-
-
-@app.cell
-def _():
-    mo.md(r"""
-    Define a function to download, extract, and rename
+    Define a function to download, extract, and rename a dataset.
     """)
     return
 
@@ -134,20 +102,42 @@ def download_and_unzip_spam_data(url, zip_path, extracted_path, data_file_path):
 @app.cell
 def _():
     mo.md(r"""
-    Prepare dataset by using the above function
+    Prepare download folder.
     """)
     return
 
 
 @app.cell
-def _(data_file_path, dataset_url, extracted_path, zip_path):
+def _():
+    project_root = Path(__file__).parent.parent.parent
+    data_root = project_root / "data" / "ch06"
+    data_root.mkdir(parents=True, exist_ok=True)
+    return data_root, project_root
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Prepare dataset by using the above function.
+    """)
+    return
+
+
+@app.cell
+def _(data_root):
+    _zip_path = data_root / "sms_spam_collection.zip"
+    _extracted_path = data_root / "sms_spam_collection"
+    data_file_path = _extracted_path / "SMSSpamCollection.tsv"
+    print(f"Downloading dataset to {_zip_path}...")
+
+    _dataset_url = "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip"
     try:
-        download_and_unzip_spam_data(dataset_url, zip_path, extracted_path, data_file_path)
+        download_and_unzip_spam_data(_dataset_url, _zip_path, _extracted_path, data_file_path)
     except (requests.exceptions.RequestException, TimeoutError) as e:
         print(f"Primary URL failed: {e}. Trying backup URL...")
         _backup_url = "https://f001.backblazeb2.com/file/LLMs-from-scratch/sms%2Bspam%2Bcollection.zip"
-        download_and_unzip_spam_data(_backup_url, zip_path, extracted_path, data_file_path)
-    return
+        download_and_unzip_spam_data(_backup_url, _zip_path, _extracted_path, data_file_path)
+    return (data_file_path,)
 
 
 @app.cell
@@ -312,7 +302,8 @@ def _():
 @app.cell
 def _():
     tokenizer = tiktoken.get_encoding("gpt2")
-    print(tokenizer.encode("<|endoftext|>", allowed_special={"<|endoftext|>"}))
+    _encoded_eof = tokenizer.encode("<|endoftext|>", allowed_special={"<|endoftext|>"})
+    print(_encoded_eof)
     return (tokenizer,)
 
 
@@ -431,29 +422,29 @@ def _():
 
 @app.cell
 def _(test_dataset, train_dataset, val_dataset):
-    num_workers = 0  # ensure compatibility (for all CPUs)
-    batch_size = 8
+    _num_workers = 0  # ensure compatibility (for all CPUs)
+    _batch_size = 8
     torch.manual_seed(123)
 
     train_loader = DataLoader(
         dataset=train_dataset,
-        batch_size=batch_size,
+        batch_size=_batch_size,
         shuffle=True,  # randomize
-        num_workers=num_workers,
+        num_workers=_num_workers,
         drop_last=True,  # ignore incomplete batch
     )
 
     val_loader = DataLoader(
         dataset=val_dataset,
-        batch_size=batch_size,
-        num_workers=num_workers,
+        batch_size=_batch_size,
+        num_workers=_num_workers,
         drop_last=False,
     )
 
     test_loader = DataLoader(
         dataset=test_dataset,
-        batch_size=batch_size,
-        num_workers=num_workers,
+        batch_size=_batch_size,
+        num_workers=_num_workers,
         drop_last=False,
     )
     return test_loader, train_loader, val_loader
@@ -553,12 +544,12 @@ def _(train_dataset):
 @app.cell
 def _(BASE_CONFIG, CHOOSE_MODEL, project_root):
     # just parse the `str` inside the brace
-    model_size = CHOOSE_MODEL.split(" ")[-1].lstrip("(").rstrip(")")
+    _model_size = CHOOSE_MODEL.split(" ")[-1].lstrip("(").rstrip(")")
 
     models_dir = project_root / "models" / "gpt2"
     models_dir.mkdir(parents=True, exist_ok=True)
 
-    settings, params = download_and_load_gpt2(model_size=model_size, models_dir=models_dir)
+    settings, params = download_and_load_gpt2(model_size=_model_size, models_dir=models_dir)
 
     pretrained_model = GPTModel(BASE_CONFIG)
     load_weights_into_gpt(pretrained_model, params)
@@ -661,8 +652,8 @@ def _():
 def _(BASE_CONFIG, model):
     torch.manual_seed(123)
 
-    num_classes = 2
-    model.out_head = torch.nn.Linear(in_features=BASE_CONFIG["emb_dim"], out_features=num_classes)
+    _num_classes = 2
+    model.out_head = torch.nn.Linear(in_features=BASE_CONFIG["emb_dim"], out_features=_num_classes)
     return
 
 
@@ -1015,9 +1006,9 @@ def _(model, train_loader, val_loader):
         num_epochs=num_epochs, eval_freq=50, eval_iter=5,
     )
 
-    end_time = time.time()
-    execution_time_minutes = (end_time - _start_time) / 60
-    print(f"Training completed in {execution_time_minutes:.2f} minutes.")
+    _end_time = time.time()
+    _execution_time_minutes = (_end_time - _start_time) / 60
+    print(f"Training completed in {_execution_time_minutes:.2f} minutes.")
     return (
         examples_seen,
         num_epochs,

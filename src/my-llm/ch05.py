@@ -222,11 +222,6 @@ def _():
 @app.cell
 def _():
     file_path = download_verdict_data()
-    return (file_path,)
-
-
-@app.cell
-def _(file_path):
     with open(file_path, "r", encoding="utf-8") as _file:
         text_data = _file.read()
     return (text_data,)
