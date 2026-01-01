@@ -5,8 +5,8 @@
   },
   "cells": [
     {
-      "id": "Hbol",
-      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "id": "setup",
+      "code_hash": "b811c64f15a098eef1dbfb3bc7b139ba",
       "outputs": [
         {
           "type": "data",
@@ -18,10 +18,1079 @@
       "console": []
     },
     {
-      "id": "setup",
-      "code_hash": null,
-      "outputs": [],
+      "id": "Hbol",
+      "code_hash": "221d4670dfdd8c1d81bc579d9cb793d4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "torch version: 2.9.1+cu128\ntiktoken version: 0.12.0\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "8f2b5b49f2d6ba6ef6f6440e9b5764bd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"chapter-2-working-with-text-data\">Chapter 2: Working with Text Data</h1></span>"
+          }
+        }
+      ],
       "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "4c006fff43b47605c97c5eb9aeb5cf7f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"22-tokenizing-text\">2.2 Tokenizing text</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bkHC",
+      "code_hash": "c644ef17d9e8447e39d780fd6026347e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Define a downloader function for the novel \"The Verdict\" that allows to be used for traning.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "928d1a8cb9d9d9d2ee2f1b208e120435",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PKri",
+      "code_hash": "5620b08a6e70e5bbc0f1b7ddeab4759a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Download and read the data.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xref",
+      "code_hash": "4e780d91494428b5256946b840f8f83c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Data file already exists at /home/applejxd/src/my-llm/data/the-verdict.txt. Skipping download.\nTotal number of character: 20479\nI HAD always thought Jack Gisburn rather a cheap genius--though a good fellow enough--so it was no \n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "806fd6f1062019a88d02ec3df30c1d04",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Split words by whitespace using regex.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "47612c8fa936b70b8681c13fc1081c1d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "['Hello,', ' ', 'world.', ' ', 'This,', ' ', 'is', ' ', 'a', ' ', 'test.']\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "6087dc09e326a8b47a7cbca4245f295a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Add period (.) and comma (,) separaters for it.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "f1a9c6be173306b038127fc083b0a4f1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "['Hello', ',', '', ' ', 'world', '.', '', ' ', 'This', ',', '', ' ', 'is', ' ', 'a', ' ', 'test', '.', '']\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "emfo",
+      "code_hash": "52742d4c1829344a2b387c5746e8cfea",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Delete whitespaces that is recognized as a separater if it is needed.\nStrip whitespace from each item and then filter out any empty strings.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "067536247bc91ef7e9c14e23ad7ed89b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "['Hello', ',', 'world', '.', 'This', ',', 'is', 'a', 'test', '.']\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "716de2d0f51757b1c87bb8854b0a6196",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try another example includes symbols like hyphen (-) or question mark (?). These symbols also can be extracted by treating these as separaters.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "e0fa30550d5c9ff49daf5538c21c14ca",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "['Hello', ',', 'world', '.', 'Is', 'this', '--', 'a', 'test', '?']\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "079d81bd6210f5739867ddd32f598e07",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Split the Verdict data whole.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "a399b7d4c7d58e0892b627a86c375214",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "preprocessed[:30]=['I', 'HAD', 'always', 'thought', 'Jack', 'Gisburn', 'rather', 'a', 'cheap', 'genius', '--', 'though', 'a', 'good', 'fellow', 'enough', '--', 'so', 'it', 'was', 'no', 'great', 'surprise', 'to', 'me', 'to', 'hear', 'that', ',', 'in']\nlen(preprocessed)=4690\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "c12b1babadec4cfc4cb6caded15b7c7a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"23-converting-tokens-into-token-ids\">2.3 Converting tokens into token IDs</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "ac4a4e574d06dd65c38ef07fcad242fc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "dc069bf4a0320feffb56e20a9974319c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "1130\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "42c62a96f7454479d6137a3d773cc9d4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "('!', 0)\n('\"', 1)\n(\"'\", 2)\n('(', 3)\n(')', 4)\n(',', 5)\n('--', 6)\n('.', 7)\n(':', 8)\n(';', 9)\n('?', 10)\n('A', 11)\n('Ah', 12)\n('Among', 13)\n('And', 14)\n('Are', 15)\n('Arrt', 16)\n('As', 17)\n('At', 18)\n('Be', 19)\n('Begin', 20)\n('Burlington', 21)\n('But', 22)\n('By', 23)\n('Carlo', 24)\n('Chicago', 25)\n('Claude', 26)\n('Come', 27)\n('Croft', 28)\n('Destroyed', 29)\n('Devonshire', 30)\n('Don', 31)\n('Dubarry', 32)\n('Emperors', 33)\n('Florence', 34)\n('For', 35)\n('Gallery', 36)\n('Gideon', 37)\n('Gisburn', 38)\n('Gisburns', 39)\n('Grafton', 40)\n('Greek', 41)\n('Grindle', 42)\n('Grindles', 43)\n('HAD', 44)\n('Had', 45)\n('Hang', 46)\n('Has', 47)\n('He', 48)\n('Her', 49)\n('Hermia', 50)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "3bb91b7828e4de188da0ef1782130c5f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "ef4ed57bf4c563bdbf2a855fe4aec527",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[1, 56, 2, 850, 988, 602, 533, 746, 5, 1126, 596, 5, 1, 67, 7, 38, 851, 1108, 754, 793, 7]\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": "45a1e6723fae71fc93c3651d56d751fa",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;&quot; It\\&#x27; s the last he painted, you know,&quot; Mrs. Gisburn said with pardonable pride.&#x27;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "ab86fa92838ab6fe8da4bae62c794147",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;&quot; It\\&#x27; s the last he painted, you know,&quot; Mrs. Gisburn said with pardonable pride.&#x27;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aLJB",
+      "code_hash": "9dba180ab344b62c64055cbd382cf9be",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"24-adding-special-context-tokens\">2.4 Adding special context tokens</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nHfw",
+      "code_hash": "d94fe68e62c289f5b1dfdb66eb35177e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This will occur an error.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xXTn",
+      "code_hash": "4e7dee53fe9ca3ef1e339a895531715c",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "'Hello'",
+          "traceback": []
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_99174/__marimo__cell_xXTn_.py&quot;</span>, line <span class=\"m\">3</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">simple_tokenizer</span><span class=\"o\">.</span><span class=\"n\">encode</span><span class=\"p\">(</span><span class=\"n\">text_4</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_99174/__marimo__cell_ulZA_.py&quot;</span>, line <span class=\"m\">10</span>, in <span class=\"n\">encode</span>\n<span class=\"w\">    </span><span class=\"n\">ids</span> <span class=\"o\">=</span> <span class=\"p\">[</span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">str_to_int</span><span class=\"p\">[</span><span class=\"n\">s</span><span class=\"p\">]</span> <span class=\"k\">for</span> <span class=\"n\">s</span> <span class=\"ow\">in</span> <span class=\"n\">preprocessed</span><span class=\"p\">]</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~~~~^^^</span>\n<span class=\"gr\">KeyError</span>: <span class=\"n\">&#39;Hello&#39;</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "AjVT",
+      "code_hash": "a1a299db1ab79b7c544c7171c753e4d4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "pHFh",
+      "code_hash": "c77ec58a385eb394bec234a911c8a7c6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>1132</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NCOB",
+      "code_hash": "d9c605999dcc12c20dede81d29e2ab0d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "('younger', 1127)\n('your', 1128)\n('yourself', 1129)\n('<|endoftext|>', 1130)\n('<|unk|>', 1131)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "aqbW",
+      "code_hash": "ca821128f178b137dabce3d0ab4d985a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TRpd",
+      "code_hash": "b2b3daa5c3a7e59bdbee5696b2a8781f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hello, do you like tea? <|endoftext|> In the sunlit terraces of the palace.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "TXez",
+      "code_hash": "325e071f7f4a3db4562cc7c7b7179d06",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[1131, 5, 355, 1126, 628, 975, 10, 1130, 55, 988, 956, 984, 722, 988, 1131, 7]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dNNg",
+      "code_hash": "c17f4939b738cda59f2c115230c4d7ca",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;&lt;|unk|&gt;, do you like tea? &lt;|endoftext|&gt; In the sunlit terraces of the &lt;|unk|&gt;.&#x27;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "yCnT",
+      "code_hash": "0c8908e51e6bf4a43f0fa882e89b591e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"25-bytepair-encoding\">2.5 BytePair encoding</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wlCL",
+      "code_hash": "b7bdb952c4a41936bd41ee846d179a13",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "tiktoken version: 0.12.0\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "kqZH",
+      "code_hash": "c9519b2f4711850259abcddb0047d51f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wAgl",
+      "code_hash": "954ae62c15ab31bc45aaeb2dc71c6306",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[15496, 11, 466, 345, 588, 8887, 30, 220, 50256, 554, 262, 4252, 18250, 8812, 2114, 1659, 617, 34680, 27271, 13]\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "rEll",
+      "code_hash": "0d7e9347998bc8f8fe9ff177e6a2ec27",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Hello, do you like tea? <|endoftext|> In the sunlit terracesof someunknownPlace.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "dGlV",
+      "code_hash": "775ab3be1c72d33526fde08796f670bc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"26-data-sampling-with-a-sliding-window\">2.6 Data sampling with a sliding window</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SdmI",
+      "code_hash": "0aaad49e987d0099a7e178018cb57c7a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "5145\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "lgWD",
+      "code_hash": "1f178580c3a29740e9ec4700212be1a1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "yOPj",
+      "code_hash": "ba3fd82064d4e55004a9f80c03434a68",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "x: [290, 4920, 2241, 287]\ny:      [4920, 2241, 287, 257]\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "fwwy",
+      "code_hash": "4b3e026a88a7fa0948db74a664633fb2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[290] ----> 4920\n[290, 4920] ----> 2241\n[290, 4920, 2241] ----> 287\n[290, 4920, 2241, 287] ----> 257\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "LJZf",
+      "code_hash": "1fe5d2822241b34848387e24c46602d3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": " and ---->  established\n and established ---->  himself\n and established himself ---->  in\n and established himself in ---->  a\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "urSm",
+      "code_hash": "3cae89922448b73c1072ed81b9a6a159",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "PyTorch version: 2.9.1+cu128\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "jxvo",
+      "code_hash": "e55b026a624e03e476e5cefa2fcad68a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "mWxS",
+      "code_hash": "121a8f025c648bb35cf90a2193eb3504",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "CcZR",
+      "code_hash": "cd1a9cdde524b2af28a4677a60e7a2d3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[tensor([[  40,  367, 2885, 1464]]), tensor([[ 367, 2885, 1464, 1807]])]\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "YWSi",
+      "code_hash": "1b83d3118ffbfc54295e14852bae8d31",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "[tensor([[ 367, 2885, 1464, 1807]]), tensor([[2885, 1464, 1807, 3619]])]\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "zlud",
+      "code_hash": "b70d881e0d9298eccbed644782896c2b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Inputs:\n tensor([[   40,   367,  2885,  1464],\n        [ 1807,  3619,   402,   271],\n        [10899,  2138,   257,  7026],\n        [15632,   438,  2016,   257],\n        [  922,  5891,  1576,   438],\n        [  568,   340,   373,   645],\n        [ 1049,  5975,   284,   502],\n        [  284,  3285,   326,    11]])\n\nTargets:\n tensor([[  367,  2885,  1464,  1807],\n        [ 3619,   402,   271, 10899],\n        [ 2138,   257,  7026, 15632],\n        [  438,  2016,   257,   922],\n        [ 5891,  1576,   438,   568],\n        [  340,   373,   645,  1049],\n        [ 5975,   284,   502,   284],\n        [ 3285,   326,    11,   287]])\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "tZnO",
+      "code_hash": "69048aa7b2ee3cbf3a0923693c8ccc26",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"27-creating-token-embeddings\">2.7 Creating token embeddings</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xvXZ",
+      "code_hash": "c417954b1c80d9aa369af516b3613742",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "CLip",
+      "code_hash": "c9f6f1fd959cd072f410a63aaf7f37db",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "YECM",
+      "code_hash": "631438800989202b2a7f6c60bb21a50d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Parameter containing:\ntensor([[ 0.3374, -0.1778, -0.1690],\n        [ 0.9178,  1.5810,  1.3010],\n        [ 1.2753, -0.2010, -0.1606],\n        [-0.4015,  0.9666, -1.1481],\n        [-1.1589,  0.3255, -0.6315],\n        [-2.8400, -0.7849, -1.4096]], requires_grad=True)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "cEAS",
+      "code_hash": "3ca5b94ed7bb620774c44e1d1995ad25",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "tensor([[-0.4015,  0.9666, -1.1481]], grad_fn=<EmbeddingBackward0>)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "iXej",
+      "code_hash": "08cf585b3321177c79701685b4a20b64",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "tensor([[ 1.2753, -0.2010, -0.1606],\n        [-0.4015,  0.9666, -1.1481],\n        [-2.8400, -0.7849, -1.4096],\n        [ 0.9178,  1.5810,  1.3010]], grad_fn=<EmbeddingBackward0>)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "EJmg",
+      "code_hash": "a0703e403e44433a1900882327eb5d3b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"28-encoding-word-positions\">2.8 Encoding word positions</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "UmEG",
+      "code_hash": "4ddb67b3626d9e94f390cccb5bdcf04b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vEBW",
+      "code_hash": "4dfedc2b3949c63bb88dc663380dffab",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "kLmu",
+      "code_hash": "a9f85c6b75e3ea544b0a1b1bec16a9d4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Token IDs:\n tensor([[   40,   367,  2885,  1464],\n        [ 1807,  3619,   402,   271],\n        [10899,  2138,   257,  7026],\n        [15632,   438,  2016,   257],\n        [  922,  5891,  1576,   438],\n        [  568,   340,   373,   645],\n        [ 1049,  5975,   284,   502],\n        [  284,  3285,   326,    11]])\n\nInputs shape:\n torch.Size([8, 4])\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "IpqN",
+      "code_hash": "0e54cef5de9f1e7096ffc04d6080b690",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "torch.Size([8, 4, 256])\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "dxZZ",
+      "code_hash": "8cc2e1fbcfe73ee6fad57822b47d9604",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dlnW",
+      "code_hash": "a583a99aaea28e7ca29befbc28b9abed",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "torch.Size([4, 256])\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "TTti",
+      "code_hash": "a0e33b8946637eb55775dcdb45231208",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "torch.Size([8, 4, 256])\n",
+          "mimetype": "text/plain"
+        }
+      ]
     }
   ]
 }
