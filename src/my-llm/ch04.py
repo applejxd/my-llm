@@ -6,6 +6,7 @@ app = marimo.App(width="medium")
 with app.setup:
     from importlib.metadata import version
 
+    import marimo as mo
     import matplotlib.pyplot as plt
     import tiktoken
     import torch
@@ -14,7 +15,7 @@ with app.setup:
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     # Chapter 4: Implementing a GPT model from Scratch To Generate Text
     """)
@@ -22,7 +23,7 @@ def _(mo):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     ## 4.1 Coding an LLM architecture
     """)
@@ -38,7 +39,7 @@ def _():
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     This is hyperparameters of our GPT-2 model.
     """)
@@ -60,7 +61,7 @@ def _():
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     This is placeholder architecture for our GPT2 model. The placeholders will be replaced.
 
@@ -128,7 +129,7 @@ class DummyLayerNorm(nn.Module):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Use GPT2 embedding and create a batch contains two phrases
     """)
@@ -152,7 +153,7 @@ def _():
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Randomly initialize the GPT2:1.24b model and inference logits with untrained weights.
 
@@ -173,7 +174,7 @@ def _(GPT_CONFIG_124M, batch):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     ## 4.2 Normalizing activations with layer normalization
     """)
@@ -181,7 +182,7 @@ def _(mo):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     To get efficient gradients for training, introduce layer normalization.
 
@@ -205,7 +206,7 @@ def _():
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Check statistics before normalization.
     """)
@@ -223,7 +224,7 @@ def _(out):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Apply normalization to that.
     """)
@@ -243,7 +244,7 @@ def _(mean, out, var):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Disable PyTorch scientific notation for readability
     """)
@@ -259,7 +260,7 @@ def _(mean_norm, var_norm):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     To replace the layer norm placeholder, implement `LayerNorm` class based on the above observations.
 
@@ -286,7 +287,7 @@ class LayerNorm(nn.Module):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Try it.
     """)
@@ -307,7 +308,7 @@ def _(batch_example):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     ## 4.3 Implementing a feed forward network with GELU activations
     """)
@@ -315,7 +316,7 @@ def _(mo):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     We use GELU (Gaussian Error Linear Unit) as an activation function.
     This is defined as
@@ -347,7 +348,7 @@ class GELU(nn.Module):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Compare GELU with ReLU.
     GERU has non-zero gradient except for certain point, so it avoids singular optimizations.
@@ -379,7 +380,7 @@ def _():
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     This is the class for FeedForward network using GELU.
     """)
@@ -401,7 +402,7 @@ class FeedForward(nn.Module):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     Remind embedding dimension of our GPT2.
     """)
@@ -415,7 +416,7 @@ def _(GPT_CONFIG_124M):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     This shows the output shape of the `FeedForward` network.
     The first layer increses the dimension in 4 times, then, the last layer decreases the dimension to the same with the input.
@@ -436,7 +437,7 @@ def _(GPT_CONFIG_124M):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     ## 4.4 Adding shortcut connections
     """)
@@ -444,7 +445,7 @@ def _(mo):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     This is an example of skip connection like ResNet.
     To avoid vanishing gradient problem of deep networks, this network predicts residuals in each steps.
@@ -478,7 +479,7 @@ class ExampleDeepNeuralNetwork(nn.Module):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     To see the vanishing gradient problem, define the following function to see gradients.
     """)
@@ -507,6 +508,14 @@ def print_gradients(model, x):
 
 @app.cell
 def _():
+    mo.md(r"""
+    You can see vanishing gradients from the last layer 4 to the initial layer 0.
+    """)
+    return
+
+
+@app.cell
+def _():
     layer_sizes = [3, 3, 3, 3, 3, 1]  
 
     sample_input = torch.tensor([[1., 0., -1.]])
@@ -520,6 +529,14 @@ def _():
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Skip connection relaxes the problem like this.
+    """)
+    return
+
+
+@app.cell
 def _(layer_sizes, sample_input):
     torch.manual_seed(123)
     model_with_shortcut = ExampleDeepNeuralNetwork(
@@ -530,9 +547,17 @@ def _(layer_sizes, sample_input):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     ## 4.5 Connecting attention and linear layers in a transformer block
+    """)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Implement `TransformerBlock` by including the above ideas of `MultiHeadAttention`, `FeedForward` and `LayerNorm`.
     """)
     return
 
@@ -572,6 +597,14 @@ class TransformerBlock(nn.Module):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    It keeps the shape of vectors between inputs and outputs. It is suitable to combine deep layers.
+    """)
+    return
+
+
+@app.cell
 def _(GPT_CONFIG_124M):
     torch.manual_seed(123)
 
@@ -585,9 +618,17 @@ def _(GPT_CONFIG_124M):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     ## 4.6 Coding the GPT model
+    """)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Replace the placeholders in Dummy class to create GPT2 model. It repeats `TransformerBlock` in `n_layers` times. The output logits represents unnormalized probabilities for next tokens.
     """)
     return
 
@@ -598,26 +639,39 @@ class GPTModel(nn.Module):
         super().__init__()
         self.tok_emb = nn.Embedding(cfg["vocab_size"], cfg["emb_dim"])
         self.pos_emb = nn.Embedding(cfg["context_length"], cfg["emb_dim"])
+
         self.drop_emb = nn.Dropout(cfg["drop_rate"])
 
         self.trf_blocks = nn.Sequential(
             *[TransformerBlock(cfg) for _ in range(cfg["n_layers"])])
 
         self.final_norm = LayerNorm(cfg["emb_dim"])
+        # the same size with input token embedding
         self.out_head = nn.Linear(
             cfg["emb_dim"], cfg["vocab_size"], bias=False
         )
 
     def forward(self, in_idx):
         batch_size, seq_len = in_idx.shape
+
+        # tokenize and positional embedding
         tok_embeds = self.tok_emb(in_idx)
         pos_embeds = self.pos_emb(torch.arange(seq_len, device=in_idx.device))
         x = tok_embeds + pos_embeds  # Shape [batch_size, num_tokens, emb_size]
+
         x = self.drop_emb(x)
         x = self.trf_blocks(x)
         x = self.final_norm(x)
         logits = self.out_head(x)
         return logits
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Try the forward path. The output shape is (B,num_tokens,d_out).
+    """)
+    return
 
 
 @app.cell
@@ -633,10 +687,26 @@ def _(GPT_CONFIG_124M, batch):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    We can get total number of parameters by `numel()` method.
+    """)
+    return
+
+
+@app.cell
 def _(model):
     total_params = sum(p.numel() for p in model.parameters())
     print(f"Total number of parameters: {total_params:,}")
     return (total_params,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    We can share token embedding weights and output layer weights if you hope. These has the same shape.
+    """)
+    return
 
 
 @app.cell
@@ -647,9 +717,25 @@ def _(model):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    By considering such weight sharing, this model parameters reduces to 1.24b parameters.
+    """)
+    return
+
+
+@app.cell
 def _(model, total_params):
     total_params_gpt2 =  total_params - sum(p.numel() for p in model.out_head.parameters())
     print(f"Number of trainable parameters considering weight tying: {total_params_gpt2:,}")
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    We can estimate memory size to load this model by this.
+    """)
     return
 
 
@@ -666,9 +752,19 @@ def _(total_params):
 
 
 @app.cell
-def _(mo):
+def _():
     mo.md(r"""
     ## 4.7 Generating text
+    """)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    This is a function to generate texts (decoding) from GPT2 outputs. The step applies softmax can be omitted because it is monotonic.
+
+    It is called as the greedy decoding to select tokens whose probability is the maximum on the candidates. There are several strategies to select next tokens according to tasks.
     """)
     return
 
@@ -704,6 +800,14 @@ def generate_text_simple(model, idx, max_new_tokens, context_size):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Encode texts by using tokenizer to prepare the input.
+    """)
+    return
+
+
+@app.cell
 def _(tokenizer):
     start_context = "Hello, I am"
 
@@ -713,6 +817,14 @@ def _(tokenizer):
     encoded_tensor = torch.tensor(encoded).unsqueeze(0)
     print("encoded_tensor.shape:", encoded_tensor.shape)
     return (encoded_tensor,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Input it to the function to generate text. The output is token IDs.
+    """)
+    return
 
 
 @app.cell
@@ -729,6 +841,14 @@ def _(GPT_CONFIG_124M, encoded_tensor, model):
     print("Output:", out_gen)
     print("Output length:", len(out_gen[0]))
     return (out_gen,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Decode the output token IDs by using tokenizer. The output is nonsense because we did not train it yet.
+    """)
+    return
 
 
 @app.cell

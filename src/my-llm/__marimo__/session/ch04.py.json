@@ -19,6 +19,32 @@
     },
     {
       "id": "Hbol",
+      "code_hash": "308d7db3246aafc36abc6d333b312261",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"chapter-4-implementing-a-gpt-model-from-scratch-to-generate-text\">Chapter 4: Implementing a GPT model from Scratch To Generate Text</h1></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MJUe",
+      "code_hash": "085efd034f52db6e1375f717c993f18f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"41-coding-an-llm-architecture\">4.1 Coding an LLM architecture</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
       "code_hash": "1720a6bfc06467adae781ef6774d95d5",
       "outputs": [
         {
@@ -38,39 +64,13 @@
       ]
     },
     {
-      "id": "MJUe",
-      "code_hash": "69477a731f4584c70038f1833e5182e2",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This \"Dummy\" means untrained model just to check forward path algorithms.</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "vblA",
-      "code_hash": "4a622f00cdf5594cfee17a1d1f059e13",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "bkHC",
-      "code_hash": "7aee7d6d99804bf56919222daf468d9e",
+      "code_hash": "41a203c40a757d2600f63febac82f7c6",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is hyperparameters of our GPT-2 model.</span></span>"
           }
         }
       ],
@@ -78,19 +78,6 @@
     },
     {
       "id": "lEQa",
-      "code_hash": "d291fcb047e6704199740e0452fe78cc",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "PKri",
       "code_hash": "c5fc28410c0d0671cfeba8c6236263ef",
       "outputs": [
         {
@@ -103,7 +90,59 @@
       "console": []
     },
     {
+      "id": "PKri",
+      "code_hash": "7376550963acbad45e1004cfb95f1c22",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is placeholder architecture for our GPT2 model. The placeholders will be replaced.</span>\n<span class=\"paragraph\">The \"Dummy\" means simple model by using simple placeholders just to check forward path algorithms.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "Xref",
+      "code_hash": "e964818ef00c6ecd510a27ca97acd829",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "7aee7d6d99804bf56919222daf468d9e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "d291fcb047e6704199740e0452fe78cc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
       "code_hash": "b7947755ba3600e00b8c7822a66189d2",
       "outputs": [
         {
@@ -116,7 +155,7 @@
       "console": []
     },
     {
-      "id": "SFPL",
+      "id": "Kclp",
       "code_hash": "e62c7c92b8b41c72186b81af7f53bbc4",
       "outputs": [
         {
@@ -136,20 +175,20 @@
       ]
     },
     {
-      "id": "BYtC",
-      "code_hash": "33ceedf15376ed9f30896edfca832e6f",
+      "id": "emfo",
+      "code_hash": "c306c5e0e0473a03c4e20860f0f71ec7",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Randomly initialize the GPT model and inference logits with untrained weights</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Randomly initialize the GPT2:1.24b model and inference logits with untrained weights.</span>\n<span class=\"paragraph\">The output is called as logits, and the shape is <code>(batch_size,seq_len,vocab_size)</code>.</span></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "RGSE",
+      "id": "Hstk",
       "code_hash": "5ea6698256db7acf346c256b210cb4d1",
       "outputs": [
         {
@@ -169,21 +208,34 @@
       ]
     },
     {
-      "id": "Kclp",
-      "code_hash": "2a232d30082017aa6d58848af20bd557",
+      "id": "nWHF",
+      "code_hash": "d8cc976612939bb54cd11bf3ffec2ce8",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">check the behavior of layer normalization with this sample layer</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"42-normalizing-activations-with-layer-normalization\">4.2 Normalizing activations with layer normalization</h2></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "emfo",
-      "code_hash": "06a7b26dcdd9ca27d3fd932e9a651226",
+      "id": "iLit",
+      "code_hash": "05c0ce2dc3a795be71820078bb1671c7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">To get efficient gradients for training, introduce layer normalization.</span>\n<span class=\"paragraph\">Let's use the following usual linear+ReLU layer to check the effect of layer normalization.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "b69ac7c28383509987dab69cbe1e623f",
       "outputs": [
         {
           "type": "data",
@@ -196,26 +248,26 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "tensor([[0.2260, 0.3470, 0.0000, 0.2216, 0.0000, 0.0000],\n        [0.2133, 0.2394, 0.0000, 0.5198, 0.3297, 0.0000]],\n       grad_fn=<ReluBackward0>)\n",
+          "text": "batch_example=tensor([[-0.1115,  0.1204, -0.3696, -0.2404, -1.1969],\n        [ 0.2093, -0.9724, -0.7550,  0.3239, -0.1085]])\nout=tensor([[0.2260, 0.3470, 0.0000, 0.2216, 0.0000, 0.0000],\n        [0.2133, 0.2394, 0.0000, 0.5198, 0.3297, 0.0000]],\n       grad_fn=<ReluBackward0>)\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
-      "id": "Hstk",
-      "code_hash": "2afe703cb4b0f36fabc9e26d0f599b52",
+      "id": "ROlb",
+      "code_hash": "01d52dc1b033bd20795152aa7b5c68ea",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">statistics before normalization</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Check statistics before normalization.</span></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "nWHF",
+      "id": "qnkX",
       "code_hash": "81c2ff40a62892a7252218a8dcf0b7a8",
       "outputs": [
         {
@@ -235,20 +287,20 @@
       ]
     },
     {
-      "id": "iLit",
-      "code_hash": "ab898cf4a63c317fccd46d40bfb5693c",
+      "id": "TqIu",
+      "code_hash": "70314b5641dbf768cd6a9fc4e9349951",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">statistics after normalization</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Apply normalization to that.</span></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "ZHCJ",
+      "id": "Vxnm",
       "code_hash": "f43a6b0c87a8c0b7f83a0c792974ddfc",
       "outputs": [
         {
@@ -262,13 +314,13 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Normalized layer outputs:\n tensor([[ 0.6159,  1.4126, -0.8719,  0.5872, -0.8719, -0.8719],\n        [-0.0189,  0.1121, -1.0876,  1.5173,  0.5647, -1.0876]],\n       grad_fn=<DivBackward0>)\nMean:\n tensor([[9.9341e-09],\n        [1.9868e-08]], grad_fn=<MeanBackward1>)\nVariance:\n tensor([[1.0000],\n        [1.0000]], grad_fn=<VarBackward0>)\n",
+          "text": "Normalized layer outputs:\n tensor([[ 0.6159,  1.4126, -0.8719,  0.5872, -0.8719, -0.8719],\n        [-0.0189,  0.1121, -1.0876,  1.5173,  0.5647, -1.0876]],\n       grad_fn=<DivBackward0>)\nMean:\n tensor([[0.0000],\n        [0.0000]], grad_fn=<MeanBackward1>)\nVariance:\n tensor([[1.0000],\n        [1.0000]], grad_fn=<VarBackward0>)\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
-      "id": "ROlb",
+      "id": "DnEU",
       "code_hash": "3e1c1e29bb2eb49c0f9b7ec0c9d8df03",
       "outputs": [
         {
@@ -281,7 +333,7 @@
       "console": []
     },
     {
-      "id": "qnkX",
+      "id": "ulZA",
       "code_hash": "c977c36aec3d411993b6af74afa88067",
       "outputs": [
         {
@@ -301,8 +353,21 @@
       ]
     },
     {
-      "id": "TqIu",
-      "code_hash": "2d0c9c4a8eb660796b69330c48196b0a",
+      "id": "ecfG",
+      "code_hash": "8b7548aea2448e1459a1a5614d839c51",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">To replace the layer norm placeholder, implement <code>LayerNorm</code> class based on the above observations.</span>\n<span class=\"paragraph\">The normalization is applied to the last dimension <code>emb_dim</code>, and scaling and shift parameters are introduced to learn suitable distribution for good gradients.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": "49855d785d8835a2ddce5ab5dd45be23",
       "outputs": [
         {
           "type": "data",
@@ -314,7 +379,20 @@
       "console": []
     },
     {
-      "id": "Vxnm",
+      "id": "ZBYS",
+      "code_hash": "9ae07980abd41730a8fbb2aa975bc8ce",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try it.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aLJB",
       "code_hash": "cecdddca3a2133dc26599414f869917e",
       "outputs": [
         {
@@ -334,20 +412,33 @@
       ]
     },
     {
-      "id": "DnEU",
-      "code_hash": "f56fd74d84f50a145db3532f6191ed55",
+      "id": "nHfw",
+      "code_hash": "a7955b22cd6dcc90b99eae04418598a7",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">$\\text{GELU}(x) \\approx 0.5 \\cdot x \\cdot \\left(1 + \\tanh\\left[\\sqrt{\\frac{2}{\\pi}} \\cdot \\left(x + 0.044715 \\cdot x^3\\right)\\right]\\right)\n$</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"43-implementing-a-feed-forward-network-with-gelu-activations\">4.3 Implementing a feed forward network with GELU activations</h2></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "ulZA",
+      "id": "xXTn",
+      "code_hash": "ebfe6d469f0902bf7e52feaed657ae82",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">We use GELU (Gaussian Error Linear Unit) as an activation function.\nThis is defined as\n$$\n\\mathrm{GELU}(x)\\equiv x\\cdot\\Phi(x),\\quad\n\\Phi(x)\\equiv\\int dx\\,\\mathcal{N}(x;\\mu=0,\\sigma=1)\n$$</span>\n<span class=\"paragraph\">Because of efficiency, we use the following approximation obtained by curve fitting.\n$$\n\\text{GELU}(x) \\approx 0.5 \\cdot x \\cdot \\left(1 + \\tanh\\left[\\sqrt{\\frac{2}{\\pi}} \\cdot \\left(x + 0.044715 \\cdot x^3\\right)\\right]\\right)\n$$</span>\n<span class=\"paragraph\">This GELU is known as smoother gradient and better activation function than ReLU for learning.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "AjVT",
       "code_hash": "c12b3dbd97bf6096badf3257b3fa70b8",
       "outputs": [
         {
@@ -360,7 +451,20 @@
       "console": []
     },
     {
-      "id": "ecfG",
+      "id": "pHFh",
+      "code_hash": "47f08f78a79b7f8c8c08f2f6fe58c466",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Compare GELU with ReLU.\nGERU has non-zero gradient except for certain point, so it avoids singular optimizations.\nGELU also accepts minus <marimo-tex class=\"arithmatex\">||(x||)</marimo-tex> and such values also contribute the training.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NCOB",
       "code_hash": "2f7876bee17681522982609f43d825c8",
       "outputs": [
         {
@@ -380,7 +484,20 @@
       ]
     },
     {
-      "id": "Pvdt",
+      "id": "aqbW",
+      "code_hash": "659b59c0fb3f939d5948f39db736b04f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is the class for FeedForward network using GELU.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TRpd",
       "code_hash": "810469ed0ad4cd3e61b829b071081ae6",
       "outputs": [
         {
@@ -393,7 +510,20 @@
       "console": []
     },
     {
-      "id": "ZBYS",
+      "id": "TXez",
+      "code_hash": "5c072dfe4ecae343b006b6a8be2e0223",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Remind embedding dimension of our GPT2.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dNNg",
       "code_hash": "97294c3ca266923ea180cc4bcb22ad4c",
       "outputs": [
         {
@@ -413,7 +543,20 @@
       ]
     },
     {
-      "id": "aLJB",
+      "id": "yCnT",
+      "code_hash": "78bb24962eba1b936f35513845335013",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This shows the output shape of the <code>FeedForward</code> network.\nThe first layer increses the dimension in 4 times, then, the last layer decreases the dimension to the same with the input.</span>\n<span class=\"paragraph\">This makes GPT2 model deeper without considering input/output dimesion compatibilities.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wlCL",
       "code_hash": "1f0f57bc82b81768aac3c8b460f5688f",
       "outputs": [
         {
@@ -433,7 +576,33 @@
       ]
     },
     {
-      "id": "nHfw",
+      "id": "kqZH",
+      "code_hash": "4e10ac615ae9aec2617fbd9db39350a2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"44-adding-shortcut-connections\">4.4 Adding shortcut connections</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wAgl",
+      "code_hash": "3bf27105c858aec2641b0e86e33643ab",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is an example of skip connection like ResNet.\nTo avoid vanishing gradient problem of deep networks, this network predicts residuals in each steps.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "rEll",
       "code_hash": "15b5756f4f19a4626be33772406c06c1",
       "outputs": [
         {
@@ -446,8 +615,21 @@
       "console": []
     },
     {
-      "id": "xXTn",
-      "code_hash": "279502f7420620b084fa48d4f6b4c89d",
+      "id": "dGlV",
+      "code_hash": "5be10e96a776729ff8f7d17d50d1659c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">To see the vanishing gradient problem, define the following function to see gradients.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SdmI",
+      "code_hash": "2e505f610456ea2ace6ecdabc70ffaf3",
       "outputs": [
         {
           "type": "data",
@@ -459,7 +641,20 @@
       "console": []
     },
     {
-      "id": "AjVT",
+      "id": "lgWD",
+      "code_hash": "31010bcb53d0070a73bdea5745a9c6b2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">You can see vanishing gradients from the last layer 4 to the initial layer 0.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "yOPj",
       "code_hash": "e2e8ebce7ee70867d930c10765f6cf32",
       "outputs": [
         {
@@ -479,7 +674,20 @@
       ]
     },
     {
-      "id": "pHFh",
+      "id": "fwwy",
+      "code_hash": "22c6b093489ed032148f69861e2fb22f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Skip connection relaxes the problem like this.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "LJZf",
       "code_hash": "dbd7775fcc75f24de33e106516feb74d",
       "outputs": [
         {
@@ -499,7 +707,33 @@
       ]
     },
     {
-      "id": "NCOB",
+      "id": "urSm",
+      "code_hash": "d9112b2ab989666dfbc9c63d47322925",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"45-connecting-attention-and-linear-layers-in-a-transformer-block\">4.5 Connecting attention and linear layers in a transformer block</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "jxvo",
+      "code_hash": "530e32ad0fdf4b91112b7cd06a9db233",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Implement <code>TransformerBlock</code> by including the above ideas of <code>MultiHeadAttention</code>, <code>FeedForward</code> and <code>LayerNorm</code>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "mWxS",
       "code_hash": "0bfaf9677a285bdb46ab97f225231d7f",
       "outputs": [
         {
@@ -512,7 +746,20 @@
       "console": []
     },
     {
-      "id": "aqbW",
+      "id": "CcZR",
+      "code_hash": "40241625596b98cf2871ae80f9ad2153",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">It keeps the shape of vectors between inputs and outputs. It is suitable to combine deep layers.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "YWSi",
       "code_hash": "f0fb2f9feccb978239ccb3171e4b62ff",
       "outputs": [
         {
@@ -532,8 +779,34 @@
       ]
     },
     {
-      "id": "TRpd",
-      "code_hash": "cf6019849f89cce877d2964af743fd22",
+      "id": "zlud",
+      "code_hash": "031c2b62f7c5bbe6fa853945cdedf36e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"46-coding-the-gpt-model\">4.6 Coding the GPT model</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "tZnO",
+      "code_hash": "4ec446b51572dc333fdb475cdc89c785",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Replace the placeholders in Dummy class to create GPT2 model. It repeats <code>TransformerBlock</code> in <code>n_layers</code> times. The output logits represents unnormalized probabilities for next tokens.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xvXZ",
+      "code_hash": "3ebbb91fac9dffc96f20fe728250b00c",
       "outputs": [
         {
           "type": "data",
@@ -545,7 +818,20 @@
       "console": []
     },
     {
-      "id": "TXez",
+      "id": "CLip",
+      "code_hash": "609614597a1c0e7d6963a1988a1f4234",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try the forward path. The output shape is (B,num_tokens,d_out).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "YECM",
       "code_hash": "19b0accf83cf08243e1df261ca06832f",
       "outputs": [
         {
@@ -565,7 +851,20 @@
       ]
     },
     {
-      "id": "dNNg",
+      "id": "cEAS",
+      "code_hash": "a0b09df5e2cc1fd2c1ceb934a7f91b33",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">We can get total number of parameters by <code>numel()</code> method.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iXej",
       "code_hash": "e3f7cd347b098fb92a405d6b5a8a434d",
       "outputs": [
         {
@@ -585,7 +884,20 @@
       ]
     },
     {
-      "id": "yCnT",
+      "id": "EJmg",
+      "code_hash": "065acb4d63b7590d4adf29e7b83449ef",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">We can share token embedding weights and output layer weights if you hope. These has the same shape.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "UmEG",
       "code_hash": "7e2eca74b2be3887b49da0d92cc447c0",
       "outputs": [
         {
@@ -605,7 +917,20 @@
       ]
     },
     {
-      "id": "wlCL",
+      "id": "vEBW",
+      "code_hash": "7f4a0bfa7c2d33bfc32340f9d024340b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">By considering such weight sharing, this model parameters reduces to 1.24b parameters.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "kLmu",
       "code_hash": "311bf1ea9ab52b45f0159e92c874fe18",
       "outputs": [
         {
@@ -625,7 +950,20 @@
       ]
     },
     {
-      "id": "kqZH",
+      "id": "IpqN",
+      "code_hash": "a56aa576eff23e9522aab13f6e9e7420",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">We can estimate memory size to load this model by this.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dxZZ",
       "code_hash": "102c499f5ed81cfbb17072e1e43ee3a3",
       "outputs": [
         {
@@ -645,7 +983,33 @@
       ]
     },
     {
-      "id": "wAgl",
+      "id": "dlnW",
+      "code_hash": "a1f3cca1d2ae407108af7abb4c1434b7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"47-generating-text\">4.7 Generating text</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TTti",
+      "code_hash": "cd6ca97e4cc27410f9264bf6276705da",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is a function to generate texts (decoding) from GPT2 outputs. The step applies softmax can be omitted because it is monotonic.</span>\n<span class=\"paragraph\">It is called as the greedy decoding to select tokens whose probability is the maximum on the candidates. There are several strategies to select next tokens according to tasks.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RKFZ",
       "code_hash": "3336d3ecb8aac1d59da1ce1dbeb4a208",
       "outputs": [
         {
@@ -658,7 +1022,20 @@
       "console": []
     },
     {
-      "id": "rEll",
+      "id": "IaQp",
+      "code_hash": "0af94fd4aaaf04625708cf80374383e9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Encode texts by using tokenizer to prepare the input.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "IWgg",
       "code_hash": "cf3390bbae6e43178ba5d13eceb6d9dd",
       "outputs": [
         {
@@ -678,7 +1055,20 @@
       ]
     },
     {
-      "id": "dGlV",
+      "id": "fCoF",
+      "code_hash": "3ab67d6fd88cfc746df121646c98c477",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Input it to the function to generate text. The output is token IDs.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "LkGn",
       "code_hash": "abf06012445f91d6d54e46674e6be236",
       "outputs": [
         {
@@ -698,7 +1088,20 @@
       ]
     },
     {
-      "id": "SdmI",
+      "id": "zVRe",
+      "code_hash": "8d8c8b6677741359086f2196f4ccb4f5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Decode the output token IDs by using tokenizer. The output is nonsense because we did not train it yet.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "woaO",
       "code_hash": "04478044cebb742e92a9050104d6cff0",
       "outputs": [
         {
