@@ -43,6 +43,14 @@ def _():
 
 @app.cell
 def _():
+    mo.md(r"""
+    Prepare embedded vectors as inputs to attention layers.
+    """)
+    return
+
+
+@app.cell
+def _():
     inputs = torch.tensor(
         [
             [0.43, 0.15, 0.89],  # Your     (x^1)
@@ -57,16 +65,38 @@ def _():
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Attenstion score $\omega_{2i}$ is defined as
+    $$
+    \vec{\omega}_{2i} \equiv \vec{x}_2 \cdot \vec{x}_i.
+    $$
+    """)
+    return
+
+
+@app.cell
 def _(inputs):
     query = inputs[1]  # 2nd input token is the query
 
     attn_scores_2_trainless = torch.empty(inputs.shape[0])
     for _i, _x_i in enumerate(inputs):
-        attn_scores_2_trainless[_i] = torch.dot(
-            _x_i, query
-        )  # dot product (transpose not necessary here since they are 1-dim vectors)
+        # dot product (transpose not necessary here since they are 1-dim vectors)
+        attn_scores_2_trainless[_i] = torch.dot(_x_i, query)
     print(attn_scores_2_trainless)
     return attn_scores_2_trainless, query
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    This is a verification of dot product for beginners by
+    $$
+    \vec{x}_0\cdot\vec{x}_1\equiv\sum_{i=0}^{\mathrm{dim}(\vec{x}_0)}(x_0)_i(x_1)_i.
+    $$
+    The dot product has meaning of similarity between two vectors.
+    """)
+    return
 
 
 @app.cell
@@ -81,6 +111,14 @@ def _(inputs, query):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    The attention should be normalized to represents weights.
+    """)
+    return
+
+
+@app.cell
 def _(attn_scores_2_trainless):
     _attn_weights_2_tmp = attn_scores_2_trainless / attn_scores_2_trainless.sum()
 
@@ -89,9 +127,28 @@ def _(attn_scores_2_trainless):
     return
 
 
+@app.cell
+def _():
+    mo.md(r"""
+    More suitable function for normalization is the softmax function that has positive values and robust gradient for traning
+    $$
+    \sigma(x_i;\vec{x})\equiv\frac{e^{x_i}}{\sum_j e^{x_j}}.
+    $$
+    """)
+    return
+
+
 @app.function
 def softmax_naive(x):
     return torch.exp(x) / torch.exp(x).sum(dim=0)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The softmax function also leads weights whose total is 1.
+    """)
+    return
 
 
 @app.cell
@@ -104,12 +161,37 @@ def _(attn_scores_2_trainless):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    PyTorch softmax function is more stable with respect to numerical errors because it uses [max-trick and LogSumExp trick](https://discuss.pytorch.org/t/justification-for-logsoftmax-being-better-than-log-softmax/140130/3).
+    """)
+    return
+
+
+@app.cell
 def _(attn_scores_2_trainless):
     attn_weights_2_trainless = torch.softmax(attn_scores_2_trainless, dim=0)
 
     print("Attention weights:", attn_weights_2_trainless)
     print("Sum:", attn_weights_2_trainless.sum())
     return (attn_weights_2_trainless,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The attention scores are used as weights for weighted average of embedded vectors.
+    The result is called as context vectors $\vec{z}^{(i)}$.
+
+    Formaly, the context vectors $\vec{z}^{(i)}$ are defined as
+    $$
+    \vec{z}^{(i)}
+    \equiv\sum_j\mathrm{Softmax}_j(\omega_{ij})\vec{x}_j
+    \equiv\frac{\sum_j\omega_{ij}\vec{x}_j}{\sum_k\omega_{ik}}
+    \equiv\frac{(\sum_j\vec{x}_j\vec{x}_j^T)\vec{x}_i}{\sum_k\vec{x}_k\cdot\vec{x}_i}
+    $$
+    """)
+    return
 
 
 @app.cell
@@ -131,6 +213,14 @@ def _():
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Calculate context vectors with respect to all query vectors.
+    """)
+    return
+
+
+@app.cell
 def _(inputs):
     _attn_scores = torch.empty(6, 6)
 
@@ -142,6 +232,14 @@ def _(inputs):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    In Python, such double for-loops are inefficient. The following matrix product is preferred for computation efficiency. This result is the same with the result of the previous cell.
+    """)
+    return
+
+
+@app.cell
 def _(inputs):
     attn_scores = inputs @ inputs.T
     print(attn_scores)
@@ -149,10 +247,26 @@ def _(inputs):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    We can apply softmax function to each rows.
+    """)
+    return
+
+
+@app.cell
 def _(attn_scores):
     attn_weights = torch.softmax(attn_scores, dim=-1)
     print(attn_weights)
     return (attn_weights,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The normalization is verified by this.
+    """)
+    return
 
 
 @app.cell
@@ -165,9 +279,29 @@ def _(attn_weights):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Weighted averages are also simplified by using matrix-vector products.
+    Finally, we obtain the following formula:
+    $$
+    Z\equiv\mathrm{Softmax}(XX^T)X
+    $$
+    """)
+    return
+
+
+@app.cell
 def _(attn_weights, inputs):
     all_context_vecs = attn_weights @ inputs
     print(all_context_vecs)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The 2nd slice is the exactly same with the result of the previous section.
+    """)
     return
 
 
@@ -194,6 +328,14 @@ def _():
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Use these inputs and parameters to show how to introduce trainable attention layer.
+    """)
+    return
+
+
+@app.cell
 def _(inputs):
     x_2 = inputs[1]  # second input element
     d_in = inputs.shape[1]  # the input embedding size, d=3
@@ -202,13 +344,35 @@ def _(inputs):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    These are trainable weight matricies (or linear projections).
+    """)
+    return
+
+
+@app.cell
 def _(d_in, d_out):
     torch.manual_seed(123)
 
+    # requires_grad=False is for simplification purposes only (True is required for training)
     W_query = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False)
     W_key = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False)
     W_value = torch.nn.Parameter(torch.rand(d_in, d_out), requires_grad=False)
     return W_key, W_query, W_value
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The linear projection are like these
+    $$
+    Q_2\equiv \vec{x}_2 W^Q ,\quad
+    K_2\equiv \vec{x}_2 W^K,\quad
+    V_2\equiv \vec{x}_2 W^V,
+    $$
+    """)
+    return
 
 
 @app.cell
@@ -222,6 +386,17 @@ def _(W_key, W_query, W_value, x_2):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Linear projection for all inputs are
+    $$
+    K=XW^K, V=XW^V.
+    $$
+    """)
+    return
+
+
+@app.cell
 def _(W_key, W_value, inputs):
     keys = inputs @ W_key
     values = inputs @ W_value
@@ -229,6 +404,14 @@ def _(W_key, W_value, inputs):
     print("keys.shape:", keys.shape)
     print("values.shape:", values.shape)
     return keys, values
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The attention score $\omega_{22}\equiv Q_2\cdot K_2$ is this.
+    """)
+    return
 
 
 @app.cell
@@ -240,10 +423,30 @@ def _(keys, query_2):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Scores for all keys are calculated by $\omega_2\equiv Q_2 K$.
+    """)
+    return
+
+
+@app.cell
 def _(keys, query_2):
     attn_scores_2 = query_2 @ keys.T  # All attention scores for given query
     print(attn_scores_2)
     return (attn_scores_2,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Take the attention scores by Scaled Dot-Product Attention way.
+    The attention score is scaled by square root of the dimension of keys like
+    $$
+    \alpha_2\equiv\mathrm{Softmax}\frac{\omega_2}{\sqrt{\mathrm{dim}(K_i)}}
+    $$
+    """)
+    return
 
 
 @app.cell
@@ -252,6 +455,17 @@ def _(attn_scores_2, keys):
     attn_weights_2 = torch.softmax(attn_scores_2 / d_k**0.5, dim=-1)
     print(attn_weights_2)
     return (attn_weights_2,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Finally, we get trainable context vector as
+    $$
+    \vec{z}^2\equiv\mathrm{Softmax}\left(\frac{Q_2K}{\sqrt{\mathrm{dim}(K_i)}}\right)V.
+    $$
+    """)
+    return
 
 
 @app.cell
@@ -273,6 +487,7 @@ def _():
 class SelfAttention_v1(nn.Module):
     def __init__(self, d_in, d_out):
         super().__init__()
+        # trainable parameters are stored as member variables
         self.W_query = nn.Parameter(torch.rand(d_in, d_out))
         self.W_key = nn.Parameter(torch.rand(d_in, d_out))
         self.W_value = nn.Parameter(torch.rand(d_in, d_out))
@@ -290,10 +505,26 @@ class SelfAttention_v1(nn.Module):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    The trainable context vectors are calculated by this instance. The 2nd slice of the result is the same with the result of the previous section.
+    """)
+    return
+
+
+@app.cell
 def _(d_in, d_out, inputs):
     torch.manual_seed(123)
     sa_v1 = SelfAttention_v1(d_in, d_out)
     print(sa_v1(inputs))
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    By using `nn.Linear`, the class definition is more simplified and more stable because of a good initialization scheme called as [the Kaiming Uniform initialization](https://docs.pytorch.org/docs/stable/nn.init.html#torch.nn.init.kaiming_uniform_).
+    """)
     return
 
 
@@ -315,6 +546,14 @@ class SelfAttention_v2(nn.Module):
 
         context_vec = attn_weights @ values
         return context_vec
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    This output is different with the previous results because of such initialization schemes.
+    """)
+    return
 
 
 @app.cell
@@ -342,6 +581,14 @@ def _():
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    This is an initial attention weights like previous.
+    """)
+    return
+
+
+@app.cell
 def _(inputs, sa_v2):
     # Reuse the query and key weight matrices of the
     # SelfAttention_v2 object from the previous section for convenience
@@ -355,11 +602,28 @@ def _(inputs, sa_v2):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Let's mask the upper right of it to ensure causal token prediction tasks.
+    Such binary mask is easily created by `torch.tril`.
+    """)
+    return
+
+
+@app.cell
 def _(attn_scores):
     _context_length = attn_scores.shape[0]
     mask_simple = torch.tril(torch.ones(_context_length, _context_length))
     print(mask_simple)
     return (mask_simple,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The masking is simple multiplication of these $W_a\mathbb{1}_{i\geq j}$.
+    """)
+    return
 
 
 @app.cell
@@ -370,10 +634,26 @@ def _(attn_weights, mask_simple):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Normalize each rows to use it as weights. The normalization should be done after the masking to prevent data leak from futures.
+    """)
+    return
+
+
+@app.cell
 def _(masked_simple):
     row_sums = masked_simple.sum(dim=-1, keepdim=True)
     masked_simple_norm = masked_simple / row_sums
     print(masked_simple_norm)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    For more efficiency, this masking is replaced by filling `-inf` to upper right of attention scores before taking Softmax.
+    """)
     return
 
 
@@ -386,8 +666,16 @@ def _(attn_scores, context_length):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    $\exp(-\infty)=0$ leads the same result with the masking.
+    """)
+    return
+
+
+@app.cell
 def _(keys, masked):
-    causal_attn_weights = torch.softmax(masked / keys.shape[-1]**0.5, dim=-1)
+    causal_attn_weights = torch.softmax(masked / keys.shape[-1] ** 0.5, dim=-1)
     print(causal_attn_weights)
     return
 
@@ -402,12 +690,28 @@ def _():
 
 @app.cell
 def _():
+    mo.md(r"""
+    We introduct dropout to prevent overfitting to specific tokens. We drop 50% of elements and the remaining values are doubled to keep the total scale. This dropout layer is applied only for training.
+    """)
+    return
+
+
+@app.cell
+def _():
     torch.manual_seed(123)
-    dropout = torch.nn.Dropout(0.5) # dropout rate of 50%
-    example = torch.ones(6, 6) # create a matrix of ones
+    dropout = torch.nn.Dropout(0.5)  # dropout rate of 50%
+    example = torch.ones(6, 6)  # create a matrix of ones
 
     print(dropout(example))
     return (dropout,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The dropout layer is applied after attention weights are calculated.
+    """)
+    return
 
 
 @app.cell
@@ -426,60 +730,94 @@ def _():
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    We introduce such causal attention, dropout, and batch inference to attention layer. The batch input for testing is as follows.
+    """)
+    return
+
+
+@app.cell
 def _(inputs):
     batch = torch.stack((inputs, inputs), dim=0)
-    print(
-        batch.shape
-    )  # 2 inputs with 6 tokens each, and each token has embedding dimension 3
+    # 2 inputs with 6 tokens each, and each token has embedding dimension 3
+    print(batch.shape)  
     return (batch,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    This is an example for causal attention layer. [`register_buffer`](https://docs.pytorch.org/docs/stable/generated/torch.nn.Module.html#torch.nn.Module.register_buffer) is used to define constant (non-trained) parameters and ensure it is allocated on suitable device.
+    """)
+    return
 
 
 @app.class_definition
 class CausalAttention(nn.Module):
-
-    def __init__(self, d_in, d_out, context_length,
-                 dropout, qkv_bias=False):
+    def __init__(self, d_in, d_out, context_length, dropout, qkv_bias=False):
         super().__init__()
         self.d_out = d_out
         self.W_query = nn.Linear(d_in, d_out, bias=qkv_bias)
-        self.W_key   = nn.Linear(d_in, d_out, bias=qkv_bias)
+        self.W_key = nn.Linear(d_in, d_out, bias=qkv_bias)
         self.W_value = nn.Linear(d_in, d_out, bias=qkv_bias)
-        self.dropout = nn.Dropout(dropout) # New
-        self.register_buffer('mask', torch.triu(torch.ones(context_length, context_length), diagonal=1)) # New
+
+        # NEW
+        self.dropout = nn.Dropout(dropout)
+        # NEW: allocate maximum mask to be sliced later
+        self.register_buffer(
+            "mask", torch.triu(torch.ones(context_length, context_length), diagonal=1)
+        )
 
     def forward(self, x):
-        b, num_tokens, d_in = x.shape # New batch dimension b
+        b, num_tokens, d_in = x.shape  # New batch dimension b
+
         # For inputs where `num_tokens` exceeds `context_length`, this will result in errors
         # in the mask creation further below.
-        # In practice, this is not a problem since the LLM (chapters 4-7) ensures that inputs  
-        # do not exceed `context_length` before reaching this forward method. 
-        keys = self.W_key(x)
-        queries = self.W_query(x)
-        values = self.W_value(x)
+        # In practice, this is not a problem since the LLM (chapters 4-7) ensures that inputs
+        # do not exceed `context_length` before reaching this forward method.
+        keys = self.W_key(x)    # (B,N,d_out)
+        queries = self.W_query(x)   # (B,N,d_out)
+        values = self.W_value(x)    # (B,N,d_out)
 
-        attn_scores = queries @ keys.transpose(1, 2) # Changed transpose
-        attn_scores.masked_fill_(  # New, _ ops are in-place
-            self.mask.bool()[:num_tokens, :num_tokens], -torch.inf)  # `:num_tokens` to account for cases where the number of tokens in the batch is smaller than the supported context_size
-        attn_weights = torch.softmax(
-            attn_scores / keys.shape[-1]**0.5, dim=-1
-        )
-        attn_weights = self.dropout(attn_weights) # New
+        # Changed transpose: (B,N,d_out) -> (B,d_out,N)
+        attn_scores = queries @ keys.transpose(1, 2)    # (B,N,N)
+        # New, _ ops are in-place
+        # `:num_tokens` to account for cases where the number of tokens in the batch is smaller than the supported context_size
+        attn_scores.masked_fill_(  
+            self.mask.bool()[:num_tokens, :num_tokens], -torch.inf
+        )  
+        # normalization
+        attn_weights = torch.softmax(attn_scores / keys.shape[-1] ** 0.5, dim=-1)
+        attn_weights = self.dropout(attn_weights)  # New
 
-        context_vec = attn_weights @ values
+        context_vec = attn_weights @ values # (B,N,d_out)
         return context_vec
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    This is an example to use the forward path. Check the input and output shapes.
+    """)
+    return
 
 
 @app.cell
 def _(batch, d_in, d_out):
     torch.manual_seed(123)
 
+    # `batch` has (B,N,C) shape
     _context_length = batch.shape[1]
     ca = CausalAttention(d_in, d_out, _context_length, 0.0)
 
     _context_vecs = ca(batch)
 
     print(_context_vecs)
-    print("_context_vecs.shape:", _context_vecs.shape)
+
+    print(f"{batch.shape=}")
+    print(f"{_context_vecs.shape=}")
+    print(f"{d_in=}, {d_out=}")
     return
 
 
@@ -499,33 +837,50 @@ def _():
     return
 
 
+@app.cell
+def _():
+    mo.md(r"""
+    Let's extend the attention layer to multi-head. This is a naive extetion from single-head one.
+    """)
+    return
+
+
 @app.class_definition
 class MultiHeadAttentionWrapper(nn.Module):
-
     def __init__(self, d_in, d_out, context_length, dropout, num_heads, qkv_bias=False):
         super().__init__()
         self.heads = nn.ModuleList(
-            [CausalAttention(d_in, d_out, context_length, dropout, qkv_bias) 
-             for _ in range(num_heads)]
+            [
+                CausalAttention(d_in, d_out, context_length, dropout, qkv_bias)
+                for _ in range(num_heads)
+            ]
         )
 
     def forward(self, x):
+        # just apply single-head attentions and concatenate their outputs
         return torch.cat([head(x) for head in self.heads], dim=-1)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The output shape is $(B,N,d_{out}\times2)$.
+    """)
+    return
 
 
 @app.cell
 def _(batch):
     torch.manual_seed(123)
 
-    _context_length = batch.shape[1] # This is the number of tokens
+    _context_length = batch.shape[1]  # This is the number of tokens
     _d_in, _d_out = 3, 2
-    _mha = MultiHeadAttentionWrapper(
-        _d_in, _d_out, _context_length, 0.0, num_heads=2
-    )
+    _mha = MultiHeadAttentionWrapper(_d_in, _d_out, _context_length, 0.0, num_heads=2)
 
     _context_vecs = _mha(batch)
     print(_context_vecs)
-    print("_context_vecs.shape:", _context_vecs.shape)
+    print(f"{batch.shape=}")
+    print(f"{_context_vecs.shape=}")
     return
 
 
@@ -540,8 +895,7 @@ def _():
 @app.cell
 def _():
     mo.md(r"""
-    Define this class in a cell without other expressions to be imported by other notebooks.
-    Use `@app.class_definition` decorator for this class to export (see this Python file itself).
+    Simplify the multi-head attention layer by self-contained way and avoid loops by using matrix products.
     """)
     return
 
@@ -563,6 +917,7 @@ class MultiHeadAttention(nn.Module):
         self.W_value = nn.Linear(d_in, d_out, bias=qkv_bias)
         self.out_proj = nn.Linear(d_out, d_out)  # Linear layer to combine head outputs
         self.dropout = nn.Dropout(dropout)
+        # constant parameters
         self.register_buffer(
             "mask", torch.triu(torch.ones(context_length, context_length), diagonal=1)
         )
@@ -580,6 +935,7 @@ class MultiHeadAttention(nn.Module):
 
         # We implicitly split the matrix by adding a `num_heads` dimension
         # Unroll last dim: (b, num_tokens, d_out) -> (b, num_tokens, num_heads, head_dim)
+        # So, d_out = num_heads * head_dim (see this constructor)
         keys = keys.view(b, num_tokens, self.num_heads, self.head_dim)
         values = values.view(b, num_tokens, self.num_heads, self.head_dim)
         queries = queries.view(b, num_tokens, self.num_heads, self.head_dim)
@@ -590,6 +946,7 @@ class MultiHeadAttention(nn.Module):
         values = values.transpose(1, 2)
 
         # Compute scaled dot-product attention (aka self-attention) with a causal mask
+        # Shape: (b, num_heads, num_tokens, num_tokens)
         attn_scores = queries @ keys.transpose(2, 3)  # Dot product for each head
 
         # Original mask truncated to the number of tokens and converted to boolean
@@ -629,13 +986,22 @@ def _(batch):
 @app.cell
 def _():
     # (b, num_heads, num_tokens, head_dim) = (1, 2, 3, 4)
-    a = torch.tensor([[[[0.2745, 0.6584, 0.2775, 0.8573],
-                        [0.8993, 0.0390, 0.9268, 0.7388],
-                        [0.7179, 0.7058, 0.9156, 0.4340]],
-
-                       [[0.0772, 0.3565, 0.1479, 0.5331],
-                        [0.4066, 0.2318, 0.4545, 0.9737],
-                        [0.4606, 0.5159, 0.4220, 0.5786]]]])
+    a = torch.tensor(
+        [
+            [
+                [
+                    [0.2745, 0.6584, 0.2775, 0.8573],
+                    [0.8993, 0.0390, 0.9268, 0.7388],
+                    [0.7179, 0.7058, 0.9156, 0.4340],
+                ],
+                [
+                    [0.0772, 0.3565, 0.1479, 0.5331],
+                    [0.4066, 0.2318, 0.4545, 0.9737],
+                    [0.4606, 0.5159, 0.4220, 0.5786],
+                ],
+            ]
+        ]
+    )
 
     print(a @ a.transpose(2, 3))
     return (a,)

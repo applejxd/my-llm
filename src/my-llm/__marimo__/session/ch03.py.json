@@ -6,15 +6,8 @@
   "cells": [
     {
       "id": "setup",
-      "code_hash": "883050a26ed93102ef356b0e95d2c9f3",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "code_hash": "f80cd351b905c364088fa51d0559db39",
+      "outputs": [],
       "console": []
     },
     {
@@ -33,22 +26,8 @@
     {
       "id": "MJUe",
       "code_hash": "ac76a1258bd3ba7aa8436da2d786332e",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "torch version: 2.9.1+cu128\n",
-          "mimetype": "text/plain"
-        }
-      ]
+      "outputs": [],
+      "console": []
     },
     {
       "id": "vblA",
@@ -77,234 +56,310 @@
       "console": []
     },
     {
+      "id": "vEBW",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
       "id": "lEQa",
-      "code_hash": "79185be9b4fec805bb900dd1ed231c33",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "TXez",
-      "code_hash": null,
+      "code_hash": "47255886eacf9cf4f4a947a0778c9134",
       "outputs": [],
       "console": []
     },
     {
-      "id": "Xref",
-      "code_hash": "370a9248f6b7d7776a64b3b9b2716db0",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "tensor(0.9544)\ntensor(0.9544)\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "SFPL",
-      "code_hash": "9f66dcafb8c2d622777d785723ab0339",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Attention weights: tensor([0.1455, 0.2278, 0.2249, 0.1285, 0.1077, 0.1656])\nSum: tensor(1.0000)\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "BYtC",
-      "code_hash": "01d426fe90a7f1e71cc40ff0f1439ba8",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "RGSE",
-      "code_hash": "a6bab3c440a3a9759f0bb6bdf07bd181",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "Attention weights: tensor([0.1385, 0.2379, 0.2333, 0.1240, 0.1082, 0.1581])\nSum: tensor(1.)\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "wlCL",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "ulZA",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "ZBYS",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "ecfG",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "Pvdt",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "aLJB",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "pHFh",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "aqbW",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "xXTn",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "AjVT",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "nHfw",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "Kclp",
-      "code_hash": "d287737fd5b0281e7d4ba526063d9f1a",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "NCOB",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "dNNg",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "TRpd",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "yCnT",
+      "id": "UmEG",
       "code_hash": null,
       "outputs": [],
       "console": []
     },
     {
       "id": "PKri",
-      "code_hash": "e8dca5bf53067f3f9c60eca27975ecad",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "tensor([0.9544, 1.4950, 1.4754, 0.8434, 0.7070, 1.0865])\n",
-          "mimetype": "text/plain"
-        }
-      ]
+      "code_hash": "a1594c97a55118afe21a78a5898d58dc",
+      "outputs": [],
+      "console": []
     },
     {
-      "id": "DnEU",
+      "id": "woaO",
       "code_hash": null,
       "outputs": [],
       "console": []
     },
     {
-      "id": "kqZH",
+      "id": "Xref",
+      "code_hash": "b90b7a557ea42d0cea739437f307bdb9",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "kLmu",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "b986af97de8771c78b2b6d7f034caf64",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "LkGn",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "01d426fe90a7f1e71cc40ff0f1439ba8",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "IWgg",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "9b0c68b9ed02b40ee9e41a2a5f733fff",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "HnMC",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Kclp",
+      "code_hash": "46ee78f8dcf59c377491736e1dc64755",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "IaQp",
       "code_hash": null,
       "outputs": [],
       "console": []
     },
     {
       "id": "emfo",
+      "code_hash": "b10b78de36e39ff699f81a2954584990",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Hstk",
+      "code_hash": "a4847ec0a2934b837c4d8285d9636c51",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"332-computing-attention-weights-for-all-input-tokens\">3.3.2 Computing attention weights for all input tokens</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wadT",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "f6580dd1727c68985a22f6638e834747",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "RKFZ",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "iLit",
+      "code_hash": "a725b139ea3d9bdedddff16283b461a4",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "IpqN",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "608f1b575147585791ed731dd36f25f3",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "zVRe",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ROlb",
+      "code_hash": "445458740f1514ef2df8a3a72339717b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TTti",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "a1fe05bbceaec97ebd020e2ebcdda449",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "dxZZ",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "1c9880bf9457187d957fbc550117ca2f",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "b63f1b7cd636c0ab92ce784323a145c4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"34-implementing-self-attention-with-trainable-weights\">3.4 Implementing self-attention with trainable weights</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "c6405f6ef21ed490604fe1accb5aadb9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"341-computing-the-attention-weights-step-by-step\">3.4.1 Computing the attention weights step by step</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dlnW",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ulZA",
+      "code_hash": "d287737fd5b0281e7d4ba526063d9f1a",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "fCoF",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "bfba957e421d854f07c7e00bb331a6ae",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SYQT",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Pvdt",
+      "code_hash": "8a0ab3e2f2061cb981d40528f2f95032",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "vGiW",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "7e134a8474ea63bd5d14de15a2913e13",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PSUk",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "aLJB",
+      "code_hash": "e0ac41aaeb3878ee9e6d339ebfd03195",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "hgqU",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "nHfw",
+      "code_hash": "79c4c8a1de94c71f29e7a979d5adcebd",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "mfOT",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "xXTn",
+      "code_hash": "2fbca3f0d4f9861a1165a136de3feaf2",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "VCRE",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "AjVT",
+      "code_hash": "84d74d9186e3058175dd86fce965c7bf",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "pHFh",
       "code_hash": "7cd1c33c5e9d4edaa4e095c5f8bc4db8",
       "outputs": [
         {
@@ -317,111 +372,184 @@
       "console": []
     },
     {
-      "id": "Hstk",
-      "code_hash": "6e87ef36c1b7ec3799c525e0a41a6ae4",
+      "id": "NCOB",
+      "code_hash": "c5c53fe2e910150f9078f90658ba01df",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "PSQn",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "aqbW",
+      "code_hash": "22fb93a91eb5d37f74addf87800a5af5",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "bMrW",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TRpd",
+      "code_hash": "96c60e91e0d16427007e35a4e2af54be",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Plbk",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TXez",
+      "code_hash": "f60c3691241f0e09c605f83b01c3cbf2",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "dNNg",
+      "code_hash": "8bf3ac6400f1ff6082dab26d161ab918",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"35-hiding-future-words-with-causal-attention\">3.5 Hiding future words with causal attention</h2></span>"
           }
         }
       ],
-      "console": [
+      "console": []
+    },
+    {
+      "id": "yCnT",
+      "code_hash": "57c511ce00e971f7be359be966819ceb",
+      "outputs": [
         {
-          "type": "stream",
-          "name": "stdout",
-          "text": "tensor([[0.2996, 0.8053],\n        [0.3061, 0.8210],\n        [0.3058, 0.8203],\n        [0.2948, 0.7939],\n        [0.2927, 0.7891],\n        [0.2990, 0.8040]], grad_fn=<MmBackward0>)\n",
-          "mimetype": "text/plain"
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"351-applying-a-causal-attention-mask\">3.5.1 Applying a causal attention mask</h3></span>"
+          }
         }
-      ]
+      ],
+      "console": []
+    },
+    {
+      "id": "rSYo",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "wlCL",
+      "code_hash": "cd842cbe5b737cff15c08229cf06e56b",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "HuZB",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "kqZH",
+      "code_hash": "54ba0591bc55a74e73ed905c165099af",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "WfYj",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
     },
     {
       "id": "wAgl",
+      "code_hash": "a933b55c5e91dfd6e2e18a78100fdf29",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "LqFA",
       "code_hash": null,
       "outputs": [],
       "console": []
     },
     {
       "id": "rEll",
-      "code_hash": null,
+      "code_hash": "5999220bcce3b0bff4ac0e1c7d141703",
       "outputs": [],
       "console": []
     },
     {
-      "id": "yOPj",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "lgWD",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "SdmI",
+      "id": "OfTS",
       "code_hash": null,
       "outputs": [],
       "console": []
     },
     {
       "id": "dGlV",
+      "code_hash": "b6fcb9fefa5df01ebac9465b12cee6a3",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Ynfw",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "SdmI",
+      "code_hash": "19fd6ed612097d7dd08f02b5374de1ff",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "lgWD",
+      "code_hash": "b251d41af776af72e8ff16cba385925b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"352-masking-additional-attention-weights-with-dropout\">3.5.2 Masking additional attention weights with dropout</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "uDnK",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "yOPj",
+      "code_hash": "798e5ef66eeb2410f27a6ab9d2fe7bd5",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "lQxp",
       "code_hash": null,
       "outputs": [],
       "console": []
     },
     {
       "id": "fwwy",
-      "code_hash": null,
+      "code_hash": "6628c0ce8df424d1a3c72cf295c6c3a8",
       "outputs": [],
       "console": []
     },
     {
       "id": "LJZf",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "tZnO",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "mWxS",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "jxvo",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "YWSi",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "urSm",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "CcZR",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "nWHF",
       "code_hash": "fc8ed30bfdf2007d29e2ee5c58f10cc0",
       "outputs": [
         {
@@ -434,83 +562,81 @@
       "console": []
     },
     {
-      "id": "iLit",
+      "id": "aWBL",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "urSm",
       "code_hash": "5522df6e8ba9f95859f57e6229b13e6f",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "MIsd",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "jxvo",
+      "code_hash": "c3cc0162044bcf503c1e450245f52ee8",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "IrqS",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "mWxS",
+      "code_hash": "2efd208570b939fd2c2f6108a4cee725",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "CcZR",
+      "code_hash": "6a633c1e552821a320f3a8ccde69baac",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"36-extending-single-head-attention-to-multi-head-attention\">3.6 Extending single-head attention to multi-head attention</h2></span>"
           }
         }
       ],
-      "console": [
+      "console": []
+    },
+    {
+      "id": "YWSi",
+      "code_hash": "f743c24923cb102829cb8d88ecbbdb2c",
+      "outputs": [
         {
-          "type": "stream",
-          "name": "stdout",
-          "text": "torch.Size([2, 6, 3])\n",
-          "mimetype": "text/plain"
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"361-stacking-multiple-single-head-attention-layers\">3.6.1 Stacking multiple single-head attention layers</h3></span>"
+          }
         }
-      ]
+      ],
+      "console": []
+    },
+    {
+      "id": "Lpqv",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
     },
     {
       "id": "zlud",
-      "code_hash": null,
+      "code_hash": "302bbb3cc5df7a190635223dca24188f",
       "outputs": [],
       "console": []
     },
     {
-      "id": "xvXZ",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "YECM",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "Vxnm",
-      "code_hash": null,
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "iXej",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "cEAS",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "ZHCJ",
-      "code_hash": "d47cb323919be524729487e24e60f574",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"362-implementing-multi-head-attention-with-weight-splits\">3.6.2 Implementing multi-head attention with weight splits</h3></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "ROlb",
+      "id": "CLip",
       "code_hash": "0170443c3aaa4f51bb15d71bdad37e77",
       "outputs": [
         {
@@ -523,47 +649,51 @@
       "console": []
     },
     {
-      "id": "qnkX",
-      "code_hash": "027fa7b6295fb0c5a0d21b4adf399799",
+      "id": "tZnO",
+      "code_hash": "850f7829fa45f895a8ad8a12f869d461",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "xvXZ",
+      "code_hash": "d47cb323919be524729487e24e60f574",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"362-implementing-multi-head-attention-with-weight-splits\">3.6.2 Implementing multi-head attention with weight splits</h3></span>"
           }
         }
       ],
       "console": []
     },
     {
-      "id": "TqIu",
-      "code_hash": "2547ff1060a2f35548ccb196faa2f385",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "tensor([[[0.3190, 0.4858],\n         [0.2943, 0.3897],\n         [0.2856, 0.3593],\n         [0.2693, 0.3873],\n         [0.2639, 0.3928],\n         [0.2575, 0.4028]],\n\n        [[0.3190, 0.4858],\n         [0.2943, 0.3897],\n         [0.2856, 0.3593],\n         [0.2693, 0.3873],\n         [0.2639, 0.3928],\n         [0.2575, 0.4028]]], grad_fn=<ViewBackward0>)\ncontext_vecs.shape: torch.Size([2, 6, 2])\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
-      "id": "CLip",
+      "id": "upgv",
       "code_hash": null,
       "outputs": [],
       "console": []
     },
     {
+      "id": "YECM",
+      "code_hash": "027fa7b6295fb0c5a0d21b4adf399799",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "cEAS",
+      "code_hash": "2547ff1060a2f35548ccb196faa2f385",
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "iXej",
+      "code_hash": "a8880ff9e1477af424f6fe4c00de1929",
+      "outputs": [],
+      "console": []
+    },
+    {
       "id": "EJmg",
-      "code_hash": null,
+      "code_hash": "ae4d3ffaad860d92855d7acf4f61c8ce",
       "outputs": [],
       "console": []
     }
