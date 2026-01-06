@@ -5,39 +5,6 @@
   },
   "cells": [
     {
-      "id": "setup",
-      "code_hash": "b811c64f15a098eef1dbfb3bc7b139ba",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "Hbol",
-      "code_hash": "221d4670dfdd8c1d81bc579d9cb793d4",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "torch version: 2.9.1+cu128\ntiktoken version: 0.12.0\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
       "id": "MJUe",
       "code_hash": "8f2b5b49f2d6ba6ef6f6440e9b5764bd",
       "outputs": [
@@ -77,8 +44,658 @@
       "console": []
     },
     {
-      "id": "lEQa",
-      "code_hash": "928d1a8cb9d9d9d2ee2f1b208e120435",
+      "id": "PKri",
+      "code_hash": "5620b08a6e70e5bbc0f1b7ddeab4759a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Download and read the data.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "806fd6f1062019a88d02ec3df30c1d04",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Split words by whitespace using regex.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
+      "code_hash": "6087dc09e326a8b47a7cbca4245f295a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Add period (.) and comma (,) separaters for it.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "52742d4c1829344a2b387c5746e8cfea",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Delete whitespaces that is recognized as a separater if it is needed.\nStrip whitespace from each item and then filter out any empty strings.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nWHF",
+      "code_hash": "716de2d0f51757b1c87bb8854b0a6196",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try another example includes symbols like hyphen (-) or question mark (?). These symbols also can be extracted by treating these as separaters.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZHCJ",
+      "code_hash": "487fe9447ddf166222e048a3946d991c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Split The Verdict data whole.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "qnkX",
+      "code_hash": "c12b1babadec4cfc4cb6caded15b7c7a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"23-converting-tokens-into-token-ids\">2.3 Converting tokens into token IDs</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
+      "code_hash": "dfa12e4a5e036c49aa84223eab5bf3b8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Create unique list of tokens by using <code>set</code>, then sort it.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "98ab0407f8df03fb179d8262c51d0331",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Create map (dictionary) from token to token ID, then show it.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ecfG",
+      "code_hash": "ac58c91420f4c297a9699e9b30890f2f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Define a simple tokenizer based on these, and implement not only encoder but also decoder by defining the inverse mapping.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
+      "code_hash": "d2cc787969cb815f91dc8b5b83f601d8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Apply the encoder process to a sentence from The Verdict.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nHfw",
+      "code_hash": "b06d5372a3efc06d33f4dbf0e9895f9b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try decoding it to check whether it is invertive.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "AjVT",
+      "code_hash": "e4e290f6df1bc3999ef7bb2f4e7a15d2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Combine these.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NCOB",
+      "code_hash": "26eefac673a38afebd45a4d95a6f62e9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">We cannot treat unknown words that are not included in the vocabulary. This will occur an error.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TRpd",
+      "code_hash": "9dba180ab344b62c64055cbd382cf9be",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"24-adding-special-context-tokens\">2.4 Adding special context tokens</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TXez",
+      "code_hash": "a1551d8335269138eb3cbaad2daa0882",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">To fix the vocabulary issues, the special token for unknown words should be added as <code>unk</code>. The special token to combine multiple texts is also added as <code>endoftext</code>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "yCnT",
+      "code_hash": "850ddf4b9b5910bdb3932aa84b1f4f5d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The total number of the vocabulary is increased <marimo-tex class=\"arithmatex\">||(1130+2=1132||)</marimo-tex>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "kqZH",
+      "code_hash": "bf19cd2d5800b550dd21e1aaf8614fc6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Check the tail.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "rEll",
+      "code_hash": "70e5007f7947dd399df56d7d108792a5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is updated simple tokenier includes the special tokens.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SdmI",
+      "code_hash": "057cb48bd2dafeba41b8a3d6d7d27cbd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try to tokenize concatenated texts by the special token.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "yOPj",
+      "code_hash": "f3da786513b585d412483170ba342418",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Then, tokenize it. You will see token ID 1130 and 1131 that are asigned for the special tokens.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "LJZf",
+      "code_hash": "a20ed35700cfa3615b25ff7f9e835a15",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Decode it to check the tokenization.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "jxvo",
+      "code_hash": "0c8908e51e6bf4a43f0fa882e89b591e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"25-bytepair-encoding\">2.5 BytePair encoding</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "mWxS",
+      "code_hash": "f67d26b4f68f67e6e41a9e68266fcd09",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">To avoid unknown tokens, introduce byte pair encoding (BPE) by using tiktoken.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "YWSi",
+      "code_hash": "c06a1e36ae8f46076ba89450818608e2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try the tiktoken tokenizer for GPT2 model. The max token ID 50256 is assigned for <code>endoftext</code>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "tZnO",
+      "code_hash": "c726e525f8da8242ec1515e02e374990",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Check it by using the decoding. It encodes all tokens in unique manner by using subworkds and the combined words. So, this is invertive.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "CLip",
+      "code_hash": "5fc2e49699efb7ee03102d9a3c28852b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">To know BPE, see <a href=\"../../third_party/LLMs-from-scratch/ch02/05_bpe-from-scratch/bpe-from-scratch.ipynb\">this</a>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "YECM",
+      "code_hash": "775ab3be1c72d33526fde08796f670bc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"26-data-sampling-with-a-sliding-window\">2.6 Data sampling with a sliding window</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "cEAS",
+      "code_hash": "60e9ed1e714cb207b59f1739d2bdcc04",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Use BPE tokenizer for tokenization of The Verdict, and show the size of the all tokens.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "EJmg",
+      "code_hash": "5177dadab4e683865f8980ae630b3501",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Delete the beginning for a later demonstration.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vEBW",
+      "code_hash": "d25559a446eba525765e4f1c4c064dd9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Create learning pairs to predict next tokens. The task is predicting the <code>y</code> from the <code>x</code>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "IpqN",
+      "code_hash": "d52d451224ff4dc14301f658aaa378cd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The mappings will be learned are these.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dlnW",
+      "code_hash": "9e621993327192529a10698ae99b8e50",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Decode these token IDs to check the words.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RKFZ",
+      "code_hash": "a4316a2d5e96f771db61f331d5ec48db",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Let's define dataset for this by using PyTorch.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "IWgg",
+      "code_hash": "f4f284f9e09e71fb17873d892d72e554",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">To define PyTorch dataset, we need to define special methods <code>__len__</code> and <code>__getitem__</code> for iterater use. We implement the indexing for tokenized tensor with chunks whose size is <code>max_length</code> with <code>stride</code> step size (sliding window).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "LkGn",
+      "code_hash": "21ab3e77bc69c7817060919892963014",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Define a function to instantiate the dataloader class.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "woaO",
+      "code_hash": "3343621115915a0732649c769b899088",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">For debugging, define a decoder function for batches.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wadT",
+      "code_hash": "ab6d86392b648d2ff793122f11b9388c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Call the function to check the data batches. The output should be the pair of input IDs and target IDs.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "hgqU",
+      "code_hash": "370791cffe1de6dd33c2911655fbbda3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Iterate again and check the next batch. You will see only 1 shifted tokens from the previous because of <code>stride=1</code>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "mfOT",
+      "code_hash": "1745f425f9315e279e4683dd7c08abe7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try larger batch size (<code>batch_size=8</code>) for robust training. To avoid overfitting, the stride is also increased (<code>stride=4</code>).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SYQT",
+      "code_hash": "69048aa7b2ee3cbf3a0923693c8ccc26",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"27-creating-token-embeddings\">2.7 Creating token embeddings</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bMrW",
+      "code_hash": "a3d2ff412cc003d3c7efb6aeff126b8b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is an example for token embeddings that accepts 6-dimensional input as the vocabulary and outputs 3-dimensional embedding vector.</span>\n<span class=\"paragraph\">The embedding is represented by a matrix whose rows represents embedding vectors for each vocabularies.</span>\n<span class=\"paragraph\">The representation matrix can be trained.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "OfTS",
+      "code_hash": "0c7f2db4f5f138b40620b47b1cdd4d11",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Let's try the embedding for token ID 3.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Plbk",
+      "code_hash": "a38fe0c5cd694295181e821dd51d3bcf",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try more embeddings. This is just referring the matrix as LUT (Look Up Table).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "HuZB",
+      "code_hash": "a0703e403e44433a1900882327eb5d3b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"28-encoding-word-positions\">2.8 Encoding word positions</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "WfYj",
+      "code_hash": "e6624cd2e66b4341ce8582a70c7f3bc9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try positional encoding based on this configurations.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "aWBL",
+      "code_hash": "76a828279ee6bc746434b4bc9495bdc3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Then, these tokens are embedded to 256-dimensional manifold.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "IrqS",
+      "code_hash": "7a032648fa11b7dd07387ae18dfe407c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Absolute positional embedding is also proceeded by using another <code>torch.nn.Embedding</code> layer.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "upgv",
+      "code_hash": "ab99ab5e92dbd69053c464ae2e287d07",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Then, indexes represents absolute positions are input to it. This can be also interpreted as LUT.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "pCao",
+      "code_hash": "5a3e376b12a8cc58b1e4ecaa9b4aac06",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The absolute positional encoding is just adding these.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "setup",
+      "code_hash": "b811c64f15a098eef1dbfb3bc7b139ba",
       "outputs": [
         {
           "type": "data",
@@ -90,13 +707,33 @@
       "console": []
     },
     {
-      "id": "PKri",
-      "code_hash": "5620b08a6e70e5bbc0f1b7ddeab4759a",
+      "id": "Hbol",
+      "code_hash": "221d4670dfdd8c1d81bc579d9cb793d4",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Download and read the data.</span></span>"
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "torch version: 2.9.1+cu128\ntiktoken version: 0.12.0\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "lEQa",
+      "code_hash": "928d1a8cb9d9d9d2ee2f1b208e120435",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
           }
         }
       ],
@@ -123,19 +760,6 @@
       ]
     },
     {
-      "id": "SFPL",
-      "code_hash": "806fd6f1062019a88d02ec3df30c1d04",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Split words by whitespace using regex.</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "BYtC",
       "code_hash": "47612c8fa936b70b8681c13fc1081c1d",
       "outputs": [
@@ -154,19 +778,6 @@
           "mimetype": "text/plain"
         }
       ]
-    },
-    {
-      "id": "RGSE",
-      "code_hash": "6087dc09e326a8b47a7cbca4245f295a",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Add period (.) and comma (,) separaters for it.</span></span>"
-          }
-        }
-      ],
-      "console": []
     },
     {
       "id": "Kclp",
@@ -189,19 +800,6 @@
       ]
     },
     {
-      "id": "emfo",
-      "code_hash": "52742d4c1829344a2b387c5746e8cfea",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Delete whitespaces that is recognized as a separater if it is needed.\nStrip whitespace from each item and then filter out any empty strings.</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "Hstk",
       "code_hash": "067536247bc91ef7e9c14e23ad7ed89b",
       "outputs": [
@@ -220,19 +818,6 @@
           "mimetype": "text/plain"
         }
       ]
-    },
-    {
-      "id": "nWHF",
-      "code_hash": "716de2d0f51757b1c87bb8854b0a6196",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try another example includes symbols like hyphen (-) or question mark (?). These symbols also can be extracted by treating these as separaters.</span></span>"
-          }
-        }
-      ],
-      "console": []
     },
     {
       "id": "iLit",
@@ -255,19 +840,6 @@
       ]
     },
     {
-      "id": "ZHCJ",
-      "code_hash": "079d81bd6210f5739867ddd32f598e07",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Split the Verdict data whole.</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "ROlb",
       "code_hash": "a399b7d4c7d58e0892b627a86c375214",
       "outputs": [
@@ -288,34 +860,8 @@
       ]
     },
     {
-      "id": "qnkX",
-      "code_hash": "c12b1babadec4cfc4cb6caded15b7c7a",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"23-converting-tokens-into-token-ids\">2.3 Converting tokens into token IDs</h2></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "Vxnm",
-      "code_hash": "ac4a4e574d06dd65c38ef07fcad242fc",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "TqIu",
-      "code_hash": "dc069bf4a0320feffb56e20a9974319c",
+      "code_hash": "72b9bfcc42358a509bf131d4c658b3da",
       "outputs": [
         {
           "type": "data",
@@ -334,8 +880,8 @@
       ]
     },
     {
-      "id": "DnEU",
-      "code_hash": "42c62a96f7454479d6137a3d773cc9d4",
+      "id": "ulZA",
+      "code_hash": "ea257066237ca121a72d9b750af6a44d",
       "outputs": [
         {
           "type": "data",
@@ -354,8 +900,8 @@
       ]
     },
     {
-      "id": "ulZA",
-      "code_hash": "3bb91b7828e4de188da0ef1782130c5f",
+      "id": "Pvdt",
+      "code_hash": "b6c481725481c9c62c36d424640bd94b",
       "outputs": [
         {
           "type": "data",
@@ -367,8 +913,8 @@
       "console": []
     },
     {
-      "id": "ecfG",
-      "code_hash": "ef4ed57bf4c563bdbf2a855fe4aec527",
+      "id": "aLJB",
+      "code_hash": "bdf315624ec093cd400248fd3000eb14",
       "outputs": [
         {
           "type": "data",
@@ -387,8 +933,8 @@
       ]
     },
     {
-      "id": "Pvdt",
-      "code_hash": "45a1e6723fae71fc93c3651d56d751fa",
+      "id": "xXTn",
+      "code_hash": "aa5a76875e01c75affc6a3940b396d8f",
       "outputs": [
         {
           "type": "data",
@@ -400,7 +946,7 @@
       "console": []
     },
     {
-      "id": "ZBYS",
+      "id": "pHFh",
       "code_hash": "ab86fa92838ab6fe8da4bae62c794147",
       "outputs": [
         {
@@ -413,33 +959,7 @@
       "console": []
     },
     {
-      "id": "aLJB",
-      "code_hash": "9dba180ab344b62c64055cbd382cf9be",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"24-adding-special-context-tokens\">2.4 Adding special context tokens</h2></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "nHfw",
-      "code_hash": "d94fe68e62c289f5b1dfdb66eb35177e",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This will occur an error.</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "xXTn",
+      "id": "aqbW",
       "code_hash": "4e7dee53fe9ca3ef1e339a895531715c",
       "outputs": [
         {
@@ -453,13 +973,13 @@
         {
           "type": "stream",
           "name": "stderr",
-          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_99174/__marimo__cell_xXTn_.py&quot;</span>, line <span class=\"m\">3</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">simple_tokenizer</span><span class=\"o\">.</span><span class=\"n\">encode</span><span class=\"p\">(</span><span class=\"n\">text_4</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_99174/__marimo__cell_ulZA_.py&quot;</span>, line <span class=\"m\">10</span>, in <span class=\"n\">encode</span>\n<span class=\"w\">    </span><span class=\"n\">ids</span> <span class=\"o\">=</span> <span class=\"p\">[</span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">str_to_int</span><span class=\"p\">[</span><span class=\"n\">s</span><span class=\"p\">]</span> <span class=\"k\">for</span> <span class=\"n\">s</span> <span class=\"ow\">in</span> <span class=\"n\">preprocessed</span><span class=\"p\">]</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~~~~^^^</span>\n<span class=\"gr\">KeyError</span>: <span class=\"n\">&#39;Hello&#39;</span>\n</pre></div>\n</span>",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_21375/__marimo__cell_aqbW_.py&quot;</span>, line <span class=\"m\">3</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">simple_tokenizer</span><span class=\"o\">.</span><span class=\"n\">encode</span><span class=\"p\">(</span><span class=\"n\">text_4</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_21375/__marimo__cell_Pvdt_.py&quot;</span>, line <span class=\"m\">13</span>, in <span class=\"n\">encode</span>\n<span class=\"w\">    </span><span class=\"n\">ids</span> <span class=\"o\">=</span> <span class=\"p\">[</span><span class=\"bp\">self</span><span class=\"o\">.</span><span class=\"n\">str_to_int</span><span class=\"p\">[</span><span class=\"n\">s</span><span class=\"p\">]</span> <span class=\"k\">for</span> <span class=\"n\">s</span> <span class=\"ow\">in</span> <span class=\"n\">preprocessed</span><span class=\"p\">]</span>\n<span class=\"w\">           </span><span class=\"pm\">~~~~~~~~~~~~~~~^^^</span>\n<span class=\"gr\">KeyError</span>: <span class=\"n\">&#39;Hello&#39;</span>\n</pre></div>\n</span>",
           "mimetype": "application/vnd.marimo+traceback"
         }
       ]
     },
     {
-      "id": "AjVT",
+      "id": "dNNg",
       "code_hash": "a1a299db1ab79b7c544c7171c753e4d4",
       "outputs": [
         {
@@ -472,7 +992,7 @@
       "console": []
     },
     {
-      "id": "pHFh",
+      "id": "wlCL",
       "code_hash": "c77ec58a385eb394bec234a911c8a7c6",
       "outputs": [
         {
@@ -485,7 +1005,7 @@
       "console": []
     },
     {
-      "id": "NCOB",
+      "id": "wAgl",
       "code_hash": "d9c605999dcc12c20dede81d29e2ab0d",
       "outputs": [
         {
@@ -505,8 +1025,8 @@
       ]
     },
     {
-      "id": "aqbW",
-      "code_hash": "ca821128f178b137dabce3d0ab4d985a",
+      "id": "dGlV",
+      "code_hash": "d8377cc00a65cbaa17ac6194965ed39e",
       "outputs": [
         {
           "type": "data",
@@ -518,7 +1038,7 @@
       "console": []
     },
     {
-      "id": "TRpd",
+      "id": "lgWD",
       "code_hash": "b2b3daa5c3a7e59bdbee5696b2a8781f",
       "outputs": [
         {
@@ -538,7 +1058,7 @@
       ]
     },
     {
-      "id": "TXez",
+      "id": "fwwy",
       "code_hash": "325e071f7f4a3db4562cc7c7b7179d06",
       "outputs": [
         {
@@ -551,7 +1071,7 @@
       "console": []
     },
     {
-      "id": "dNNg",
+      "id": "urSm",
       "code_hash": "c17f4939b738cda59f2c115230c4d7ca",
       "outputs": [
         {
@@ -564,20 +1084,7 @@
       "console": []
     },
     {
-      "id": "yCnT",
-      "code_hash": "0c8908e51e6bf4a43f0fa882e89b591e",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"25-bytepair-encoding\">2.5 BytePair encoding</h2></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "wlCL",
+      "id": "CcZR",
       "code_hash": "b7bdb952c4a41936bd41ee846d179a13",
       "outputs": [
         {
@@ -597,21 +1104,8 @@
       ]
     },
     {
-      "id": "kqZH",
-      "code_hash": "c9519b2f4711850259abcddb0047d51f",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "wAgl",
-      "code_hash": "954ae62c15ab31bc45aaeb2dc71c6306",
+      "id": "zlud",
+      "code_hash": "e3a7b99ae792d7f7e06727d557219865",
       "outputs": [
         {
           "type": "data",
@@ -630,8 +1124,8 @@
       ]
     },
     {
-      "id": "rEll",
-      "code_hash": "0d7e9347998bc8f8fe9ff177e6a2ec27",
+      "id": "xvXZ",
+      "code_hash": "4df1be27003ced3b6a27eaf5f8166ead",
       "outputs": [
         {
           "type": "data",
@@ -650,21 +1144,8 @@
       ]
     },
     {
-      "id": "dGlV",
-      "code_hash": "775ab3be1c72d33526fde08796f670bc",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"26-data-sampling-with-a-sliding-window\">2.6 Data sampling with a sliding window</h2></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "SdmI",
-      "code_hash": "0aaad49e987d0099a7e178018cb57c7a",
+      "id": "iXej",
+      "code_hash": "d0ef41fca87026a2d5b7bb9d1bee2e0e",
       "outputs": [
         {
           "type": "data",
@@ -683,7 +1164,7 @@
       ]
     },
     {
-      "id": "lgWD",
+      "id": "UmEG",
       "code_hash": "1f178580c3a29740e9ec4700212be1a1",
       "outputs": [
         {
@@ -696,7 +1177,7 @@
       "console": []
     },
     {
-      "id": "yOPj",
+      "id": "kLmu",
       "code_hash": "ba3fd82064d4e55004a9f80c03434a68",
       "outputs": [
         {
@@ -716,7 +1197,7 @@
       ]
     },
     {
-      "id": "fwwy",
+      "id": "dxZZ",
       "code_hash": "4b3e026a88a7fa0948db74a664633fb2",
       "outputs": [
         {
@@ -736,8 +1217,8 @@
       ]
     },
     {
-      "id": "LJZf",
-      "code_hash": "1fe5d2822241b34848387e24c46602d3",
+      "id": "TTti",
+      "code_hash": "a5bbe1774beeafc2d499900a76336917",
       "outputs": [
         {
           "type": "data",
@@ -756,7 +1237,7 @@
       ]
     },
     {
-      "id": "urSm",
+      "id": "IaQp",
       "code_hash": "3cae89922448b73c1072ed81b9a6a159",
       "outputs": [
         {
@@ -776,8 +1257,8 @@
       ]
     },
     {
-      "id": "jxvo",
-      "code_hash": "e55b026a624e03e476e5cefa2fcad68a",
+      "id": "fCoF",
+      "code_hash": "4861ccc76f2436d0377c5af8ccc8123e",
       "outputs": [
         {
           "type": "data",
@@ -789,8 +1270,8 @@
       "console": []
     },
     {
-      "id": "mWxS",
-      "code_hash": "121a8f025c648bb35cf90a2193eb3504",
+      "id": "zVRe",
+      "code_hash": "6fde38f6d1dcba250555540824213762",
       "outputs": [
         {
           "type": "data",
@@ -802,8 +1283,21 @@
       "console": []
     },
     {
-      "id": "CcZR",
-      "code_hash": "cd1a9cdde524b2af28a4677a60e7a2d3",
+      "id": "HnMC",
+      "code_hash": "14c172be19288dd96099c0b293a4633f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "VCRE",
+      "code_hash": "c3e1ce732bd0f23191a1988bf6c1c145",
       "outputs": [
         {
           "type": "data",
@@ -816,14 +1310,14 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "[tensor([[  40,  367, 2885, 1464]]), tensor([[ 367, 2885, 1464, 1807]])]\n",
+          "text": "_first_batch=[tensor([[  40,  367, 2885, 1464]]), tensor([[ 367, 2885, 1464, 1807]])]\n_inputs_decoded=['I HAD always']\n_targets_decoded=[' HAD always thought']\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
-      "id": "YWSi",
-      "code_hash": "1b83d3118ffbfc54295e14852bae8d31",
+      "id": "PSUk",
+      "code_hash": "f2fdf5f12cc05bfb4b74dedb225a773d",
       "outputs": [
         {
           "type": "data",
@@ -836,14 +1330,14 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "[tensor([[ 367, 2885, 1464, 1807]]), tensor([[2885, 1464, 1807, 3619]])]\n",
+          "text": "_second_batch=[tensor([[ 367, 2885, 1464, 1807]]), tensor([[2885, 1464, 1807, 3619]])]\n_inputs_decoded=[' HAD always thought']\n_targets_decoded=['AD always thought Jack']\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
-      "id": "zlud",
-      "code_hash": "b70d881e0d9298eccbed644782896c2b",
+      "id": "vGiW",
+      "code_hash": "dd06a95c566fc2b679e22ede0e0148f1",
       "outputs": [
         {
           "type": "data",
@@ -856,53 +1350,14 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "Inputs:\n tensor([[   40,   367,  2885,  1464],\n        [ 1807,  3619,   402,   271],\n        [10899,  2138,   257,  7026],\n        [15632,   438,  2016,   257],\n        [  922,  5891,  1576,   438],\n        [  568,   340,   373,   645],\n        [ 1049,  5975,   284,   502],\n        [  284,  3285,   326,    11]])\n\nTargets:\n tensor([[  367,  2885,  1464,  1807],\n        [ 3619,   402,   271, 10899],\n        [ 2138,   257,  7026, 15632],\n        [  438,  2016,   257,   922],\n        [ 5891,  1576,   438,   568],\n        [  340,   373,   645,  1049],\n        [ 5975,   284,   502,   284],\n        [ 3285,   326,    11,   287]])\n",
+          "text": "Inputs:\n tensor([[   40,   367,  2885,  1464],\n        [ 1807,  3619,   402,   271],\n        [10899,  2138,   257,  7026],\n        [15632,   438,  2016,   257],\n        [  922,  5891,  1576,   438],\n        [  568,   340,   373,   645],\n        [ 1049,  5975,   284,   502],\n        [  284,  3285,   326,    11]])\n\nTargets:\n tensor([[  367,  2885,  1464,  1807],\n        [ 3619,   402,   271, 10899],\n        [ 2138,   257,  7026, 15632],\n        [  438,  2016,   257,   922],\n        [ 5891,  1576,   438,   568],\n        [  340,   373,   645,  1049],\n        [ 5975,   284,   502,   284],\n        [ 3285,   326,    11,   287]])\n_inputs_decoded=['I HAD always', ' thought Jack Gis', 'burn rather a cheap', ' genius--though a', ' good fellow enough--', 'so it was no', ' great surprise to me', ' to hear that,']\n_targets_decoded=[' HAD always thought', ' Jack Gisburn', ' rather a cheap genius', '--though a good', ' fellow enough--so', ' it was no great', ' surprise to me to', ' hear that, in']\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
-      "id": "tZnO",
-      "code_hash": "69048aa7b2ee3cbf3a0923693c8ccc26",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"27-creating-token-embeddings\">2.7 Creating token embeddings</h2></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "xvXZ",
-      "code_hash": "c417954b1c80d9aa369af516b3613742",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "CLip",
-      "code_hash": "c9f6f1fd959cd072f410a63aaf7f37db",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "YECM",
-      "code_hash": "631438800989202b2a7f6c60bb21a50d",
+      "id": "PSQn",
+      "code_hash": "51f6d7df63d7788c8859ebcf5af92577",
       "outputs": [
         {
           "type": "data",
@@ -921,7 +1376,7 @@
       ]
     },
     {
-      "id": "cEAS",
+      "id": "lQxp",
       "code_hash": "3ca5b94ed7bb620774c44e1d1995ad25",
       "outputs": [
         {
@@ -941,8 +1396,8 @@
       ]
     },
     {
-      "id": "iXej",
-      "code_hash": "08cf585b3321177c79701685b4a20b64",
+      "id": "rSYo",
+      "code_hash": "1bf8ddd1a3f8211e8c213bdbd95eadbd",
       "outputs": [
         {
           "type": "data",
@@ -961,21 +1416,8 @@
       ]
     },
     {
-      "id": "EJmg",
-      "code_hash": "a0703e403e44433a1900882327eb5d3b",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"28-encoding-word-positions\">2.8 Encoding word positions</h2></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "UmEG",
-      "code_hash": "4ddb67b3626d9e94f390cccb5bdcf04b",
+      "id": "Ynfw",
+      "code_hash": "d567f9f631b45e9a8353cba9b37dd6db",
       "outputs": [
         {
           "type": "data",
@@ -987,7 +1429,7 @@
       "console": []
     },
     {
-      "id": "vEBW",
+      "id": "LqFA",
       "code_hash": "4dfedc2b3949c63bb88dc663380dffab",
       "outputs": [
         {
@@ -1000,7 +1442,7 @@
       "console": []
     },
     {
-      "id": "kLmu",
+      "id": "uDnK",
       "code_hash": "a9f85c6b75e3ea544b0a1b1bec16a9d4",
       "outputs": [
         {
@@ -1020,7 +1462,7 @@
       ]
     },
     {
-      "id": "IpqN",
+      "id": "MIsd",
       "code_hash": "0e54cef5de9f1e7096ffc04d6080b690",
       "outputs": [
         {
@@ -1040,21 +1482,8 @@
       ]
     },
     {
-      "id": "dxZZ",
-      "code_hash": "8cc2e1fbcfe73ee6fad57822b47d9604",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "dlnW",
-      "code_hash": "a583a99aaea28e7ca29befbc28b9abed",
+      "id": "Lpqv",
+      "code_hash": "8180682017cd1bde28df2447a02df190",
       "outputs": [
         {
           "type": "data",
@@ -1067,14 +1496,14 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "torch.Size([4, 256])\n",
+          "text": "Parameter containing:\ntensor([[ 1.7375, -0.5620, -0.6303,  ..., -0.2277,  1.5748,  1.0345],\n        [ 1.6423, -0.7201,  0.2062,  ...,  0.4118,  0.1498, -0.4628],\n        [-0.4651, -0.7757,  0.5806,  ...,  1.4335, -0.4963,  0.8579],\n        [-0.6754, -0.4628,  1.4323,  ...,  0.8139, -0.7088,  0.4827]],\n       requires_grad=True)\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
-      "id": "TTti",
-      "code_hash": "a0e33b8946637eb55775dcdb45231208",
+      "id": "WJUG",
+      "code_hash": "27abc817f810bcab5786e3a08cc0330e",
       "outputs": [
         {
           "type": "data",
@@ -1087,7 +1516,27 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "torch.Size([8, 4, 256])\n",
+          "text": "torch.Size([4, 256])\ntensor([[ 1.7375, -0.5620, -0.6303,  ..., -0.2277,  1.5748,  1.0345],\n        [ 1.6423, -0.7201,  0.2062,  ...,  0.4118,  0.1498, -0.4628],\n        [-0.4651, -0.7757,  0.5806,  ...,  1.4335, -0.4963,  0.8579],\n        [-0.6754, -0.4628,  1.4323,  ...,  0.8139, -0.7088,  0.4827]],\n       grad_fn=<EmbeddingBackward0>)\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "wEIy",
+      "code_hash": "d2082033abf89e15b2e099f164adb646",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "torch.Size([8, 4, 256])\ntensor([[[ 2.2288,  0.5619,  0.8286,  ..., -0.6272, -0.2987,  0.8900],\n         [ 2.0903, -0.4664, -0.0593,  ...,  0.9115, -1.0493, -1.6473],\n         [-0.7158, -0.8304,  1.2494,  ...,  2.3952,  1.8773,  0.8051],\n         [ 0.2703,  0.4029,  3.0514,  ...,  0.3595, -1.4548,  0.8310]],\n\n        [[ 3.2835,  1.1749, -1.4150,  ..., -0.3281,  2.4332,  0.6924],\n         [-0.2199, -0.9114, -0.1750,  ...,  1.5337, -0.1998,  0.1462],\n         [ 1.5197, -1.4240,  0.4391,  ...,  1.0494, -1.4318,  2.3057],\n         [ 0.2893,  0.8346, -0.1884,  ...,  1.9602,  0.8709,  0.8796]],\n\n        [[ 0.9662,  0.0952, -0.4640,  ..., -1.0320,  1.6290,  1.7771],\n         [ 2.4468, -0.2154,  1.4984,  ...,  1.8766,  0.5595, -0.1423],\n         [-0.3856, -2.5393,  1.1556,  ...,  3.6157,  1.3267,  0.4944],\n         [-0.2487, -0.5275,  2.0009,  ...,  0.2930,  0.5977,  1.3300]],\n\n        ...,\n\n        [[ 0.1219,  0.3991, -3.2740,  ..., -1.1921,  2.6637,  2.6728],\n         [ 1.2438, -1.6436, -1.1101,  ..., -0.7464, -0.9816,  0.5118],\n         [ 0.1439, -0.2428,  0.7786,  ...,  0.8001, -1.5986,  2.4871],\n         [-0.3077, -0.6329,  0.0536,  ...,  1.5188, -0.2060,  0.4254]],\n\n        [[ 1.6095,  0.0535,  1.0871,  ...,  0.1512,  1.0996,  2.5603],\n         [ 2.1284, -2.4306,  0.6478,  ...,  0.5593, -1.6896,  1.4126],\n         [-1.4224, -0.0750,  1.9386,  ...,  3.3712, -2.4016, -0.3237],\n         [-0.4752, -1.2234, -0.0847,  ...,  0.7834, -1.0744,  0.3429]],\n\n        [[ 0.7802,  0.1387,  0.7277,  ...,  1.7101, -0.3304, -0.1471],\n         [ 1.5791, -1.3749, -0.8234,  ..., -0.5420, -0.3528, -0.5756],\n         [ 0.1382,  0.1226,  2.6528,  ...,  2.9576, -0.2933,  0.5577],\n         [ 0.4520, -0.5711,  1.2128,  ...,  1.3198, -2.5226,  0.4127]]],\n       grad_fn=<AddBackward0>)\n",
           "mimetype": "text/plain"
         }
       ]

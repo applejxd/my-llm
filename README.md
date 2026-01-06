@@ -16,6 +16,10 @@ uv sync
 Open `marimo` notebook like this:
 
 ```bash
+# the dashboard
+marimo edit --watch
+
+# specific notebook
 marimo edit --watch ./src/my-llm/ch06.py
 ```
 
@@ -23,6 +27,7 @@ marimo edit --watch ./src/my-llm/ch06.py
 
 See the rendered HTML in GitHub pages as follows:
 
+- [Chapter 2](https://applejxd.github.io/my-llm/ch02.html)
 - [Chapter 3](https://applejxd.github.io/my-llm/ch03.html)
 - [Chapter 4](https://applejxd.github.io/my-llm/ch04.html)
 - [Chapter 5](https://applejxd.github.io/my-llm/ch05.html)
