@@ -38,6 +38,14 @@ def _():
 
 
 @app.cell
+def _(mo):
+    mo.md(r"""
+    This is hyperparameters of our GPT-2 model.
+    """)
+    return
+
+
+@app.cell
 def _():
     GPT_CONFIG_124M = {
         "vocab_size": 50257,    # Vocabulary size
@@ -54,7 +62,9 @@ def _():
 @app.cell
 def _(mo):
     mo.md(r"""
-    This "Dummy" means untrained model just to check forward path algorithms.
+    This is placeholder architecture for our GPT2 model. The placeholders will be replaced.
+
+    The "Dummy" means simple model by using simple placeholders just to check forward path algorithms.
     """)
     return
 
@@ -63,6 +73,7 @@ def _(mo):
 class DummyGPTModel(nn.Module):
     def __init__(self, cfg):
         super().__init__()
+        # mapping from ID0~vocab_size-1 to emb_dim dimension vectors
         self.tok_emb = nn.Embedding(cfg["vocab_size"], cfg["emb_dim"])
         self.pos_emb = nn.Embedding(cfg["context_length"], cfg["emb_dim"])
         self.drop_emb = nn.Dropout(cfg["drop_rate"])
@@ -79,13 +90,18 @@ class DummyGPTModel(nn.Module):
 
     def forward(self, in_idx):
         batch_size, seq_len = in_idx.shape
+
+        # tokenize
         tok_embeds = self.tok_emb(in_idx)
+
+        # positional embedding
         pos_embeds = self.pos_emb(torch.arange(seq_len, device=in_idx.device))
         x = tok_embeds + pos_embeds
-        x = self.drop_emb(x)
-        x = self.trf_blocks(x)
-        x = self.final_norm(x)
-        logits = self.out_head(x)
+
+        x = self.drop_emb(x)    # (batch_size, seq_len, emb_dim)
+        x = self.trf_blocks(x)  # (batch_size, seq_len, emb_dim)
+        x = self.final_norm(x)  # (batch_size, seq_len, emb_dim)
+        logits = self.out_head(x)   # (batch_size, seq_len, vocab_size)
         return logits
 
 
@@ -138,7 +154,9 @@ def _():
 @app.cell
 def _(mo):
     mo.md(r"""
-    Randomly initialize the GPT model and inference logits with untrained weights
+    Randomly initialize the GPT2:1.24b model and inference logits with untrained weights.
+
+    The output is called as logits, and the shape is `(batch_size,seq_len,vocab_size)`.
     """)
     return
 
@@ -165,7 +183,9 @@ def _(mo):
 @app.cell
 def _(mo):
     mo.md(r"""
-    check the behavior of layer normalization with this sample layer
+    To get efficient gradients for training, introduce layer normalization.
+
+    Let's use the following usual linear+ReLU layer to check the effect of layer normalization.
     """)
     return
 
@@ -179,14 +199,15 @@ def _():
 
     layer = nn.Sequential(nn.Linear(5, 6), nn.ReLU())
     out = layer(batch_example)
-    print(out)
+    print(f"{batch_example=}")
+    print(f"{out=}")
     return batch_example, out
 
 
 @app.cell
 def _(mo):
     mo.md(r"""
-    statistics before normalization
+    Check statistics before normalization.
     """)
     return
 
@@ -204,7 +225,7 @@ def _(out):
 @app.cell
 def _(mo):
     mo.md(r"""
-    statistics after normalization
+    Apply normalization to that.
     """)
     return
 
@@ -237,6 +258,16 @@ def _(mean_norm, var_norm):
     return
 
 
+@app.cell
+def _(mo):
+    mo.md(r"""
+    To replace the layer norm placeholder, implement `LayerNorm` class based on the above observations.
+
+    The normalization is applied to the last dimension `emb_dim`, and scaling and shift parameters are introduced to learn suitable distribution for good gradients.
+    """)
+    return
+
+
 @app.class_definition
 class LayerNorm(nn.Module):
     def __init__(self, emb_dim):
@@ -247,9 +278,19 @@ class LayerNorm(nn.Module):
 
     def forward(self, x):
         mean = x.mean(dim=-1, keepdim=True)
+        # difference of n and (n-1) is negligible for large n (unbaiased=False)
+        # this configuration is compatible with original GPT2 model
         var = x.var(dim=-1, keepdim=True, unbiased=False)
         norm_x = (x - mean) / torch.sqrt(var + self.eps)
         return self.scale * norm_x + self.shift
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    Try it.
+    """)
+    return
 
 
 @app.cell
@@ -276,8 +317,19 @@ def _(mo):
 @app.cell
 def _(mo):
     mo.md(r"""
-    $\text{GELU}(x) \approx 0.5 \cdot x \cdot \left(1 + \tanh\left[\sqrt{\frac{2}{\pi}} \cdot \left(x + 0.044715 \cdot x^3\right)\right]\right)
-    $
+    We use GELU (Gaussian Error Linear Unit) as an activation function.
+    This is defined as
+    $$
+    \mathrm{GELU}(x)\equiv x\cdot\Phi(x),\quad
+    \Phi(x)\equiv\int dx\,\mathcal{N}(x;\mu=0,\sigma=1)
+    $$
+
+    Because of efficiency, we use the following approximation obtained by curve fitting.
+    $$
+    \text{GELU}(x) \approx 0.5 \cdot x \cdot \left(1 + \tanh\left[\sqrt{\frac{2}{\pi}} \cdot \left(x + 0.044715 \cdot x^3\right)\right]\right)
+    $$
+
+    This GELU is known as smoother gradient and better activation function than ReLU for learning.
     """)
     return
 
@@ -292,6 +344,16 @@ class GELU(nn.Module):
             torch.sqrt(torch.tensor(2.0 / torch.pi)) * 
             (x + 0.044715 * torch.pow(x, 3))
         ))
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    Compare GELU with ReLU.
+    GERU has non-zero gradient except for certain point, so it avoids singular optimizations.
+    GELU also accepts minus $x$ and such values also contribute the training.
+    """)
+    return
 
 
 @app.cell
@@ -316,6 +378,14 @@ def _():
     return
 
 
+@app.cell
+def _(mo):
+    mo.md(r"""
+    This is the class for FeedForward network using GELU.
+    """)
+    return
+
+
 @app.class_definition
 class FeedForward(nn.Module):
     def __init__(self, cfg):
@@ -331,8 +401,27 @@ class FeedForward(nn.Module):
 
 
 @app.cell
+def _(mo):
+    mo.md(r"""
+    Remind embedding dimension of our GPT2.
+    """)
+    return
+
+
+@app.cell
 def _(GPT_CONFIG_124M):
     print(GPT_CONFIG_124M["emb_dim"])
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    This shows the output shape of the `FeedForward` network.
+    The first layer increses the dimension in 4 times, then, the last layer decreases the dimension to the same with the input.
+
+    This makes GPT2 model deeper without considering input/output dimesion compatibilities.
+    """)
     return
 
 
@@ -350,6 +439,15 @@ def _(GPT_CONFIG_124M):
 def _(mo):
     mo.md(r"""
     ## 4.4 Adding shortcut connections
+    """)
+    return
+
+
+@app.cell
+def _(mo):
+    mo.md(r"""
+    This is an example of skip connection like ResNet.
+    To avoid vanishing gradient problem of deep networks, this network predicts residuals in each steps.
     """)
     return
 
@@ -379,15 +477,23 @@ class ExampleDeepNeuralNetwork(nn.Module):
         return x
 
 
+@app.cell
+def _(mo):
+    mo.md(r"""
+    To see the vanishing gradient problem, define the following function to see gradients.
+    """)
+    return
+
+
 @app.function
 def print_gradients(model, x):
     # Forward pass
     output = model(x)
     target = torch.tensor([[0.]])
 
-    # Calculate loss based on how close the target
-    # and output are
+    # Calculate loss based on how close the target and output are
     loss = nn.MSELoss()
+    # just taking MSE of the output values
     loss = loss(output, target)
 
     # Backward pass to calculate the gradients
