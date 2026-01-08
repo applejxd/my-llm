@@ -71,17 +71,43 @@ def _():
     return GPT_CONFIG_124M, random_model
 
 
+@app.cell
+def _():
+    mo.md(r"""
+    Utility function to convert from text to token ID
+    """)
+    return
+
+
 @app.function
 def text_to_token_ids(text, tokenizer):
+    # EOT is needed for padding
     encoded = tokenizer.encode(text, allowed_special={"<|endoftext|>"})
     encoded_tensor = torch.tensor(encoded).unsqueeze(0)  # add batch dimension
     return encoded_tensor
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Utility function to convert from token ID to text
+    """)
+    return
 
 
 @app.function
 def token_ids_to_text(token_ids, tokenizer):
     flat = token_ids.squeeze(0)  # remove batch dimension
     return tokenizer.decode(flat.tolist())
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    This is an example to use the above functions.
+    The output does not make sense because it is not trained yet.
+    """)
+    return
 
 
 @app.cell
@@ -110,12 +136,28 @@ def _():
 
 @app.cell
 def _():
+    mo.md(r"""
+    To show the way to calculate training loss, these inputs and targets are used.
+    """)
+    return
+
+
+@app.cell
+def _():
     inputs = torch.tensor([[16833, 3626, 6100],   # ["every effort moves",
                            [40,    1107, 588]])   #  "I really like"]
 
     targets = torch.tensor([[3626, 6100, 345  ],  # [" effort moves you",
                             [1107,  588, 11311]]) #  " really like chocolate"]
     return inputs, targets
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Get probabilities of next token IDs by using random_model inference
+    """)
+    return
 
 
 @app.cell
@@ -129,6 +171,14 @@ def _(inputs, random_model):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Use greedy way to get next token IDs
+    """)
+    return
+
+
+@app.cell
 def _(probas):
     token_ids = torch.argmax(probas, dim=-1, keepdim=True)
     print("Token IDs:\n", token_ids)
@@ -136,9 +186,29 @@ def _(probas):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Compare token IDs between targets and predicted
+    """)
+    return
+
+
+@app.cell
 def _(targets, token_ids, tokenizer):
     print(f"Targets batch 1: {token_ids_to_text(targets[0], tokenizer)}")
     print(f"Outputs batch 1: {token_ids_to_text(token_ids[0].flatten(), tokenizer)}")
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Let's evaluate the differences quantitatively.
+
+    Get the probabilities (likelihood) for targets in the above result.
+
+    Remind the `probas` has (batch_size, num_tokens, vocab_size) shape.
+    """)
     return
 
 
@@ -155,11 +225,28 @@ def _(probas, targets):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Take `log` of these to get entropy (or log likelihood).
+    """)
+    return
+
+
+@app.cell
 def _(target_probas_1, target_probas_2):
     # Compute logarithm of all token probabilities
     log_probas = torch.log(torch.cat((target_probas_1, target_probas_2)))
     print(log_probas)
     return (log_probas,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Get average scores of it.
+    This is called as cross entropy loss.
+    """)
+    return
 
 
 @app.cell
@@ -171,9 +258,28 @@ def _(log_probas):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Minimization of minus log is preferred than maximization of plus log for implementations.
+
+    This is also called as negative log likelihood (nll).
+    """)
+    return
+
+
+@app.cell
 def _(avg_log_probas):
     _neg_avg_log_probas = avg_log_probas * -1
     print(_neg_avg_log_probas)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    We proceed these calculate by PyTorch.
+    Before doing so, check the shapes of logits and targets to compare.
+    """)
     return
 
 
@@ -188,6 +294,14 @@ def _(logits, targets):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    To apply PyTorch function, `flatten` is needed.
+    """)
+    return
+
+
+@app.cell
 def _(logits, targets):
     logits_flat = logits.flatten(0, 1)
     targets_flat = targets.flatten()
@@ -198,10 +312,37 @@ def _(logits, targets):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Then, pass these to `cross_entropy` to take softmax, log, mean and the minus.
+    This results coincides the previous result.
+    """)
+    return
+
+
+@app.cell
 def _(logits_flat, targets_flat):
     loss = torch.nn.functional.cross_entropy(logits_flat, targets_flat)
     print(loss)
     return (loss,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The exponential of cross entropy is called as perplexity.
+
+    If the probabilistic distribution is uniform (the most uncertain case), we can write the perplexity by using the size of vocabulary $N$ as
+
+    $$
+    PP
+    =\exp\left(-\sum_{i=1}^N\frac{1}{N}\log\frac{1}{N}\right)
+    =\exp\left(-\log\frac{1}{N}\right)=N.
+    $$
+
+    So it has meaning of uncertainty for prediction in the unit of number of vocabularies.
+    """)
+    return
 
 
 @app.cell
@@ -221,10 +362,27 @@ def _():
 
 @app.cell
 def _():
+    mo.md(r"""
+    Calculate such loss on public and tiny dataset.
+    At first, it should be downloaded.
+    """)
+    return
+
+
+@app.cell
+def _():
     file_path = download_verdict_data()
     with open(file_path, "r", encoding="utf-8") as _file:
         text_data = _file.read()
     return (text_data,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    See the top.
+    """)
+    return
 
 
 @app.cell
@@ -235,9 +393,25 @@ def _(text_data):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    See the tail
+    """)
+    return
+
+
+@app.cell
 def _(text_data):
     # Last 99 characters
     print(text_data[-99:])
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    See the scale of this dataset. It is tiny and enough to try training trial.
+    """)
     return
 
 
@@ -252,6 +426,20 @@ def _(text_data, tokenizer):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Split the dataset and create dataloaders in
+    $$
+    \text{train}:\text{valid}=90\%:10\%.
+    $$
+
+    The function `create_dataloader_v1` is defined on [the Chapter 2](./ch02.py).
+    See the definition in there.
+    """)
+    return
+
+
+@app.cell
 def _(GPT_CONFIG_124M, text_data):
     # Train/validation ratio
     train_ratio = 0.90
@@ -263,7 +451,7 @@ def _(GPT_CONFIG_124M, text_data):
 
     train_loader = create_dataloader_v1(
         train_data,
-        batch_size=2,
+        batch_size=2,   # to save computation resources
         max_length=GPT_CONFIG_124M["context_length"],
         stride=GPT_CONFIG_124M["context_length"],
         drop_last=True,
@@ -284,9 +472,15 @@ def _(GPT_CONFIG_124M, text_data):
 
 
 @app.cell
-def _(GPT_CONFIG_124M, total_tokens, train_ratio):
-    # Sanity check
+def _():
+    mo.md(r"""
+    Sanity check
+    """)
+    return
 
+
+@app.cell
+def _(GPT_CONFIG_124M, total_tokens, train_ratio):
     if total_tokens * (train_ratio) < GPT_CONFIG_124M["context_length"]:
         print("Not enough tokens for the training loader. "
               "Try to lower the `GPT_CONFIG_124M['context_length']` or "
@@ -300,6 +494,16 @@ def _(GPT_CONFIG_124M, total_tokens, train_ratio):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Try the dataloader to verify the behaviors.
+    These are all batches to be used.
+    Surely, the number of train batch is 9 and the number of validation batch is 1 that reflects the ratio.
+    """)
+    return
+
+
+@app.cell
 def _(train_loader, val_loader):
     print("Train loader:")
     for _x, _y in train_loader:
@@ -308,6 +512,14 @@ def _(train_loader, val_loader):
     print("\nValidation loader:")
     for _x, _y in val_loader:
         print(_x.shape, _y.shape)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Check the total number of tokens. It is just about 5k.
+    """)
     return
 
 
@@ -327,12 +539,29 @@ def _(train_loader, val_loader):
     return
 
 
+@app.cell
+def _():
+    mo.md(r"""
+    This is a function to calculate cross entropy loss like previous.
+    """)
+    return
+
+
 @app.function
 def calc_loss_batch(input_batch, target_batch, model, device):
     input_batch, target_batch = input_batch.to(device), target_batch.to(device)
     logits = model(input_batch)
     loss = torch.nn.functional.cross_entropy(logits.flatten(0, 1), target_batch.flatten())
     return loss
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Extend the functionality by the following function to entire dataloaders.
+    By setting the `num_batches` as smaller values, we can compute the losses easier.
+    """)
+    return
 
 
 @app.function
@@ -355,6 +584,14 @@ def calc_loss_loader(data_loader, model, device, num_batches=None):
     return total_loss / num_batches
 
 
+@app.cell
+def _():
+    mo.md(r"""
+    This is utility function to detect suitable device for training and inference.
+    """)
+    return
+
+
 @app.function
 def get_torch_device():
     device = torch.device("cpu")
@@ -369,12 +606,20 @@ def get_torch_device():
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    This is the first trial to compute the loss for entire dataloaders.
+    We need to decrease the loss than these.
+    """)
+    return
+
+
+@app.cell
 def _(random_model, train_loader, val_loader):
     device = get_torch_device()
     print(f"Using {device} device.")
 
     random_model.to(device) # no assignment model = model.to(device) necessary for nn.Module classes
-
 
     torch.manual_seed(123) # For reproducibility due to the shuffling in the data loader
 
@@ -391,6 +636,14 @@ def _(random_model, train_loader, val_loader):
 def _():
     mo.md(r"""
     ## 5.2 Training an LLM
+    """)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The training process is like this. We need to define the `evaluate_model()` and `generate_and_print_sample()` later
     """)
     return
 
@@ -432,14 +685,30 @@ def train_model_simple(model, train_loader, val_loader, optimizer, device, num_e
     return train_losses, val_losses, track_tokens_seen
 
 
+@app.cell
+def _():
+    mo.md(r"""
+    This is a function to evaluate loss quantitatively for entire dataloaders.
+    """)
+    return
+
+
 @app.function
 def evaluate_model(model, train_loader, val_loader, device, eval_iter):
-    model.eval()
-    with torch.no_grad():
+    model.eval()    # disable dropout
+    with torch.no_grad():   # skip gradient calculations
         train_loss = calc_loss_loader(train_loader, model, device, num_batches=eval_iter)
         val_loss = calc_loss_loader(val_loader, model, device, num_batches=eval_iter)
-    model.train()
+    model.train()    # enable dropout
     return train_loss, val_loss
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    This is a function to evaluate the output qualitatively.
+    """)
+    return
 
 
 @app.function
@@ -455,6 +724,14 @@ def generate_and_print_sample(model, tokenizer, device, start_context):
     decoded_text = token_ids_to_text(token_ids, tokenizer)
     print(decoded_text.replace("\n", " "))  # Compact print format
     model.train()
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    We use `AdamW` Optimizer to surpress overfitting.
+    """)
+    return
 
 
 @app.cell
@@ -474,10 +751,26 @@ def _(GPT_CONFIG_124M, device, tokenizer, train_loader, val_loader):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Create directory to save plots for the traning process
+    """)
+    return
+
+
+@app.cell
 def _(project_root):
     data_root = project_root / "data" / "ch05"
     data_root.mkdir(parents=True, exist_ok=True)
     return (data_root,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Define the function to plot training processes
+    """)
+    return
 
 
 @app.cell
@@ -505,6 +798,14 @@ def plot_losses(data_root):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    The result shows overfitting because of traning with tiny dataset.
+    """)
+    return
+
+
+@app.cell
 def _(num_epochs, plot_losses, tokens_seen, train_losses, val_losses):
     epochs_tensor = torch.linspace(0, num_epochs, len(train_losses))
     plot_losses(epochs_tensor, tokens_seen, train_losses, val_losses)
@@ -515,6 +816,14 @@ def _(num_epochs, plot_losses, tokens_seen, train_losses, val_losses):
 def _():
     mo.md(r"""
     ## 5.3 Decoding strategies to control randomness
+    """)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The `generate_text_simple` is based on greedy decoding strategy and it is deterministic.
     """)
     return
 
@@ -550,6 +859,15 @@ def _():
 
 @app.cell
 def _():
+    mo.md(r"""
+    This is an example to show difference between deterministic and probabilistic strategies.
+    This outputs deterministic result by greedy decoding.
+    """)
+    return
+
+
+@app.cell
+def _():
     vocab = { 
         "closer": 0,
         "every": 1, 
@@ -579,10 +897,27 @@ def _():
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Try probabilistic sampling based of probabilities obtained by the logits.
+    Even the `forward` occurs in high probability, it also outputs the same word.
+    """)
+    return
+
+
+@app.cell
 def _(inverse_vocab, next_probas):
     torch.manual_seed(123)
     next_token_id_multinomial = torch.multinomial(next_probas, num_samples=1).item()
     print(inverse_vocab[next_token_id_multinomial])
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Try multiple times to see the probabilistic behaviors.
+    """)
     return
 
 
@@ -603,10 +938,29 @@ def _(next_probas, print_sampled_tokens):
     return
 
 
+@app.cell
+def _():
+    mo.md(r"""
+    To control the probability, introduce temprature scaling like
+    $$
+    p(x;\beta) \propto \exp\left(\beta p\right)
+    $$
+    """)
+    return
+
+
 @app.function
 def softmax_with_temperature(logits, temperature):
     scaled_logits = logits / temperature
     return torch.softmax(scaled_logits, dim=0)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Try different values of the tempretures.
+    """)
+    return
 
 
 @app.cell
@@ -617,6 +971,14 @@ def _(next_token_logits):
     # Calculate scaled probabilities
     scaled_probas = [softmax_with_temperature(next_token_logits, T) for T in temperatures]
     return scaled_probas, temperatures
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Plot it. It shows higher temprature make the distribution more uniform.
+    """)
+    return
 
 
 @app.cell
@@ -641,8 +1003,24 @@ def _(data_root, scaled_probas, temperatures, vocab):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    `Temperature=0.1` case causes more greedy like distribution.
+    """)
+    return
+
+
+@app.cell
 def _(print_sampled_tokens, scaled_probas):
     print_sampled_tokens(scaled_probas[1])
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    `Temperature=5` cause more diversity but more nonsense phrases like `pizza`.
+    """)
     return
 
 
@@ -661,6 +1039,15 @@ def _():
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    The top-k sampling strategy is another probabilistic model using cutoff.
+    We only use top $k$ candidates in the probabilistic ranking and ignore others.
+    """)
+    return
+
+
+@app.cell
 def _(next_token_logits):
     top_k = 3
     top_logits, top_pos = torch.topk(next_token_logits, top_k)
@@ -668,6 +1055,14 @@ def _(next_token_logits):
     print("Top logits:", top_logits)
     print("Top positions:", top_pos)
     return (top_logits,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Such ignored candidate logits are masked by -inf.
+    """)
+    return
 
 
 @app.cell
@@ -680,6 +1075,15 @@ def _(next_token_logits, top_logits):
 
     print(new_logits)
     return (new_logits,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The result probabilities are these.
+    The predicted token will be sampled base on this result.
+    """)
+    return
 
 
 @app.cell
@@ -697,9 +1101,17 @@ def _():
     return
 
 
+@app.cell
+def _():
+    mo.md(r"""
+    Include temperature and tok-k sampling to `generate_text_simple()`.
+    This generation process continues until the EOS token appears.
+    """)
+    return
+
+
 @app.function
 def generate(model, idx, max_new_tokens, context_size, temperature=0.0, top_k=None, eos_id=None):
-
     # For-loop is the same as before: Get logits, and only focus on last time step
     for _ in range(max_new_tokens):
         idx_cond = idx[:, -context_size:]
@@ -711,7 +1123,8 @@ def generate(model, idx, max_new_tokens, context_size, temperature=0.0, top_k=No
         if top_k is not None:
             # Keep only top_k values
             top_logits, _ = torch.topk(logits, top_k)
-            min_val = top_logits[:, -1]
+            min_val = top_logits[:, -1] 
+            # mask other logits
             logits = torch.where(logits < min_val, torch.tensor(float("-inf")).to(logits.device), logits)
 
         # New: Apply temperature scaling
@@ -730,6 +1143,7 @@ def generate(model, idx, max_new_tokens, context_size, temperature=0.0, top_k=No
 
         # Otherwise same as before: get idx of the vocab entry with the highest logits value
         else:
+            # greedy sampling
             idx_next = torch.argmax(logits, dim=-1, keepdim=True)  # (batch_size, 1)
 
         if idx_next == eos_id:  # Stop generating early if end-of-sequence token is encountered and eos_id is specified
@@ -739,6 +1153,14 @@ def generate(model, idx, max_new_tokens, context_size, temperature=0.0, top_k=No
         idx = torch.cat((idx, idx_next), dim=1)  # (batch_size, num_tokens+1)
 
     return idx
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    This result is different with the previous.
+    """)
+    return
 
 
 @app.cell
@@ -767,6 +1189,14 @@ def _():
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    We can save the trained moddel like this.
+    """)
+    return
+
+
+@app.cell
 def _(model):
     project_root = Path(__file__).parent.parent.parent
     model_dir_path = project_root / "models" / "ch05"
@@ -778,13 +1208,29 @@ def _(model):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    The loading is also easy.
+    """)
+    return
+
+
+@app.cell
 def _(GPT_CONFIG_124M, device, train_model_path):
     loaded_model = GPTModel(GPT_CONFIG_124M)
     print("Device:", device)
 
     loaded_model.load_state_dict(torch.load(train_model_path, map_location=device, weights_only=True))
-    loaded_model.eval();
+    loaded_model.eval();    # disable dropout
     return (loaded_model,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    We can also save the optimizer status, and continue the training later.
+    """)
+    return
 
 
 @app.cell
@@ -799,6 +1245,14 @@ def _(loaded_model, model_dir_path, optimizer):
         train_model_optimizer_path
     )
     return (train_model_optimizer_path,)
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    Such optimizer status can be loaded as follows.
+    """)
+    return
 
 
 @app.cell
@@ -824,8 +1278,26 @@ def _():
 
 @app.cell
 def _():
+    mo.md(r"""
+    We will use trained GPT2 model from OpenAI.
+    It is defined as TensorFlow model, so we need to convert it to PyTorch model.
+    """)
+    return
+
+
+@app.cell
+def _():
     print("TensorFlow version:", version("tensorflow"))
     print("tqdm version:", version("tqdm"))
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The `download_and_load_gpt2` function is defined at [gpt_download.py](./gpt_download.py).
+    The code is just downloading files and read the data only.
+    """)
     return
 
 
@@ -838,8 +1310,24 @@ def _(project_root):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    These are hyperparameters.
+    """)
+    return
+
+
+@app.cell
 def _(settings):
     print("Settings:", settings)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    These are keys of parameters.
+    """)
     return
 
 
@@ -850,9 +1338,25 @@ def _(params):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    We can access each parameters like this.
+    """)
+    return
+
+
+@app.cell
 def _(params):
     print(params["wte"])
     print("Token embedding weight tensor dimensions:", params["wte"].shape)
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    The files supports several architecture of GPT2. We will use the smallest model.
+    """)
     return
 
 
@@ -877,6 +1381,14 @@ def _(GPT_CONFIG_124M):
     return NEW_CONFIG, gpt
 
 
+@app.cell
+def _():
+    mo.md(r"""
+    This is a function to load numerics as model weights with sanity checks.
+    """)
+    return
+
+
 @app.function
 def assign(left, right):
     if left.shape != right.shape:
@@ -884,12 +1396,23 @@ def assign(left, right):
     return torch.nn.Parameter(torch.tensor(right))
 
 
+@app.cell
+def _():
+    mo.md(r"""
+    This is a loader function for GPT2 weights by using the above.
+    """)
+    return
+
+
 @app.function
 def load_weights_into_gpt(gpt, params):
+    # positional and token embeddings
     gpt.pos_emb.weight = assign(gpt.pos_emb.weight, params["wpe"])
     gpt.tok_emb.weight = assign(gpt.tok_emb.weight, params["wte"])
 
+    # transformer blocks
     for b in range(len(params["blocks"])):
+        # multi-head attention -> linear projection (matrix)
         q_w, k_w, v_w = np.split(
             (params["blocks"][b]["attn"]["c_attn"])["w"], 3, axis=-1
         )
@@ -903,6 +1426,7 @@ def load_weights_into_gpt(gpt, params):
             gpt.trf_blocks[b].att.W_value.weight, v_w.T
         )
 
+        # multi-head attention -> linear projection (bias)
         q_b, k_b, v_b = np.split(
             (params["blocks"][b]["attn"]["c_attn"])["b"], 3, axis=-1
         )
@@ -914,6 +1438,7 @@ def load_weights_into_gpt(gpt, params):
             gpt.trf_blocks[b].att.W_value.bias, v_b
         )
 
+        # multi-head attention -> output projection
         gpt.trf_blocks[b].att.out_proj.weight = assign(
             gpt.trf_blocks[b].att.out_proj.weight,
             params["blocks"][b]["attn"]["c_proj"]["w"].T,
@@ -923,6 +1448,7 @@ def load_weights_into_gpt(gpt, params):
             params["blocks"][b]["attn"]["c_proj"]["b"],
         )
 
+        # feed-forward network (Linear -> GELU -> Linear)
         gpt.trf_blocks[b].ff.layers[0].weight = assign(
             gpt.trf_blocks[b].ff.layers[0].weight,
             params["blocks"][b]["mlp"]["c_fc"]["w"].T,
@@ -939,6 +1465,7 @@ def load_weights_into_gpt(gpt, params):
             params["blocks"][b]["mlp"]["c_proj"]["b"],
         )
 
+        # layer normalization
         gpt.trf_blocks[b].norm1.scale = assign(
             gpt.trf_blocks[b].norm1.scale, params["blocks"][b]["ln_1"]["g"]
         )
@@ -958,9 +1485,25 @@ def load_weights_into_gpt(gpt, params):
 
 
 @app.cell
+def _():
+    mo.md(r"""
+    Then, load it.
+    """)
+    return
+
+
+@app.cell
 def _(device, gpt, params):
     load_weights_into_gpt(gpt, params)
     gpt.to(device);
+    return
+
+
+@app.cell
+def _():
+    mo.md(r"""
+    It outputs rational sentence.
+    """)
     return
 
 

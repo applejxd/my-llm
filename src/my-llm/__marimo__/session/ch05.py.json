@@ -5,6 +5,32 @@
   },
   "cells": [
     {
+      "id": "setup",
+      "code_hash": "21cc1c1f988f92bf078fd9822b1d8254",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "2026-01-09 00:15:19.800220: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.\nTo enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.\n",
+          "mimetype": "text/plain"
+        },
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "matplotlib version: 3.10.8\nnumpy version: 2.3.5\ntiktoken version: 0.12.0\ntorch version: 2.9.1+cu128\ntensorflow version: 2.20.0\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
       "id": "Hbol",
       "code_hash": "fd51adf5e7b8925c3ba110064f8b7f99",
       "outputs": [
@@ -44,149 +70,6 @@
       "console": []
     },
     {
-      "id": "SFPL",
-      "code_hash": "4fb85404c7e5888d8394dab17a9a38dd",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"512-calculating-the-text-generation-loss-cross-entropy-and-perplexity\">5.1.2 Calculating the text generation loss: cross-entropy and perplexity</h3></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "DnEU",
-      "code_hash": "5425578be8dd5880e41f99557592bc23",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"513-calculating-the-training-and-validation-set-losses\">5.1.3 Calculating the training and validation set losses</h3></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "TXez",
-      "code_hash": "4d7499d8aad0cf185a3bae3223de9e72",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"52-training-an-llm\">5.2 Training an LLM</h2></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "SdmI",
-      "code_hash": "b68024aef6cdb5783c863e77459bc3d3",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"53-decoding-strategies-to-control-randomness\">5.3 Decoding strategies to control randomness</h2></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "yOPj",
-      "code_hash": "bbb2cc4d0d459bbbf520bba7b7a4f915",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"531-temperature-scaling\">5.3.1 Temperature scaling</h3></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "xvXZ",
-      "code_hash": "f684257a0f8aead783900b110b88c267",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"532-top-k-sampling\">5.3.2 Top-k sampling</h3></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "iXej",
-      "code_hash": "7c765f4983bde888cf54cea8423be0a7",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"533-modifying-the-text-generation-function\">5.3.3 Modifying the text generation function</h3></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "vEBW",
-      "code_hash": "2cc01cba36fdb1d191f08c9b03c67de3",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"54-loading-and-saving-model-weights-in-pytorch\">5.4 Loading and saving model weights in PyTorch</h2></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "TTti",
-      "code_hash": "987f18f9322b18d66dce46055c578ee1",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"55-loading-pretrained-weights-from-openai\">5.5 Loading pretrained weights from OpenAI</h2></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "setup",
-      "code_hash": "21cc1c1f988f92bf078fd9822b1d8254",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stderr",
-          "text": "2026-01-07 08:47:01.728515: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.\nTo enable the following instructions: AVX2 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.\n",
-          "mimetype": "text/plain"
-        },
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "matplotlib version: 3.10.8\nnumpy version: 2.3.5\ntiktoken version: 0.12.0\ntorch version: 2.9.1+cu128\ntensorflow version: 2.20.0\n",
-          "mimetype": "text/plain"
-        }
-      ]
-    },
-    {
       "id": "bkHC",
       "code_hash": "dd17c8511418fc92515e13b1fe5af046",
       "outputs": [
@@ -201,12 +84,12 @@
     },
     {
       "id": "lEQa",
-      "code_hash": "e3d8a8d463d1b14302e2494df4df353b",
+      "code_hash": "da46612469ec31e09a791f2da0ddac77",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Utility function to convert from text to token ID</span></span>"
           }
         }
       ],
@@ -214,7 +97,7 @@
     },
     {
       "id": "PKri",
-      "code_hash": "48bb78bf73e177e920b3f78441c78f4b",
+      "code_hash": "f0f185fa587c4aad8bac355f1ca91e30",
       "outputs": [
         {
           "type": "data",
@@ -227,6 +110,45 @@
     },
     {
       "id": "Xref",
+      "code_hash": "147ba04c0416ab824bf230d454d7b5d2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Utility function to convert from token ID to text</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SFPL",
+      "code_hash": "48bb78bf73e177e920b3f78441c78f4b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BYtC",
+      "code_hash": "904f03b6053543c33f4dfb18354c733f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is an example to use the above functions.\nThe output does not make sense because it is not trained yet.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RGSE",
       "code_hash": "c054d506511e887e7586e4ad1616536b",
       "outputs": [
         {
@@ -246,7 +168,33 @@
       ]
     },
     {
-      "id": "BYtC",
+      "id": "Kclp",
+      "code_hash": "4fb85404c7e5888d8394dab17a9a38dd",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"512-calculating-the-text-generation-loss-cross-entropy-and-perplexity\">5.1.2 Calculating the text generation loss: cross-entropy and perplexity</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "emfo",
+      "code_hash": "e168a9b648cf05ce9948497102444b23",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">To show the way to calculate training loss, these inputs and targets are used.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Hstk",
       "code_hash": "ab4f25b02eb5218c519c67073c95b6f7",
       "outputs": [
         {
@@ -259,7 +207,20 @@
       "console": []
     },
     {
-      "id": "RGSE",
+      "id": "nWHF",
+      "code_hash": "9f081cd1295922ee05163412b4b391a7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Get probabilities of next token IDs by using random_model inference</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iLit",
       "code_hash": "50c61f3c3ba65956bcd6e44143c5de40",
       "outputs": [
         {
@@ -279,7 +240,20 @@
       ]
     },
     {
-      "id": "Kclp",
+      "id": "ZHCJ",
+      "code_hash": "2716fd77878db9fff4cabecc7e660ea0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Use greedy way to get next token IDs</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ROlb",
       "code_hash": "32e9aad9278fdd935617a7608902185f",
       "outputs": [
         {
@@ -299,7 +273,20 @@
       ]
     },
     {
-      "id": "emfo",
+      "id": "qnkX",
+      "code_hash": "675267ec69ba12d19f5d32f0b03301a0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Compare token IDs between targets and predicted</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TqIu",
       "code_hash": "fff44a462a74a91cdc05d4829f62adbe",
       "outputs": [
         {
@@ -319,7 +306,20 @@
       ]
     },
     {
-      "id": "Hstk",
+      "id": "Vxnm",
+      "code_hash": "5fd69dfcac354455891cbc63089b64b8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Let's evaluate the differences quantitatively.</span>\n<span class=\"paragraph\">Get the probabilities (likelihood) for targets in the above result.</span>\n<span class=\"paragraph\">Remind the <code>probas</code> has (batch_size, num_tokens, vocab_size) shape.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
       "code_hash": "47e0bfc42fee97737c9d5f165abb6fae",
       "outputs": [
         {
@@ -339,7 +339,20 @@
       ]
     },
     {
-      "id": "nWHF",
+      "id": "ulZA",
+      "code_hash": "826181a4a841728fe23f07a7e5de39e7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Take <code>log</code> of these to get entropy (or log likelihood).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ecfG",
       "code_hash": "2799b6bc721c9373cdfb7efc7f5b3a98",
       "outputs": [
         {
@@ -359,7 +372,20 @@
       ]
     },
     {
-      "id": "iLit",
+      "id": "Pvdt",
+      "code_hash": "51acd503ba546a2d00aa4838e246574f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Get average scores of it.\nThis is called as cross entropy loss.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZBYS",
       "code_hash": "b82c9041106b70bd8e887ddd9af01a9c",
       "outputs": [
         {
@@ -379,7 +405,20 @@
       ]
     },
     {
-      "id": "ZHCJ",
+      "id": "aLJB",
+      "code_hash": "2e532f77b2d88cb9d308d77bcdcf2ac9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Minimization of minus log is preferred than maximization of plus log for implementations.</span>\n<span class=\"paragraph\">This is also called as negative log likelihood (nll).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nHfw",
       "code_hash": "ae66d6568e93c2909435fbe182f3dc06",
       "outputs": [
         {
@@ -399,7 +438,20 @@
       ]
     },
     {
-      "id": "ROlb",
+      "id": "xXTn",
+      "code_hash": "2d84cec0fd9c59ace419105f743b8cce",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">We proceed these calculate by PyTorch.\nBefore doing so, check the shapes of logits and targets to compare.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "AjVT",
       "code_hash": "00ee80444ba8a9e970a6d8dab748b311",
       "outputs": [
         {
@@ -419,7 +471,20 @@
       ]
     },
     {
-      "id": "qnkX",
+      "id": "pHFh",
+      "code_hash": "5698efcaf64f6d07362e463849756365",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">To apply PyTorch function, <code>flatten</code> is needed.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NCOB",
       "code_hash": "f8736a67514f4c267f98d347b1d190eb",
       "outputs": [
         {
@@ -439,7 +504,20 @@
       ]
     },
     {
-      "id": "TqIu",
+      "id": "aqbW",
+      "code_hash": "6155649d104dfa1656ae07125f005eb5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Then, pass these to <code>cross_entropy</code> to take softmax, log, mean and the minus.\nThis results coincides the previous result.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "TRpd",
       "code_hash": "cefb286b229f07b37a64a1917a1e0df2",
       "outputs": [
         {
@@ -459,7 +537,20 @@
       ]
     },
     {
-      "id": "Vxnm",
+      "id": "TXez",
+      "code_hash": "5d534722febc0ec4f280183c0ddfc906",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The exponential of cross entropy is called as perplexity.</span>\n<span class=\"paragraph\">If the probabilistic distribution is uniform (the most uncertain case), we can write the perplexity by using the size of vocabulary <marimo-tex class=\"arithmatex\">||(N||)</marimo-tex> as</span>\n<marimo-tex class=\"arithmatex\">||[\nPP\n=\\exp\\left(-\\sum_{i=1}^N\\frac{1}{N}\\log\\frac{1}{N}\\right)\n=\\exp\\left(-\\log\\frac{1}{N}\\right)=N.\n||]</marimo-tex><span class=\"paragraph\">So it has meaning of uncertainty for prediction in the unit of number of vocabularies.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dNNg",
       "code_hash": "240375c3f707a06428aea931f72cb896",
       "outputs": [
         {
@@ -479,7 +570,33 @@
       ]
     },
     {
-      "id": "ulZA",
+      "id": "yCnT",
+      "code_hash": "5425578be8dd5880e41f99557592bc23",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"513-calculating-the-training-and-validation-set-losses\">5.1.3 Calculating the training and validation set losses</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wlCL",
+      "code_hash": "9a79ae4236a0807a3342a9e634d5910c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Calculate such loss on public and tiny dataset.\nAt first, it should be downloaded.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "kqZH",
       "code_hash": "63b5ed88d83335d8a4d8cdd8b0ebc5ca",
       "outputs": [
         {
@@ -499,7 +616,20 @@
       ]
     },
     {
-      "id": "ecfG",
+      "id": "wAgl",
+      "code_hash": "c2dad14e7ec69c393ff79c477c8b57b5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">See the top.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "rEll",
       "code_hash": "b41617842c31a54f80707806762ea9b5",
       "outputs": [
         {
@@ -519,7 +649,20 @@
       ]
     },
     {
-      "id": "Pvdt",
+      "id": "dGlV",
+      "code_hash": "07a770f81ef09b9cfe120c27abe5d364",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">See the tail</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SdmI",
       "code_hash": "91deb01a124099acd66d3b5b521b74a8",
       "outputs": [
         {
@@ -539,7 +682,20 @@
       ]
     },
     {
-      "id": "ZBYS",
+      "id": "lgWD",
+      "code_hash": "26e9a80d01ba634a9af5cc0c873e02ea",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">See the scale of this dataset. It is tiny and enough to try training trial.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "yOPj",
       "code_hash": "16c82b5b20db2198854a72c6019fdcb9",
       "outputs": [
         {
@@ -559,8 +715,21 @@
       ]
     },
     {
-      "id": "aLJB",
-      "code_hash": "772780758b54ff82430b53a253f93d31",
+      "id": "fwwy",
+      "code_hash": "cfd0783b20a8f21964001161db9dbf2e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Split the dataset and create dataloaders in\n$$\n\\text{train}:\\text{valid}=90\\%:10\\%.\n$$</span>\n<span class=\"paragraph\">The function <code>create_dataloader_v1</code> is defined on <a href=\"./ch02.py\">the Chapter 2</a>.\nSee the definition in there.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "LJZf",
+      "code_hash": "ce4abb1c945a723a8a06909d38f4e64c",
       "outputs": [
         {
           "type": "data",
@@ -572,8 +741,21 @@
       "console": []
     },
     {
-      "id": "nHfw",
-      "code_hash": "a93168a21577a3b77c24b18f760f2b14",
+      "id": "urSm",
+      "code_hash": "a98689d6526a7216a82136e4a66375b5",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Sanity check</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "jxvo",
+      "code_hash": "1913ae4fcaa3cce1477d61d0796be86a",
       "outputs": [
         {
           "type": "data",
@@ -585,7 +767,20 @@
       "console": []
     },
     {
-      "id": "xXTn",
+      "id": "mWxS",
+      "code_hash": "ee9acc88ad41e47a7edfebace45bb70f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try the dataloader to verify the behaviors.\nThese are all batches to be used.\nSurely, the number of train batch is 9 and the number of validation batch is 1 that reflects the ratio.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "CcZR",
       "code_hash": "1be2530a1318592be4c5a7733d22966c",
       "outputs": [
         {
@@ -605,7 +800,20 @@
       ]
     },
     {
-      "id": "AjVT",
+      "id": "YWSi",
+      "code_hash": "a1131f6f4be8e7a4793ca23f09a52310",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Check the total number of tokens. It is just about 5k.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "zlud",
       "code_hash": "84377de30ba4c7f82739a9a184838148",
       "outputs": [
         {
@@ -625,7 +833,20 @@
       ]
     },
     {
-      "id": "pHFh",
+      "id": "tZnO",
+      "code_hash": "079afdb724489c3bb5c4f3f3eb118d12",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is a function to calculate cross entropy loss like previous.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xvXZ",
       "code_hash": "45ef599378cdcc2c2aee8a0bdbe4cf00",
       "outputs": [
         {
@@ -638,7 +859,20 @@
       "console": []
     },
     {
-      "id": "NCOB",
+      "id": "CLip",
+      "code_hash": "0d4ad879f020f7b03f557ac0bb0f6c9f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Extend the functionality by the following function to entire dataloaders.\nBy setting the <code>num_batches</code> as smaller values, we can compute the losses easier.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "YECM",
       "code_hash": "4dca83bbdc9e7242cea4c1cd80fecfd0",
       "outputs": [
         {
@@ -651,7 +885,20 @@
       "console": []
     },
     {
-      "id": "aqbW",
+      "id": "cEAS",
+      "code_hash": "6121de169d8117631ba72cca0375593c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is utility function to detect suitable device for training and inference.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "iXej",
       "code_hash": "ce3d8d05888e66b0f49cebdecbf13ed4",
       "outputs": [
         {
@@ -664,8 +911,21 @@
       "console": []
     },
     {
-      "id": "TRpd",
-      "code_hash": "aedc54d82b0351579c080c2b72cc8052",
+      "id": "EJmg",
+      "code_hash": "e15c0b37fa72239dc63339f433b01c91",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is the first trial to compute the loss for entire dataloaders.\nWe need to decrease the loss than these.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "UmEG",
+      "code_hash": "adcad959d4fc11425980b55eb6a9fcab",
       "outputs": [
         {
           "type": "data",
@@ -684,7 +944,33 @@
       ]
     },
     {
-      "id": "dNNg",
+      "id": "vEBW",
+      "code_hash": "4d7499d8aad0cf185a3bae3223de9e72",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"52-training-an-llm\">5.2 Training an LLM</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "kLmu",
+      "code_hash": "a9cd3e850ef0140be961bd753099773a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The training process is like this. We need to define the <code>evaluate_model()</code> and <code>generate_and_print_sample()</code> later</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "IpqN",
       "code_hash": "ad52241d3efa2549fb7994e3c186c616",
       "outputs": [
         {
@@ -697,8 +983,21 @@
       "console": []
     },
     {
-      "id": "yCnT",
-      "code_hash": "d3f10825e972eb95d9651db5a3101d4d",
+      "id": "dxZZ",
+      "code_hash": "b7521891a8fffdc1d436f79cdaca9e55",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is a function to evaluate loss quantitatively for entire dataloaders.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dlnW",
+      "code_hash": "fdc0ebb7a40f471ec9e73f686e439e07",
       "outputs": [
         {
           "type": "data",
@@ -710,7 +1009,20 @@
       "console": []
     },
     {
-      "id": "wlCL",
+      "id": "TTti",
+      "code_hash": "a4494f662a3c282418adea070df99b67",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is a function to evaluate the output qualitatively.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RKFZ",
       "code_hash": "b107175ef0572fef83e322f68a856fe4",
       "outputs": [
         {
@@ -723,7 +1035,20 @@
       "console": []
     },
     {
-      "id": "kqZH",
+      "id": "IaQp",
+      "code_hash": "a6faeacd27f692dd6d780432b68522d7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">We use <code>AdamW</code> Optimizer to surpress overfitting.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "IWgg",
       "code_hash": "e585c8284bab461bc642d71fc6f5e83b",
       "outputs": [
         {
@@ -743,7 +1068,20 @@
       ]
     },
     {
-      "id": "wAgl",
+      "id": "fCoF",
+      "code_hash": "45dbd76ef9a93740d7cc43c08907d6c2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Create directory to save plots for the traning process</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "LkGn",
       "code_hash": "6715f39bde731cf2e970f48fae12869c",
       "outputs": [
         {
@@ -756,7 +1094,20 @@
       "console": []
     },
     {
-      "id": "rEll",
+      "id": "zVRe",
+      "code_hash": "136fda2e9dd2db38d402b9fbd34617f9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Define the function to plot training processes</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "woaO",
       "code_hash": "1f1857a9d66c388c9a351cb8ca230143",
       "outputs": [
         {
@@ -769,7 +1120,20 @@
       "console": []
     },
     {
-      "id": "dGlV",
+      "id": "HnMC",
+      "code_hash": "a8c416df928061721678f0b450a39251",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The result shows overfitting because of traning with tiny dataset.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wadT",
       "code_hash": "438574df0b12decadff23e5bae7791a3",
       "outputs": [
         {
@@ -789,7 +1153,33 @@
       ]
     },
     {
-      "id": "lgWD",
+      "id": "VCRE",
+      "code_hash": "b68024aef6cdb5783c863e77459bc3d3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"53-decoding-strategies-to-control-randomness\">5.3 Decoding strategies to control randomness</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "hgqU",
+      "code_hash": "b51460a560acb64cd8a235f319079c3e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The <code>generate_text_simple</code> is based on greedy decoding strategy and it is deterministic.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PSUk",
       "code_hash": "4d74705fc1f010ec2369ee0729effa04",
       "outputs": [
         {
@@ -809,7 +1199,33 @@
       ]
     },
     {
-      "id": "fwwy",
+      "id": "mfOT",
+      "code_hash": "bbb2cc4d0d459bbbf520bba7b7a4f915",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"531-temperature-scaling\">5.3.1 Temperature scaling</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vGiW",
+      "code_hash": "846d5b7ec313afdf389e86374701443a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is an example to show difference between deterministic and probabilistic strategies.\nThis outputs deterministic result by greedy decoding.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SYQT",
       "code_hash": "8af6f365ce22ee1c06b666ac421c54aa",
       "outputs": [
         {
@@ -829,7 +1245,20 @@
       ]
     },
     {
-      "id": "LJZf",
+      "id": "bMrW",
+      "code_hash": "5d9b97d6b04f882f95a07b26fb3e452c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try probabilistic sampling based of probabilities obtained by the logits.\nEven the <code>forward</code> occurs in high probability, it also outputs the same word.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PSQn",
       "code_hash": "2367b1738ac7f189ee7b74e75c6559eb",
       "outputs": [
         {
@@ -849,7 +1278,20 @@
       ]
     },
     {
-      "id": "urSm",
+      "id": "OfTS",
+      "code_hash": "838e146848aadd08b9bfbced960fd711",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try multiple times to see the probabilistic behaviors.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lQxp",
       "code_hash": "46a2dacd5e0323b167f7bc34d4a01d3a",
       "outputs": [
         {
@@ -862,7 +1304,7 @@
       "console": []
     },
     {
-      "id": "jxvo",
+      "id": "Plbk",
       "code_hash": "5bf22aa9a62a10aff44985a7c6cdbe63",
       "outputs": [
         {
@@ -882,7 +1324,20 @@
       ]
     },
     {
-      "id": "mWxS",
+      "id": "rSYo",
+      "code_hash": "d8534ecf96374d55da14e263b96423e0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">To control the probability, introduce temprature scaling like\n$$\np(x;\\beta) \\propto \\exp\\left(\\beta p\\right)\n$$</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "HuZB",
       "code_hash": "edf94f0fb669f52685a5f567a7bd1bed",
       "outputs": [
         {
@@ -895,7 +1350,20 @@
       "console": []
     },
     {
-      "id": "CcZR",
+      "id": "WfYj",
+      "code_hash": "670e2583acce2feda9ff41767d2c33d9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Try different values of the tempretures.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Ynfw",
       "code_hash": "edbea20474586071e9f75c71274dbd4a",
       "outputs": [
         {
@@ -908,7 +1376,20 @@
       "console": []
     },
     {
-      "id": "YWSi",
+      "id": "LqFA",
+      "code_hash": "5285f65f1506b788cc9fe004e261ddc1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Plot it. It shows higher temprature make the distribution more uniform.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "uDnK",
       "code_hash": "b5255749b58214a172b4e1218464d09b",
       "outputs": [
         {
@@ -928,7 +1409,20 @@
       ]
     },
     {
-      "id": "zlud",
+      "id": "aWBL",
+      "code_hash": "31de4adb74cdb0ef9ddbc14e1b367428",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><code>Temperature=0.1</code> case causes more greedy like distribution.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "MIsd",
       "code_hash": "a13f14de9d058baade53b59093e54c0a",
       "outputs": [
         {
@@ -948,7 +1442,20 @@
       ]
     },
     {
-      "id": "tZnO",
+      "id": "IrqS",
+      "code_hash": "e1683717f9e8d361c6d8bf92e54066e4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><code>Temperature=5</code> cause more diversity but more nonsense phrases like <code>pizza</code>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Lpqv",
       "code_hash": "2c3fbb11f38efd781cdb01044cee1ff6",
       "outputs": [
         {
@@ -968,7 +1475,33 @@
       ]
     },
     {
-      "id": "CLip",
+      "id": "upgv",
+      "code_hash": "f684257a0f8aead783900b110b88c267",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"532-top-k-sampling\">5.3.2 Top-k sampling</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "WJUG",
+      "code_hash": "c3d68219ba9f5af331827b121d6aca1b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The top-k sampling strategy is another probabilistic model using cutoff.\nWe only use top <marimo-tex class=\"arithmatex\">||(k||)</marimo-tex> candidates in the probabilistic ranking and ignore others.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "pCao",
       "code_hash": "fa1837a5485f9d6cb06e47a8c1081348",
       "outputs": [
         {
@@ -988,7 +1521,20 @@
       ]
     },
     {
-      "id": "YECM",
+      "id": "wEIy",
+      "code_hash": "02283f65f008379fcea8a0330948fc67",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Such ignored candidate logits are masked by -inf.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wlyU",
       "code_hash": "13f6ce8d75c7b30f099f452ee2c16260",
       "outputs": [
         {
@@ -1008,7 +1554,20 @@
       ]
     },
     {
-      "id": "cEAS",
+      "id": "PieA",
+      "code_hash": "077f1c1024dabbed0bc148f6de3866cc",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The result probabilities are these.\nThe predicted token will be sampled base on this result.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "GrQN",
       "code_hash": "58bdc3c5a91a1dda3c04368fc73a56e7",
       "outputs": [
         {
@@ -1028,8 +1587,34 @@
       ]
     },
     {
-      "id": "EJmg",
-      "code_hash": "3d0ef3a32060101a6a7508c0f7728e09",
+      "id": "Ilkb",
+      "code_hash": "7c765f4983bde888cf54cea8423be0a7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"533-modifying-the-text-generation-function\">5.3.3 Modifying the text generation function</h3></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "mySd",
+      "code_hash": "20100f161b1f349d8cde7bbed4c3003c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Include temperature and tok-k sampling to <code>generate_text_simple()</code>.\nThis generation process continues until the EOS token appears.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vGkK",
+      "code_hash": "f7103671f3237c8026f0149e73ae14a2",
       "outputs": [
         {
           "type": "data",
@@ -1041,7 +1626,20 @@
       "console": []
     },
     {
-      "id": "UmEG",
+      "id": "zmIa",
+      "code_hash": "34e1f287e77c18a86e02ebd2b750ccd8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This result is different with the previous.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NOfw",
       "code_hash": "4b234045a76dade4e69ac9c68afa4b78",
       "outputs": [
         {
@@ -1061,7 +1659,33 @@
       ]
     },
     {
-      "id": "kLmu",
+      "id": "jXAc",
+      "code_hash": "2cc01cba36fdb1d191f08c9b03c67de3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"54-loading-and-saving-model-weights-in-pytorch\">5.4 Loading and saving model weights in PyTorch</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "mSxP",
+      "code_hash": "13d658fe7fee7a04a79cad3570b264ba",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">We can save the trained moddel like this.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "IZEX",
       "code_hash": "5e60547b638d5a5333b261db20474c63",
       "outputs": [
         {
@@ -1074,8 +1698,21 @@
       "console": []
     },
     {
-      "id": "IpqN",
-      "code_hash": "6ba2619b4383ebd2733183e4cb418200",
+      "id": "UFLA",
+      "code_hash": "6f251e3ba152e05155bd59f223d6436a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The loading is also easy.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RCUM",
+      "code_hash": "1649833d610198e0e4563d99c9baabd9",
       "outputs": [
         {
           "type": "data",
@@ -1094,7 +1731,20 @@
       ]
     },
     {
-      "id": "dxZZ",
+      "id": "ynmH",
+      "code_hash": "1454a96d40c51b9fcadcc54257b704f6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">We can also save the optimizer status, and continue the training later.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "NBGo",
       "code_hash": "5ee966621857cdb10a54ffcfced305ea",
       "outputs": [
         {
@@ -1107,7 +1757,20 @@
       "console": []
     },
     {
-      "id": "dlnW",
+      "id": "eooq",
+      "code_hash": "01132f69a14f1cd771ff2a3c87ecf50a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Such optimizer status can be loaded as follows.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ChmK",
       "code_hash": "9b9d645adcbec1e36a88fecff1336b7c",
       "outputs": [
         {
@@ -1120,7 +1783,33 @@
       "console": []
     },
     {
-      "id": "RKFZ",
+      "id": "KdvC",
+      "code_hash": "987f18f9322b18d66dce46055c578ee1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"55-loading-pretrained-weights-from-openai\">5.5 Loading pretrained weights from OpenAI</h2></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vkvV",
+      "code_hash": "eebc6ca2ef05b098fdf38ec68d110919",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">We will use trained GPT2 model from OpenAI.\nIt is defined as TensorFlow model, so we need to convert it to PyTorch model.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "EKSN",
       "code_hash": "405869cb264ea1d398da4e025d57740a",
       "outputs": [
         {
@@ -1140,7 +1829,20 @@
       ]
     },
     {
-      "id": "IaQp",
+      "id": "tasN",
+      "code_hash": "f671aa9ec851e1dbc857851805d9b15b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The <code>download_and_load_gpt2</code> function is defined at <a href=\"./gpt_download.py\">gpt_download.py</a>.\nThe code is just downloading files and read the data only.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SXvM",
       "code_hash": "87ee9c5e3e3a8a9948577b3d43db35a3",
       "outputs": [
         {
@@ -1160,13 +1862,26 @@
         {
           "type": "stream",
           "name": "stderr",
-          "text": "2026-01-07 08:48:33.876695: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 154389504 exceeds 10% of free system memory.\n",
+          "text": "2026-01-09 00:17:17.297008: W external/local_xla/xla/tsl/framework/cpu_allocator_impl.cc:84] Allocation of 154389504 exceeds 10% of free system memory.\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
-      "id": "IWgg",
+      "id": "CFll",
+      "code_hash": "cfb7de15a6f8d0a877d2dca0ca69f66b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">These are hyperparameters.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "wbrJ",
       "code_hash": "890bea4f6acb06da2bf4a273e24c3269",
       "outputs": [
         {
@@ -1186,7 +1901,20 @@
       ]
     },
     {
-      "id": "fCoF",
+      "id": "viyg",
+      "code_hash": "c94dbed922e0316c27b2736c1b69b949",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">These are keys of parameters.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "GbuD",
       "code_hash": "92e3333514c113f5b73450f256452429",
       "outputs": [
         {
@@ -1206,7 +1934,20 @@
       ]
     },
     {
-      "id": "LkGn",
+      "id": "bHhy",
+      "code_hash": "0c9c6c6bcf82cf9ee5c6442cf313ce93",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">We can access each parameters like this.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ctlq",
       "code_hash": "a0bdfccfb160801343f01a40349f33b5",
       "outputs": [
         {
@@ -1226,7 +1967,20 @@
       ]
     },
     {
-      "id": "zVRe",
+      "id": "NtNR",
+      "code_hash": "7ba5d6d4aa5af7ba757c567a782a08f0",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">The files supports several architecture of GPT2. We will use the smallest model.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "nebC",
       "code_hash": "ada75fd3144a2ae29014098d8379f334",
       "outputs": [
         {
@@ -1239,7 +1993,20 @@
       "console": []
     },
     {
-      "id": "woaO",
+      "id": "ZsHO",
+      "code_hash": "f3cffc95e7d7e8870f644a743a9a0213",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is a function to load numerics as model weights with sanity checks.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "HNXk",
       "code_hash": "f20311780a4aac4772dc249f66f44977",
       "outputs": [
         {
@@ -1252,8 +2019,21 @@
       "console": []
     },
     {
-      "id": "HnMC",
-      "code_hash": "032f62bbe18834b25ad04e892db42eb9",
+      "id": "bhgI",
+      "code_hash": "d57abc85187675a83e0810f653c69b34",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">This is a loader function for GPT2 weights by using the above.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DlKN",
+      "code_hash": "c3551d1dd73998c799bf89501e9f2734",
       "outputs": [
         {
           "type": "data",
@@ -1265,7 +2045,20 @@
       "console": []
     },
     {
-      "id": "wadT",
+      "id": "iFMf",
+      "code_hash": "3456eab780fd825424a058d04bc6ef8f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">Then, load it.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "QYfb",
       "code_hash": "cb65058dd74fb9b335723c4f1d634223",
       "outputs": [
         {
@@ -1278,7 +2071,20 @@
       "console": []
     },
     {
-      "id": "VCRE",
+      "id": "qJXu",
+      "code_hash": "ad78229693c9ab13b33d22c46e70826f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">It outputs rational sentence.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "LdJG",
       "code_hash": "14518851461d31a608bb1e37f53cdd94",
       "outputs": [
         {

@@ -17,7 +17,7 @@ Open `marimo` notebook like this:
 
 ```bash
 # the dashboard
-marimo edit --watch
+marimo edit --watch --host 0.0.0.0
 
 # specific notebook
 marimo edit --watch ./src/my-llm/ch06.py
