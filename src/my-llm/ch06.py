@@ -1,6 +1,6 @@
 import marimo
 
-__generated_with = "0.18.4"
+__generated_with = "0.19.2"
 app = marimo.App()
 
 with app.setup:
@@ -151,7 +151,7 @@ def _():
 @app.cell
 def _(data_file_path):
     df = pd.read_csv(data_file_path, sep="\t", header=None, names=["Label", "Text"])
-    df
+    print(f"{df=}")
     return (df,)
 
 
