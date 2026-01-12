@@ -97,7 +97,7 @@ def _():
         "context_length": 1024,  # Shortened context length
         "emb_dim": 1024,         # Embedding dimension
         "n_heads": 16,          # Number of attention heads
-        "n_layers": 12,         # Number of layers
+        "n_layers": 24,         # Number of layers
         "drop_rate": 0.1,       # Dropout rate
         "qkv_bias": True       # Query-Key-Value bias
     }
@@ -131,7 +131,7 @@ def _(mo):
 
 @app.cell
 def _(GPT_CONFIG_124M, encoded_tensor, random_model, tokenizer):
-    torch.manual_seed(42)
+    torch.manual_seed(123)
 
     _out_gen = generate_text_simple(
         model=random_model,
@@ -314,11 +314,11 @@ def _(GPT_CONFIG_124M, rinna_model):
 
 @app.cell
 def _(GPT_CONFIG_124M, encoded_tensor, my_model, tokenizer):
-    torch.manual_seed(42)
+    torch.manual_seed(123)
     _out_gen = generate_text_simple(
         model=my_model,
         idx=encoded_tensor, 
-        max_new_tokens=6, 
+        max_new_tokens=20, 
         context_size=GPT_CONFIG_124M["context_length"]
     )
     _decoded_text = tokenizer.decode(_out_gen.squeeze(0).tolist())
@@ -334,6 +334,12 @@ def _(mo):
     mo.md(r"""
     ## Chapter 5 相当: 青空文庫で事前学習
     """)
+    return
+
+
+@app.cell
+def _(llm, my):
+    my-llm.__module__
     return
 
 
