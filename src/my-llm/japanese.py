@@ -82,7 +82,7 @@ def _(mo):
 @app.cell
 def _(mo):
     mo.md(r"""
-    ランダム初期化されたモデルを用意
+    ランダム初期化されたモデルを用意（後できちんと上書きのコードを追加）
     """)
     return
 
@@ -91,14 +91,15 @@ def _(mo):
 def _():
     torch.manual_seed(42)
 
+    # rinna/japanese-gpt2-medium model と合わせて変更
     GPT_CONFIG_124M = {
-        "vocab_size": 32000,    # Vocabulary size (上記と合わせて変更)
+        "vocab_size": 32000,    # Vocabulary size
         "context_length": 1024,  # Shortened context length
         "emb_dim": 1024,         # Embedding dimension
         "n_heads": 16,          # Number of attention heads
         "n_layers": 12,         # Number of layers
         "drop_rate": 0.1,       # Dropout rate
-        "qkv_bias": False       # Query-Key-Value bias
+        "qkv_bias": True       # Query-Key-Value bias
     }
     random_model = GPTModel(GPT_CONFIG_124M)
     random_model.eval();
