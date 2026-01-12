@@ -6,10 +6,12 @@ app = marimo.App()
 with app.setup:
     import numpy as np
     import torch
+    from pathlib import Path
     from transformers import AutoTokenizer, AutoModelForCausalLM
     from transformers.models.gpt2.modeling_gpt2 import GPT2LMHeadModel
     from bs4 import BeautifulSoup
 
+    import my_llm
     from ch04 import GPTModel, generate_text_simple
     from ch05 import train_model_simple, plot_losses, generate, assign
 
@@ -338,8 +340,8 @@ def _(mo):
 
 
 @app.cell
-def _(llm, my):
-    my-llm.__module__
+def _():
+    Path(my_llm.__path__).parent.parent / "third_party" / "aozorabunko" / "cards"
     return
 
 

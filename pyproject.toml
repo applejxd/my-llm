@@ -21,8 +21,6 @@ dependencies = [
     "transformers>=4.57.3",
 ]
 
-
-
 [[tool.uv.index]]
 name = "pytorch-cu128"
 url = "https://download.pytorch.org/whl/cu128"
