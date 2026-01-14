@@ -5,11 +5,15 @@ app = marimo.App()
 
 with app.setup:
     import numpy as np
+    import re
     import torch
     from pathlib import Path
     from transformers import AutoTokenizer, AutoModelForCausalLM
     from transformers.models.gpt2.modeling_gpt2 import GPT2LMHeadModel
+    from tqdm import tqdm
+    from tqdm.contrib import tenumerate
     from bs4 import BeautifulSoup
+    from datasets import load_dataset
 
     import my_llm
     from ch04 import GPTModel, generate_text_simple
@@ -340,8 +344,59 @@ def _(mo):
 
 
 @app.cell
+def _(mo):
+    mo.md(r"""
+    青空文庫の[事前処理済みのデータセット](https://huggingface.co/datasets/globis-university/aozorabunko-clean)を使用
+    """)
+    return
+
+
+@app.cell
 def _():
-    Path(my_llm.__path__).parent.parent / "third_party" / "aozorabunko" / "cards"
+    ds = load_dataset("globis-university/aozorabunko-clean", split="train")
+    ds = ds.filter(lambda row: row["meta"]["文字遣い種別"] == "新字新仮名")
+
+    print(f"{ds=}")
+    print(f"Filtered dataset size: {ds.num_rows} entries")
+    return (ds,)
+
+
+@app.cell
+def _(ds):
+    ds[0]
+    return
+
+
+@app.cell
+def _(ds):
+    print(f"{ds[0]['meta'].keys()=}")
+    return
+
+
+@app.cell
+def _(ds):
+    dazai_id = "000035"
+    akutagawa_id = "000879"
+
+    dazai_ds = ds.filter(lambda row: row["meta"]["人物ID"] == dazai_id)
+    akutagawa_ds = ds.filter(lambda row: row["meta"]["人物ID"] == akutagawa_id)
+
+    print(f"{dazai_ds.num_rows=}")
+    print(f"{akutagawa_ds.num_rows=}")
+    return akutagawa_ds, dazai_ds
+
+
+@app.cell
+def _(dazai_ds):
+    _titles = [row["meta"]["作品名"] for row in dazai_ds]
+    print(f"{_titles=}")
+    return
+
+
+@app.cell
+def _(akutagawa_ds, dazai_ds):
+    dazai_texts = [row["text"] for row in dazai_ds]
+    akutagawa_texts = [row["text"] for row in akutagawa_ds]
     return
 
 

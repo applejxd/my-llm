@@ -1,6 +1,3 @@
 [submodule "third_party/LLMs-from-scratch"]
 	path = third_party/LLMs-from-scratch
 	url = https://github.com/rasbt/LLMs-from-scratch.git
-[submodule "third_party/aozorabunko"]
-	path = third_party/aozorabunko
-	url = https://github.com/aozorabunko/aozorabunko.git

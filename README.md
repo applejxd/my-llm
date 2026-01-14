@@ -9,8 +9,6 @@ mise trust
 mise install
 
 uv sync
-# This may takes time to download Japanese dataset.
-git submodule update --init --recursive
 ```
 
 ## How to edit
